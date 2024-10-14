@@ -1,0 +1,3 @@
+function getTest() {
+    alert('Running');
+}
