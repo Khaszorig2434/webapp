@@ -1,3 +1,0 @@
-function getTest() {
-    alert('Running');
-}
