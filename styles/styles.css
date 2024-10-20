@@ -11,3 +11,29 @@ ul {
     list-style-type: none;
 }
   
+
+
+/* .radio-group {
+  display: flex;
+}
+
+.radio-group label {
+  margin-right: 10px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  padding: 10px 20px;
+  background-color: lightgray;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + label {
+  background-color: blue;
+  color: white;
+} */
