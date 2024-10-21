@@ -7,82 +7,140 @@
     <link rel="stylesheet" href="styles/adoption_styles.css">
 </head>
 <body>
-    <div class="container">
+    <header>
+        <!-- Header section // Толгой хэсэг лого, хайлт , хэрэглэгч , сагс -->
+        <img src="assets/images/logo.png" alt="Компаний лого">
+        <label for="haih">Бүтээгдэхүүн хайх</label>
+        <input type="search" name="search" id="haih" placeholder="Бүтээгдэхүүн хайх">
+        <button aria-label="хэрэглэгч хэсэг">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-user">
+                <title>Хэрэглэгчийн дүрс</title>
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+            </svg>
+        </button>
+        <button aria-label="Худалдааны сагс">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-shopping-cart">
+                <title>Хэрэглэгчийн сагс</title>
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="19" cy="21" r="1" />
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+            </svg>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="homepage.html">Нүүр</a></li>
+                <li><a href="products.html">Бүтээгдэхүүн</a></li>
+                <li><a href="adoption.html">Үрчилгээ</a></li>
+                <li><a href="information.html">Мэдээлэл</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="container">
         <aside class="sidebar">
+            <!-- Urguj avah amitnii filteruud -->
             <div class="filters">
-                <div class="filter-group">
+                <section class="filter-group">
                     <h3>Keywords</h3>
-                    <!-- <div class="filter">Spring</div>
-                    <div class="filter">Smart</div>
-                    <div class="filter">Modern</div><br> -->
-                    
+                    <!-- Tulhuur ugs -->
                     <button class="filter">Spring</button>
                     <button class="filter">Smart</button>
                     <button class="filter">Modern</button><br>
-
-                    <div class="checkbox-group">
+                </section>
+                
+                <!-- Description tai checkbox -->
+                <section class="filter-group">
+                    <label for="adoption_label1">
                         <input type="checkbox" id="adoption_label1" name="adoption_label1" value="Label1">
-                        <label for="adoption_label1"> Label1</label>
-                        <p class="description">Description</p><br>
+                        Label1
+                    </label>
+                    <p class="description">Description</p>
 
-                        <input type="checkbox" id="adoption_label2" name="adoption_label2" value="Label2">
-                        <label for="adoption_label2"> Label2</label>
-                        <p class="description">Description</p><br>
+                    <label for="adoption_label1">
+                        <input type="checkbox" id="adoption_label1" name="adoption_label1" value="Label1">
+                        Label2
+                    </label>
+                    <p class="description">Description</p>
 
-                        <input type="checkbox" id="adoption_label3" name="adoption_label3" value="Label3">
-                        <label for="adoption_label3"> Label3</label>
-                        <p class="description">Description</p><br>
-                    </div>
-                </div>
+                    <label for="adoption_label1">
+                        <input type="checkbox" id="adoption_label1" name="adoption_label1" value="Label1">
+                        Label3
+                    </label>
+                    <p class="description">Description</p>
+                </section>
 
-                <div class="filter-group">
+                <section class="filter-group">
                     <h3>Price</h3>
                     <input type="range" min="0" max="100" value="50" class="slider">
-                </div>
+                </section>
                 
-                <div class="filter-group">
+                <section class="filter-group">
                     <h3>Color</h3>
-                    <input type="checkbox" id="adoption_color1" name="adoption_color1" value="Label1">
-                    <label for="adoption_color1"> Label1</label><br>
-                    <input type="checkbox" id="adoption_color2" name="adoption_color2" value="Label2">
-                    <label for="adoption_color2"> Label2</label><br>
-                    <input type="checkbox" id="adoption_color3" name="adoption_color3" value="Label3">
-                    <label for="adoption_color3"> Label3</label><br>
+                    <label for="adoption_color1"><input type="checkbox" id="adoption_color1" name="adoption_color1" value="Label1"> Label1</label>
+                    <label for="adoption_color2"><input type="checkbox" id="adoption_color2" name="adoption_color2" value="Label2"> Label2</label>
+                    <label for="adoption_color3"><input type="checkbox" id="adoption_color3" name="adoption_color3" value="Label3"> Label3</label>
+                </section>
+
+                <section class="filter-group">
                     <h3>Size</h3>
-                    <input type="checkbox" id="adoption_size1" name="adoption_size1" value="Label1">
-                    <label for="adoption_size1"> Label1</label><br>
-                    <input type="checkbox" id="adoption_size2" name="adoption_size2" value="Label2">
-                    <label for="adoption_size2"> Label2</label><br>
-                    <input type="checkbox" id="adoption_size3" name="adoption_size3" value="Label3">
-                    <label for="adoption_size3"> Label3</label><br>
-                </div>
+                    <label for="adoption_color1"><input type="checkbox" id="adoption_color1" name="adoption_color1" value="Label1"> Label1</label>
+                    <label for="adoption_color2"><input type="checkbox" id="adoption_color2" name="adoption_color2" value="Label2"> Label2</label>
+                    <label for="adoption_color3"><input type="checkbox" id="adoption_color3" name="adoption_color3" value="Label3"> Label3</label>
+                </section>
             </div>
         </aside>
         <main>
             <input type="text" placeholder="Search" class="search-box">
-            <div class="product-grid"> 
+            <section class="product-grid"> 
                 <!-- Repeat this block for each product -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://placehold.co/600x400" alt="Product">
-                    </div>
-                    <div class="product-info">
+                <article class="product-card">
+                    <img src="https://placehold.co/600x400" alt="Product" class="product-image">
+                    <aside class="product-info">
                         <h4>Product Name</h4>
                         <p>$0</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://placehold.co/600x400" alt="Product">
-                    </div>
-                    <div class="product-info">
+                    </aside>
+                </article>
+                <article class="product-card">
+                    <img src="https://placehold.co/600x400" alt="Product" class="product-image">
+                    <aside class="product-info">
                         <h4>Text</h4>
                         <p>$0</p>
-                    </div>
-                </div>
-            </div>
+                    </aside>
+                </article>
+            </section>
             <!-- End of product block -->
         </main>
-    </div>
+    </section>
+
+    <footer>
+        <img src="/assets/images/logo.png" alt="logo">
+        <!-- Website structure -->
+        <article>
+            <h2>Сайтын бүтэц</h2>
+            <ul>
+                <li><a href="homepage.html">Нүүр</a></li>
+                <li><a href="products.html">Бүтээгдэхүүн</a></li>
+                <li><a href="adoption.html">Үрчилгээ</a></li>
+                <li><a href="information.html">Мэдээлэл</a></li>
+            </ul>
+        </article>
+        <!-- Social media,contact us -->
+        <article>
+            <h2>Холбоо барих</h2>
+            <address>
+                <ul>
+                    <li><a href="tel:">+976 89899090</a></li>
+                    <li><a href="mailto:">b.....@gmail.com</a></li>
+                    <li><a href="http://fb.com">b.....</a></li>
+                </ul>
+            </address>
+        </article>
+        <span>@Зохиогчийн эрх</span>
+    </footer>
 </body>
 </html>
