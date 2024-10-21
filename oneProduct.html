@@ -13,23 +13,21 @@
 <body>
     <header>
         <!-- Header section // Толгой хэсэг лого, хайлт , хэрэглэгч , сагс -->
-        <section>
-            <img src="assets/images/logo.png" alt="">
-            <input type="search" name="" id="" placeholder="Бүтээгдэхүүн хайх">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-user">
-                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-shopping-cart">
-                <circle cx="8" cy="21" r="1" />
-                <circle cx="19" cy="21" r="1" />
-                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-            </svg>
-        </nav>
+        <img src="assets/images/logo.png" alt="">
+        <input type="search" name="search" id="haih" placeholder="Бүтээгдэхүүн хайх">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-user">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-shopping-cart">
+            <circle cx="8" cy="21" r="1" />
+            <circle cx="19" cy="21" r="1" />
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+        </svg>
         <!-- Navigation bar // section -->
         <nav>
             <ul>
@@ -41,48 +39,47 @@
         </nav>
     </header>
 
-    <article>
-        <ul>
-            <li><img src="images/oneprob/neg.png" alt="neg"></li>
-            <li><img src="images/oneprob/hoyr.png" alt="hoyr"></li>
-            <li><img src="images/oneprob/gurv.png" alt="gurav"></li>
-            <li><img src="images/oneprob/duruv.png" alt="duruv"></li>
-        </ul>
-        <img src="images/oneprob/neg.png" alt="Бүтээгдэхүүний нүүр">
-    </article>
+    <ul>
+        <li><img src="images/oneprob/neg.png" alt="neg"></li>
+        <li><img src="images/oneprob/hoyr.png" alt="hoyr"></li>
+        <li><img src="images/oneprob/gurv.png" alt="gurav"></li>
+        <li><img src="images/oneprob/duruv.png" alt="duruv"></li>
+    </ul>
+    <img src="images/oneprob/neg.png" alt="Бүтээгдэхүүний нүүр">
+
 
     <article>
-        <p>Indoor Entree</p>
+        <h3>Indoor Entree</h3>
         <p>0056</p>
         <p>Хоол хүнс</p>
-        <section>
+        <aside>
             <p>Хэмжээ</p>
             <form>
-                <input type="radio" id="option1" name="choice" value="1">
-                <label for="option1">5кг</label>
-                <input type="radio" id="option2" name="choice" value="2">
-                <label for="option2">1кг</label>
-                <input type="radio" id="option3" name="choice" value="3">
-                <label for="option3">0.5кг</label>
+                <input type="radio" id="size1" name="choice_size">
+                <label for="size1">5кг</label>
+                <input type="radio" id="size2" name="choice_size">
+                <label for="size2">1кг</label>
+                <input type="radio" id="size3" name="choice_size">
+                <label for="size3">0.5кг</label>
             </form>
-        </section>
-        <section>
+        </aside>
+        <aside>
             <p>Өнгө</p>
             <form>
                 <input type="checkbox" name="color" id="1">
                 <input type="checkbox" name="color" id="2">
                 <input type="checkbox" name="color" id="3">
             </form>
-        </section>
-        <section>
+        </aside>
+        <aside>
             <p>Бүтээгдэхүүний гарал</p>
             <form>
-                <input type="radio" id="option1" name="choice" value="1">
-                <label for="option1">Импортлолт</label>
-                <input type="radio" id="option2" name="choice" value="2">
-                <label for="option2">Экспортлолт</label>
+                <input type="radio" id="origin1" name="choice_origin" value="1">
+                <label for="origin1">Импортлолт</label>
+                <input type="radio" id="origin2" name="choice_origin" value="2">
+                <label for="origin2">Экспортлолт</label>
             </form>
-        </section>
+        </aside>
         <p>Баталгаат хугацаа</p>
         <p>2023/01/20- 2025/01/20</p>
         <p>Баталгаажуулалт</p>
@@ -96,7 +93,7 @@
 
     <article>
         <h2>Төстэй бүтээгдэхүүнүүд</h2>
-        <button>
+        <button aria-label="Тэжээвэр амьтаны онцгой бүтээгдэхүүн нэмж харах">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
                     class="lucide lucide-paw-print"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/>
@@ -113,7 +110,7 @@
         </section>
         <section>
             <h3>Doubly Delicious</h3>
-            <img src="images/negfood.png"  alt="product">
+            <img src="images/negfood.png" alt="product">
         </section>
         <section>
             <h3>Doubly Delicious</h3>
@@ -121,13 +118,13 @@
         </section>
         <section>
             <h3>Doubly Delicious</h3>
-            <img src="images/negfood.png"  alt="product">
+            <img src="images/negfood.png" alt="product">
         </section>
         <section>
             <h3>Doubly Delicious</h3>
             <img src="images/negfood.png" alt="product">
         </section>
-        <button>
+        <button aria-label="Тэжээвэр амьтаны онцгой бүтээгдэхүүн нэмж харах">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
                     class="lucide lucide-paw-print"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/>
@@ -135,11 +132,11 @@
             </svg>
         </button>
     </article>
-    
- 
+
+
     <footer>
         <img src="/assets/images/logo.png" alt="logo">
-            <!-- Website structure -->
+        <!-- Website structure -->
         <article>
             <h2>Сайтын бүтэц</h2>
             <ul>
@@ -149,17 +146,20 @@
                 <li><a href="information.html">Мэдээлэл</a></li>
             </ul>
         </article>
-            <!-- Social media,contact us -->
+        <!-- Social media,contact us -->
         <article>
             <h2>Холбоо барих</h2>
-            <ul>
-                <li><a href="tel:+976 89899090">+976 89899090</a></li>
-                <li><a href="mailto:b.....@gmail.com">b.....@gmail.com</a></li>
-                <li><a href="http://fb.com">b.....</a></li>
-            </ul>
+            <address>
+                <ul>
+                    <li><a href="tel:">+976 89899090</a></li>
+                    <li><a href="mailto:">b.....@gmail.com</a></li>
+                    <li><a href="http://fb.com">b.....</a></li>
+                </ul>
+            </address>
         </article>
         <span>@Зохиогчийн эрх</span>
     </footer>
-    
+
 </body>
+
 </html>
