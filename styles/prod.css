@@ -1,0 +1,115 @@
+html {
+    font-size: 16px;
+}
+
+* {
+    margin: 0 rem;
+}
+
+/* ******Нийт**********/
+:root {
+    --color-petty: #f4202e;
+    --color-grey:#aaaaaa;
+    --color-white: #ffffff;
+    --color-darkwhite: #dddddd;
+    --shadow-1: 0px 0.25rem 0.25rem var(--color-grey);
+    --product-border: 2px solid var(--color-petty);
+    --default-border-radius: 1rem;
+    --border-radius: 0.5rem;
+    --color-body: var(var(--color-white));
+}
+
+#logo{
+    height: 60px;
+    width: auto;
+  }
+/* aside{
+    border:1px solid var(--color-petty);
+    box-shadow:var(--shadow-1);
+    width: 360px;
+    height: 280px;
+  }*/
+
+.paw1{
+    background-color: var(--color-petty);
+    border-radius: var(--border-radius);
+    padding:0.3rem;
+    border:none;
+}
+article {
+    margin: 20px auto;
+    padding: 0px 135px;
+}
+
+article h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+article aside {
+    display: inline-block;
+    width: 30%;
+    margin: 0.8rem;
+    text-align: center;
+    border: var(--product-border);
+    border-radius: var(--default-border-radius);
+    box-shadow: var(--shadow-1);
+    padding: 0.5rem;
+}
+
+article aside a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+}
+
+article aside p {
+    font-family: "Caveat", cursive;
+    font-size: 1.2rem;
+    margin: 10px 0px;
+}
+
+article aside img {
+    height: 230px;
+    width: auto;
+}
+
+article section {
+    display: inline-block;
+    width: 11%;
+    text-align: center;
+    border: 1px solid #f4202e;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-1);
+    padding: 1rem;
+    margin: 1rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+article section:hover {
+    transform: scale(1.05);
+}
+
+/* Бүтээгдэхүүний зураг тохиргоо */
+article section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+}
+
+/* Бүтээгдэхүүний нэрний стилийг тохируулах */
+article section h3 {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Бүтээгдэхүүний нэрний доод талын зайн тохиргоо */
+article section h3, article section a {
+    margin-bottom: 0.5rem;
+}
+

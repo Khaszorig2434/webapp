@@ -1,6 +1,144 @@
+html{
+  font-size: 16px;
+}
+
 * {
   margin: 0 rem;  
 }
+
+/* ******Нийт**********/
+:root{
+  --color-petty:#f4202e;
+  --color-white:#ffffff;
+  --color-darkwhite:#dddddd;
+  --shadow-1: 0px 0.25rem 0.25rem var(var(--color-petty));
+  --product-border:1px solid var(var(--color-petty));
+  --default-border-radius: 1 rem;
+  --border-radius: 1.5 rem;
+  --color-body: var(var(--color-white));
+}
+
+/* Dark and */
+@media (prefers-color-scheme: dark){
+  .theme-a.adaptive{
+    background: #753;
+    color:#dcb;
+    outline:5px dashed #000;
+    
+  }
+  :root{
+    --color-body:var(var(--color-darkwhite))
+  }
+}
+
+/*****************Header and footer********************/
+/* Бүх хуудасны үндсэн тохиргоо */
+body {
+  font-family: 'Caveat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Толгой хэсэг */
+header {
+  background-color: var(--color-petty);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 135px;
+}
+#logo{
+  height: 57px;
+  width: auto;
+}
+
+header label {
+  font-size: 1rem;
+  color: #fff;
+}
+
+header input[type="search"] {
+  padding: 0px;
+  border-radius: 1rem;
+  border: none;
+}
+
+header button {
+  background: none;
+  border: none;
+  color: #fff;
+}
+nav{
+  padding:0px 135px;
+  color:var(--color-white);
+}
+nav ul {
+  list-style: none;
+  display: inline-flex;
+  gap: 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color:black;
+  font-size: 1rem;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+  color:var(--color-petty)
+}
+
+footer {
+  background-color: #e52d2f;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding: 0px 135px;
+}
+
+h2{
+  font-size: 1.2rem;
+}
+footer ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Grid layout */
+article {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  article {
+      grid-template-columns: 1fr;
+  }
+
+  header {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 p {
     font-size: large; 
@@ -37,3 +175,11 @@ input[type="radio"]:checked + label {
   background-color: blue;
   color: white;
 } */
+
+
+
+/************** PRODUCTS  **************/
+/*1. typography*/
+aside a p{
+  font-family: "Caveat", cursive;
+}
