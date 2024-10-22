@@ -7,12 +7,6 @@ html {
     margin: 0 rem;
 }
 
-body {
-    font-family: 'Caveat', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
 
 /* Dark and */
 @media (prefers-color-scheme: dark){
@@ -102,18 +96,18 @@ body {
     border:none;
 }
 /**********************Products******************************/
-article {
+.types {
     margin: 20px auto;
     padding: 0px 135px;
 }
 
-article h2 {
+h2 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 20px;
 }
 
-article aside {
+.type {
     display: inline-block;
     width: 30%;
     margin: 0.8rem;
@@ -124,7 +118,7 @@ article aside {
     padding: 0.5rem;
 }
 
-article aside a {
+.type a {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -133,19 +127,19 @@ article aside a {
     color: #000;
 }
 
-article aside p {
+.type p {
     font-family: "Caveat", cursive;
     font-size: 1.2rem;
     margin: 10px 0px;
 }
 
-article aside img {
+.type img {
     height: 230px;
     width: auto;
 }
 /*******************index**************************/
 
-article section {
+.product {
     display: inline-block;
     width: 11%;
     text-align: center;
@@ -157,12 +151,12 @@ article section {
     transition: transform 0.2s ease-in-out;
 }
 
-article section:hover {
+.product:hover {
     transform: scale(1.05);
 }
 
 /* Бүтээгдэхүүний зураг тохиргоо */
-article section img {
+.product img {
     max-width: 100%;
     height: auto;
     border-radius: var(--border-radius);
@@ -170,13 +164,13 @@ article section img {
 }
 
 /* Бүтээгдэхүүний нэрний стилийг тохируулах */
-article section h3 {
+.product h3 {
     font-size: 1rem;
     color: #333;
 }
 
 /* Бүтээгдэхүүний нэрний доод талын зайн тохиргоо */
-article section h3, article section a {
+.product h3, .product a {
     margin-bottom: 0.5rem;
 }
 
