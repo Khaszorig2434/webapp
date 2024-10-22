@@ -17,9 +17,9 @@
 <body>
     <header>
         <!-- Header section // Толгой хэсэг лого, хайлт , хэрэглэгч , сагс -->
-        <img id="logo" src="assets/images/logo.png" alt="Компаний лого">
-        <label for="haih"></label>
-        <input id="haih" type="search" name="search" placeholder="Бүтээгдэхүүн хайх">
+        <img src="assets/images/logo.png" alt="Компаний лого">
+        <label for="haih">Бүтээгдэхүүн хайх</label>
+        <input type="search" name="search" id="haih" placeholder="Бүтээгдэхүүн хайх">
         <button aria-label="хэрэглэгч хэсэг">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -159,20 +159,23 @@
     </article>
 
     <footer>
-        <img src="/assets/images/logo.png" alt="logo">
+        <section class="footer-top">
+            <img src="/assets/images/logo.png" alt="logo" width = "55">
+            <span>@Зохиогчийн эрх</span>
+        </section>
         <!-- Website structure -->
-        <article>
-            <h2>Сайтын бүтэц</h2>
+        <nav>
+            <p>Сайтын бүтэц</p>
             <ul>
                 <li><a href="homepage.html">Нүүр</a></li>
                 <li><a href="products.html">Бүтээгдэхүүн</a></li>
                 <li><a href="adoption.html">Үрчилгээ</a></li>
                 <li><a href="information.html">Мэдээлэл</a></li>
             </ul>
-        </article>
+        </nav>
         <!-- Social media,contact us -->
-        <article>
-            <h2>Холбоо барих</h2>
+        <nav>
+            <p>Холбоо барих</p>
             <address>
                 <ul>
                     <li><a href="tel:">+976 89899090</a></li>
@@ -180,8 +183,8 @@
                     <li><a href="http://fb.com">b.....</a></li>
                 </ul>
             </address>
-        </article>
-        <span>@Зохиогчийн эрх</span>
+        </nav>
+        
     </footer>
 
 </body>
