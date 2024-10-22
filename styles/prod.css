@@ -1,11 +1,31 @@
 html {
     font-size: 16px;
+    background-color: #fbf8f1;
 }
 
 * {
     margin: 0 rem;
 }
 
+body {
+    font-family: 'Caveat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+/* Dark and */
+@media (prefers-color-scheme: dark){
+    .theme-a.adaptive{
+      background: #753;
+      color:#dcb;
+      outline:5px dashed #000;
+      
+    }
+    :root{
+      --color-body:var(var(--color-darkwhite))
+    }
+  }
 /* ******Нийт**********/
 :root {
     --color-petty: #f4202e;
@@ -16,12 +36,57 @@ html {
     --product-border: 2px solid var(--color-petty);
     --default-border-radius: 1rem;
     --border-radius: 0.5rem;
-    --color-body: var(var(--color-white));
+    --color-body: var(--color-white);
 }
 
+  /* Толгой хэсэг */
+  header, footer {
+    background-color: var(--color-petty);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 135px;
+  }
+  header label {
+    font-size: 1rem;
+    color: #fff;
+  }
+  
+  header input[type="search"] {
+    padding: 0px;
+    border-radius: var(--border-radius);
+    border: none;
+  }
+
+  header button {
+    background: none;
+    border: none;
+    color: #fff;
+  }
+  nav{
+    padding:0px 135px;
+    color:var(--color-white);
+  }
+  nav ul {
+    list-style: none;
+    display: inline-flex;
+    gap: 1rem;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color:black;
+    font-size: 1rem;
+  }
+  
+  nav ul li a:hover {
+    text-decoration: underline;
+    color:var(--color-petty)
+  }
 #logo{
     height: 60px;
     width: auto;
+    color:var(--color-white);
   }
 /* aside{
     border:1px solid var(--color-petty);
@@ -32,10 +97,11 @@ html {
 
 .paw1{
     background-color: var(--color-petty);
-    border-radius: var(--border-radius);
+    border-radius: var(--default-border-radius);
     padding:0.3rem;
     border:none;
 }
+/**********************Products******************************/
 article {
     margin: 20px auto;
     padding: 0px 135px;
@@ -77,6 +143,7 @@ article aside img {
     height: 230px;
     width: auto;
 }
+/*******************index**************************/
 
 article section {
     display: inline-block;
@@ -112,4 +179,60 @@ article section h3 {
 article section h3, article section a {
     margin-bottom: 0.5rem;
 }
+
+/********************OneProduct**************************/
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px 40px 0px 135px;
+}
+ul li {
+    margin-bottom: 10px; /* Жагсаалтын элементүүдийн хооронд зай үүсгэх */
+}
+  
+ul li img {
+    height: 150px;
+    width: 120px;
+    border-radius: var(--border-radius);
+    border:var(--product-border);
+    box-shadow: var(--shadow-1);
+}
+
+.big{
+    height: 550px;
+    width: 410px;
+    margin: 0rem 8rem;
+    border-radius: var(--default-border-radius);
+    border: var(--product-border);
+    box-shadow: var(--shadow-1);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Элементийн хооронд зай үүсгэх */
+    align-items: flex-start; /* Элементүүдийг дээд талаас зэрэгцүүлэх */
+  }
+
+.songolt{
+    border: none;
+    
+}
+
+input[type="submit"]{
+    border-radius: var(--border-radius);
+    border: none;
+    background-color: var(--color-petty);
+    color: var(--color-white);
+    padding:0.5rem; 
+    margin-left: 3rem;
+    margin-top: 1rem;
+}
+
+
+
+/****************************Admin******************************/
+
+  
+
+
 
