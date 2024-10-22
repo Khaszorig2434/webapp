@@ -1,4 +1,4 @@
-html {
+html, body{
     font-size: 16px;
     background-color: #fbf8f1;
 }
@@ -42,22 +42,23 @@ a{
 }
 
   /* Толгой хэсэг */
-  header, footer {
+  header{
     background-color: var(--color-petty);
-    display: flex;
-    justify-content: space-between;
+    display:inline-flex;
+    justify-content:flex-start;
     align-items: center;
-    padding: 0px 135px;
-  }
-  header label {
-    font-size: 1rem;
-    color: #fff;
+    padding: 3px 135px;
+    color:white;
   }
   
   header input[type="search"] {
-    padding: 0px;
-    border-radius: var(--border-radius);
+    padding: 1rem;
+    border-radius: var(--default-border-radius);
     border: none;
+    width: 600px;
+    height: 30px;
+    margin-left: 70px;
+    margin-right:500px;
   }
 
   header button {
@@ -66,25 +67,48 @@ a{
     color: #fff;
   }
   nav{
-    padding:0px 135px;
+    padding:0px 220px;
     color:var(--color-white);
+    display: inline-flex;
   }
   nav ul {
     list-style: none;
     display: inline-flex;
-    gap: 1rem;
+    gap: 2rem;
   }
-  
   nav ul li a {
     text-decoration: none;
     color:black;
     font-size: 1rem;
   }
-  
-  nav ul li a:hover {
-    text-decoration: underline;
+  nav ul li a:hover, a:active {
+    text-decoration: none;
     color:var(--color-petty)
   }
+  footer{
+    background-color: var(--color-petty);
+    display:flex;
+    justify-content:flex-start;
+    align-items: center;
+    padding: 3px 135px 0px 135px;
+    color:white;
+    margin-top: 2rem;
+  }
+  footer ul {
+    list-style: none;
+  }
+  footer a{
+    color:white;
+  }
+  footer aside{
+    margin-left: 500px;
+    margin-right: 350px;
+  }
+  .end{
+    padding:0px 135px;
+    color: var(--color-petty);
+  }
+
 #logo{
     height: 60px;
     width: auto;
@@ -171,7 +195,7 @@ a{
 }
 
 .nuur img{
-  width: 1170px;
+  width: 1500px;
   height: auto;
   border-radius: var(--default-border-radius);
 }
