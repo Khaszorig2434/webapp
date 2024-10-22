@@ -102,7 +102,6 @@ html {
 }
 
 h2 {
-    text-align: center;
     font-size: 2rem;
     margin-bottom: 20px;
 }
@@ -221,12 +220,77 @@ input[type="submit"]{
     margin-left: 3rem;
     margin-top: 1rem;
 }
+/*  */
+/* Don't touch! */
+/*  */
+#navbar>li>a:hover{
+  color:var(--color-white);
+}
 
+/* Pagination styles inside information*/
 
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination a {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.pagination a:hover {
+  background-color: #eee;
+}
+.pagination .active a {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+}
+.pagination .disabled a {
+  color: #ccc;
+  pointer-events: none;
+}
+
+/* Shopping cart */
+
+.bag-products>section {
+  border : 2px solid black;
+  border-radius: 2%;
+}
+.bag-products>section>img {
+  height: 10rem;
+  width: 10rem;
+}
+#product-price {
+  color: #F36161; 
+  text-decoration-line: line-through;
+}
+#product-name {
+  color: #000000; 
+  font-weight: 600; 
+}
+#product-type {
+  color: #000000;
+  font-weight: 500; 
+}
+  
 
 /****************************Admin******************************/
 
-  
+
+
+
+
+
 
 
 
