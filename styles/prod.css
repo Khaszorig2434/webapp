@@ -7,6 +7,9 @@ html {
     margin: 0 rem;
 }
 
+a{
+    text-decoration: none;
+}
 
 /* Dark and */
 @media (prefers-color-scheme: dark){
@@ -162,13 +165,11 @@ h2 {
     margin-bottom: 0.5rem;
 }
 
-/* Бүтээгдэхүүний нэрний стилийг тохируулах */
 .product h3 {
     font-size: 1rem;
     color: #333;
 }
 
-/* Бүтээгдэхүүний нэрний доод талын зайн тохиргоо */
 .product h3, .product a {
     margin-bottom: 0.5rem;
 }
@@ -180,7 +181,7 @@ ul {
     margin: 0px 40px 0px 135px;
 }
 ul li {
-    margin-bottom: 10px; /* Жагсаалтын элементүүдийн хооронд зай үүсгэх */
+    margin-bottom: 10px; 
 }
   
 ul li img {
@@ -202,10 +203,28 @@ ul li img {
 
 .container {
     display: flex;
-    justify-content: space-between; /* Элементийн хооронд зай үүсгэх */
+    justify-content:flex-start; /* Элементийн хооронд зай үүсгэх */
     align-items: flex-start; /* Элементүүдийг дээд талаас зэрэгцүүлэх */
-  }
+    padding-top: 3rem;
+    padding-right: 135px;
+}
 
+.some{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 135px;
+}
+
+
+/* .some {
+    position: relative;
+    
+    justify-content: center; 
+    align-items: center; 
+    flex-wrap: wrap;
+    
+  } */
 .songolt{
     border: none;
     
