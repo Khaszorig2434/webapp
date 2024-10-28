@@ -341,14 +341,13 @@ input, select{
 
 .filter {
   width:10%;
-  height: 40rem;
   background-color: #ddd;
   padding: 5px 10px;
   margin: 2px 135px;
   display: inline-block;
 }
 .filter label {
-  display: block;
+  display: inline-block;
   margin: 5px 0;
 }
 .filter:focus, :active {
