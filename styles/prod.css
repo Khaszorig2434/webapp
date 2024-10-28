@@ -341,22 +341,18 @@ input, select{
 
 .filter {
   width:10%;
+  height: auto;
   background-color: #ddd;
   padding: 5px 10px;
-  margin: 2px 135px;
+  margin: 2px 30px 5px 135px;
   display: inline-block;
 }
+
 .filter label {
-  display: inline-block;
+  display: block;
   margin: 5px 0;
 }
-.filter:focus, :active {
-  background-color: #666;
-  padding: 5px 10px;
-  margin: 5px 0;
-  display: inline-block;
-}
-.filter-group h3 {
+.filter h3 {
   margin: 10px 0;
   font-size: 0.8rem;
 }
@@ -369,7 +365,7 @@ input, select{
   flex-wrap: wrap;
   gap: 20px;
   justify-content: flex-start;
-}
+} 
 
 .zar img{
     max-width: 100px;
@@ -384,18 +380,12 @@ input, select{
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-}
-
-.product-image img {
-  width: 100%;
-  height: auto;
-}
-
-.product-info {
+} 
+.zar-info {
   padding: 10px;
   text-align: center;
 }
-.product-info h4 {
+.zar-info h4 {
   margin-bottom: 5px;
 }
 
