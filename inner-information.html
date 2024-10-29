@@ -3,75 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/prod.css">
+    <script src="/components/my-footer.js" type="module"></script>
+    <script src="/components/my-header.js" type="module"></script>
     <title>Inner-Information</title>
 </head>
 <body>
-    <header>
-        <!-- Header section // Толгой хэсэг лого, хайлт , хэрэглэгч , сагс -->
-        <section>
-            <img src="assets/images/logo.png" alt="">
-            <input type="search" name="" id="" placeholder="Бүтээгдэхүүн хайх">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-user">
-                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-shopping-cart">
-                <circle cx="8" cy="21" r="1" />
-                <circle cx="19" cy="21" r="1" />
-                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-            </svg>
-        </nav>
-        <!-- Navigation bar // section -->
-        <nav>
-            <ul>
-                <li><a href="index.html">Нүүр</a></li>
-                <li><a href="products.html">Бүтээгдэхүүн</a></li>
-                <li><a href="adoption.html">Үрчилгээ</a></li>
-                <li><a href="information.html">Мэдээлэл</a></li>
-            </ul>
-        </nav>
-    </header>
+    <my-header></my-header>
 
-    <article>
-        <h2>Shep the dog to as WW2 pigeon : Eight strange and pogrant images of pet cemeteries</h2>
-        <aside>2 days ago</aside>
-        <aside>Author</aside>
-        <section>
-            <img src="" alt=""> 
-            <p>Chinese investors are looking for more policy direction from China’s top economic planning body on Tuesday, when mainland markets return from a week-long holiday.  </p>
-            <p>A panel of senior officials from the National Development and Reform Commission, including chairman Zheng Shanjie, will brief reporters on the implementation of stimulus policies at the press conference on Tuesday at 10 a.m. local time, according to the notice from the State Council on Sunday. </p>
-        </section>
-    </article>
+    <main>
+        <article class="information">
+            <h2>Shep the dog to as WW2 pigeon : Eight strange and pogrant images of pet cemeteries</h2>
+            <aside id="left">2 days ago</aside>
+            <aside id="right">Author</aside>
+            <section>
+                <img src="/images/information/cat-home.jpeg" alt="Cat Symptoms"> 
+                <p>Chinese investors are looking for more policy direction from China’s top economic planning body on Tuesday, when mainland markets return from a week-long holiday.  </p>
+                <p>A panel of senior officials from the National Development and Reform Commission, including chairman Zheng Shanjie, will brief reporters on the implementation of stimulus policies at the press conference on Tuesday at 10 a.m. local time, according to the notice from the State Council on Sunday. </p>
+            </section>
+        </article>
+    </main>
 
-    <footer>
-        <img id="logo" src="/assets/images/logo.png" alt="logo">
-        <!-- Website structure -->
-        <article>
-            <h2>Сайтын бүтэц</h2>
-            <ul>
-                <li><a href="homepage.html">Нүүр</a></li>
-                <li><a href="products.html">Бүтээгдэхүүн</a></li>
-                <li><a href="adoption.html">Үрчилгээ</a></li>
-                <li><a href="information.html">Мэдээлэл</a></li>
-            </ul>
-        </article>
-        <!-- Social media,contact us -->
-        <article>
-            <h2>Холбоо барих</h2>
-            <address>
-                <ul>
-                    <li><a href="tel:">+976 89899090</a></li>
-                    <li><a href="mailto:">b.....@gmail.com</a></li>
-                    <li><a href="http://fb.com">b.....</a></li>
-                </ul>
-            </address>
-        </article>
-        <span>@Зохиогчийн эрх</span>
-    </footer>
+    <my-footer></my-footer>
 </body>
 </html>

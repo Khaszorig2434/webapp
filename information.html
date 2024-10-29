@@ -1,101 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/prod.css">
+    <script src="/components/my-footer.js" type="module"></script>
+    <script src="/components/my-header.js" type="module"></script>
     <title>Information</title>
 </head>
+
 <body>
-    <header>
-        <!-- Header section // Толгой хэсэг лого, хайлт , хэрэглэгч , сагс -->
-        <section>
-            <img src="assets/images/logo.png" alt="" id="logo">
-            <input type="search" name="" id="" placeholder="Бүтээгдэхүүн хайх">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-user">
-                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-shopping-cart">
-                <circle cx="8" cy="21" r="1" />
-                <circle cx="19" cy="21" r="1" />
-                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-            </svg>
-        </nav>
-        <!-- Navigation bar // section -->
-        <nav>
-            <ul id="navbar">
-                <li><a href="homepage.html">Нүүр</a></li>
-                <li><a href="products.html">Бүтээгдэхүүн</a></li>
-                <li><a href="adoption.html">Үрчилгээ</a></li>
-                <li><a href="information.html">Мэдээлэл</a></li>
-            </ul>
-        </nav>
-    </header>
+    <my-header></my-header>
 
-    <article>
+    <main id="content-wrapper">
         <h1>Мэдээлэл</h1>
-        <section>
-            <aside>2 days ago</aside>
-            <h3>Eight poignant and odd images of pet cemetries</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet nisi a libero varius feugiat. Integer ut erat nec justo fringilla gravida. Nulla facilisi. Sed auctor arcu ut magna faucibus,</p>
-            <aside><img src="/images/cat.png" alt=""></aside> 
-        </section>
-        <section>
-            <aside>2 days ago</aside>
-            <h3>Eight poignant and odd images of pet cemetries</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet nisi a libero varius feugiat. Integer ut erat nec justo fringilla gravida. Nulla facilisi. Sed auctor arcu ut magna faucibus,</p>
-            <aside><img src="/images/cat.png" alt=""></aside> 
-        </section>
-        <section>
-            <aside>2 days ago</aside>
-            <h3>Eight poignant and odd images of pet cemetries</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet nisi a libero varius feugiat. Integer ut erat nec justo fringilla gravida. Nulla facilisi. Sed auctor arcu ut magna faucibus,</p>
-            <aside><img src="/images/cat.png" alt=""></aside> 
-        </section>
-
-        <!-- Pagination  -->
-        <ul class="pagination">
-            <li disabled>Өмнөх</li>
-            <li id="active"><a href="" >1</a></li>
-            <li><a href="">2</a></li>
-            <li><a href="">3</a></li>
-            <li><a href="">...</a></li>
-            <li><a href="">67</a></li>
-            <li><a href="">68</a></li>
-            <li>Дараах</li>
-        </ul>
-    </article>
-
-
-    <footer>
-        <img id="logo" src="/assets/images/logo.png" alt="logo">
-        <!-- Website structure -->
-        <article>
-            <h2>Сайтын бүтэц</h2>
+        <hr>
+        <article id="container">
+            <section id="article-card">
+                <aside class="article-date">2 days ago</aside>
+                <div class="article-content">
+                    <h3 class="article-title" onclick="window.location.href='inner-information.html'">Eight poignant and odd images of pet cemeteries</h3>
+                    <p class="article-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+                        sit amet nisi a libero varius feugiat. Integer ut erat nec justo fringilla gravida. Nulla
+                        facilisi. Sed auctor arcu ut magna faucibus,</p>
+                    <span class="article-author">Author</span>
+                </div>
+                <aside class="article-image">
+                    <img src="/images/information/cat.png" alt="Pet Cemetery Image" onclick="window.location.href='inner-information.html'">
+                </aside>
+            </section>
+            <section id="article-card">
+                <aside class="article-date">2 days ago</aside>
+                <div class="article-content">
+                    <h3 class="article-title">Eight poignant and odd images of pet cemeteries</h3>
+                    <p class="article-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+                        sit amet nisi a libero varius feugiat. Integer ut erat nec justo fringilla gravida. Nulla
+                        facilisi. Sed auctor arcu ut magna faucibus,</p>
+                    <span class="article-author">Author</span>
+                </div>
+                <aside class="article-image">
+                    <img src="/images/information/cat.png" alt="Pet Cemetery Image">
+                </aside>
+            </section>
+            <section id="article-card">
+                <aside class="article-date">2 days ago</aside>
+                <div class="article-content">
+                    <h3 class="article-title">Eight poignant and odd images of pet cemeteries</h3>
+                    <p class="article-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+                        sit amet nisi a libero varius feugiat. Integer ut erat nec justo fringilla gravida. Nulla
+                        facilisi. Sed auctor arcu ut magna faucibus,</p>
+                    <span class="article-author">Author</span>
+                </div>
+                <aside class="article-image">
+                    <img src="/images/information/cat.png" alt="Pet Cemetery Image">
+                </aside>
+            </section>
+        </article>
+        
+        <!-- Pagination -->
+        <nav class="pagination">
             <ul>
-                <li><a href="index.html">Нүүр</a></li>
-                <li><a href="products.html">Бүтээгдэхүүн</a></li>
-                <li><a href="adoption.html">Үрчилгээ</a></li>
-                <li><a href="information.html">Мэдээлэл</a></li>
+                <li id="disabled">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-arrow-left">
+                        <path d="m12 19-7-7 7-7" />
+                        <path d="M19 12H5" />
+                    </svg>
+                    <a href="">Өмнөх</a>
+                </li>
+                <li id="active"><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">...</a></li>
+                <li><a href="">67</a></li>
+                <li><a href="">68</a></li>
+                <li>
+                    Дараах
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-arrow-right">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </li>
             </ul>
-        </article>
-        <!-- Social media,contact us -->
-        <article>
-            <h2>Холбоо барих</h2>
-            <address>
-                <ul>
-                    <li><a href="tel:">+976 89899090</a></li>
-                    <li><a href="mailto:">b.....@gmail.com</a></li>
-                    <li><a href="http://fb.com">b.....</a></li>
-                </ul>
-            </address>
-        </article>
-        <span>@Зохиогчийн эрх</span>
-    </footer>
+        </nav>
+    </main>
+
+    <my-footer></my-footer>
 </body>
+
 </html>

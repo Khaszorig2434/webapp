@@ -1,8 +1,19 @@
 html, body{
     font-size: 16px;
+    font-family: 'Buyan Light';
     background-color: #fbf8f1;
 }
-
+main {
+  padding-left: 3rem;
+}
+@font-face {
+  font-family: 'Buyan Light';
+  src: url(/styles/yubuyan-light.ttf);
+}
+@font-face {
+  font-family: 'Buyan Bold';
+  src: url(/styles/yubuyan-bold.ttf);
+}
 * {
     margin: 0 rem;
 }
@@ -59,8 +70,14 @@ a{
     height: 30px;
     margin-left: 70px;
     margin-right:500px;
+    font-family: 'Buyan Light';
   }
-
+  header img {
+    cursor: pointer;
+  }
+  header nav button {
+    cursor: pointer;
+  }
   header button {
     background: none;
     border: none;
@@ -389,31 +406,6 @@ input, select{
   margin-bottom: 5px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*  */
-/* Don't touch! */
-/*  */
 #navbar>li>a:hover{
   color:var(--color-white);
 }
@@ -424,6 +416,8 @@ input, select{
   display: flex;
   list-style: none;
   padding: 0;
+  justify-content: center;
+  align-items: center;
 }
 
 .pagination li {
@@ -435,24 +429,25 @@ input, select{
   padding: 8px 12px;
   text-decoration: none;
   color: #333;
-  border: 1px solid #ccc;
   border-radius: 4px;
 }
 .pagination a:hover {
   background-color: #eee;
 }
-.pagination .active a {
-  background-color: #333;
+.pagination #active a {
+  background-color: #f4202e;
   color: white;
-  border-color: #333;
+  border-color: #f4202e;
 }
-.pagination .disabled a {
+.pagination #disabled a {
   color: #ccc;
   pointer-events: none;
 }
 
 /* Shopping cart */
-
+.bag-products {
+  justify-content: space-evenly;
+}
 .bag-products>section {
   border : 2px solid black;
   border-radius: 2%;
@@ -473,8 +468,96 @@ input, select{
   color: #000000;
   font-weight: 500; 
 }
-  
+#close {
+  position: absolute; 
+  top: 5%; 
+  right: 5%; 
+  background: transparent; 
+  border: none; 
+  cursor: pointer; 
+  padding: 0; 
+  z-index: 1000; 
+}
+#pay-button{
+  background-color: #FFC8C8;
+  border-radius: 0.5rem;
+  font-family: 'Buyan Light';
+}
+/* Information */
 
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+#article-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 50rem; 
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.article-date {
+  font-size: 0.875rem; 
+  color: #555;
+  min-width: 6.25rem; 
+  padding-right: 5rem;
+}
+
+.article-content {
+  flex: 1;
+}
+
+.article-title {
+  font-size: 1.125rem; 
+  font-weight: bold;
+  margin: 0;
+  color: #000;
+  cursor: pointer; 
+}
+
+.article-description {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.article-author {
+  font-size: 0.875rem;
+  color: #777;
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+
+.article-image {
+  margin-left: auto;
+  cursor: pointer; 
+}
+
+.article-image img {
+  width: 12.5rem; 
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.information img{
+  display: flex;
+  justify-self: center;
+  width:50% ;
+  height: 40%;
+}
+#left, #right {
+  display: inline-block; 
+  vertical-align: top; 
+  width: 45%; 
+  box-sizing: border-box; 
+}
 /****************************Admin******************************/
 
 
