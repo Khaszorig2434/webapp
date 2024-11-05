@@ -15,7 +15,7 @@ class MyFooter extends HTMLElement {
             <ul>
                 <li><a href="index.html">Нүүр</a></li>
                 <li><a href="products.html">Бүтээгдэхүүн</a></li>
-                <li><a href="adoption.html">Үрчилгээ</a></li>
+                <li><a href="urchilgee.html">Үрчилгээ</a></li>
                 <li><a href="information.html">Мэдээлэл</a></li>
             </ul>
         </aside>
