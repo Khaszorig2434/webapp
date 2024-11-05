@@ -19,7 +19,7 @@ main {
 }
 h2 {
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 a{
     text-decoration: none;
@@ -44,7 +44,7 @@ a{
     --color-black:#333333;
     --color-white: #ffffff;
     --color-darkwhite: #dddddd;
-    --shadow-1: 0px 0.25rem 0.25rem var(--color-grey);
+    --shadow-1: 0rem 0.25rem 0.25rem var(--color-grey);
     --product-border: 2px solid var(--color-petty);
     --input-border:1px solid var(--color-black);
     --default-border-radius: 1rem;
@@ -58,7 +58,7 @@ a{
     display:inline-flex;
     justify-content:flex-start;
     align-items: center;
-    padding: 3px 135px;
+    padding: 0.18rem 8.5rem;
     color:white;
   }
   
@@ -66,10 +66,10 @@ a{
     padding: 1rem;
     border-radius: var(--default-border-radius);
     border: none;
-    width: 600px;
-    height: 30px;
-    margin-left: 70px;
-    margin-right:500px;
+    width: 37.5rem;
+    height: 1.875rem;
+    margin-left: 4.375rem;
+    margin-right:31.25rem;
     font-family: 'Buyan Light';
   }
   header img {
@@ -84,7 +84,7 @@ a{
     color: #fff;
   }
   nav{
-    padding:0px 220px;
+    padding:0rem 13.75rem;
     color:var(--color-white);
     display: inline-flex;
   }
@@ -107,7 +107,7 @@ a{
     display:flex;
     justify-content:flex-start;
     align-items: center;
-    padding: 3px 135px 0px 135px;
+    padding: 3px 8.5rem 0px 8.5rem;
     color:white;
     margin-top: 2rem;
   }
@@ -118,16 +118,16 @@ a{
     color:white;
   }
   footer aside{
-    margin-left: 500px;
-    margin-right: 350px;
+    margin-left: 31.25rem;
+    margin-right: 21.875rem;
   }
   .end{
-    padding:0px 135px;
+    padding:0px 8.5rem;
     color: var(--color-petty);
   }
 
 #logo{
-    height: 60px;
+    height: 3.75rem;
     width: auto;
     color:var(--color-white);
   }
@@ -146,8 +146,8 @@ a{
 }
 /**********************Products******************************/
 .types {
-    margin: 20px auto;
-    padding: 0px 135px;
+    margin: 1.25rem auto;
+    padding: 0rem 8.5rem;
 }
 
 .type {
@@ -173,11 +173,11 @@ a{
 .type p {
     font-family: "Caveat", cursive;
     font-size: 1.5rem;
-    margin: 10px 0px;
+    margin: 0.625rem 0rem;
 }
 
 .type img {
-    height: 230px;
+    height: 14.375rem;
     width: auto;
 }
 
@@ -189,7 +189,7 @@ a{
 }
 
 .zereg h3 {
-  margin: 0; /* Хэрэв шаардлагатай бол h3-ийн margin арилгах */
+  margin: 0rem; /* Хэрэв шаардлагатай бол h3-ийн margin арилгах */
 }
 
 .zereg a {
@@ -212,7 +212,7 @@ a{
 }
 
 .nuur img{
-  width: 1500px;
+  width: 93.75rem;
   height: auto;
   border-radius: var(--default-border-radius);
 }
@@ -228,7 +228,7 @@ a{
     transition: transform 0.2s ease-in-out;
 }
 
-.product:hover {
+.product:hover img{
     transform: scale(1.05);
 }
 
@@ -252,24 +252,24 @@ a{
 /********************OneProduct**************************/
 .jagsaah {
     list-style-type: none;
-    padding: 0px;
-    margin: 0px 40px 0px 135px;
+    padding: 0rem;
+    margin: 0rem 2.5rem 0rem 8.5rem;
 }
 .jagsaah li {
-    margin-bottom: 10px; 
+    margin-bottom: 0.625rem; 
 }
   
 .jagsaah li img {
-    height: 150px;
-    width: 120px;
+    height: 9.375rem;
+    width: 7.5rem;
     border-radius: var(--border-radius);
     border:var(--product-border);
     box-shadow: var(--shadow-1);
 } 
 
 .big{
-    height: 550px;
-    width: 410px;
+    height: 34.375rem;
+    width: 25.625rem;
     margin: 0rem 8rem;
     border-radius: var(--default-border-radius);
     border: var(--product-border);
@@ -281,14 +281,14 @@ a{
     justify-content:flex-start; /* Элементийн хооронд зай үүсгэх */
     align-items: flex-start; /* Элементүүдийг дээд талаас зэрэгцүүлэх */
     padding-top: 3rem;
-    padding-right: 135px;
+    padding-right: 8.5rem;
 }
 
 .some{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0px 135px;
+    padding: 0rem 8.5rem;
 }
 
 
@@ -322,16 +322,16 @@ input[type="submit"]{
 }
 
 .egnee li img {
-  height: 150px;
-  width: 120px;
+  height: 9.375rem;
+  width: 7.5rem;
   border-radius: var(--border-radius);
   border:var(--input-border);
   box-shadow: var(--shadow-1);
   margin-left: 1rem;
 } 
 .biggg{
-  height: 550px;
-  width: 410px;
+  height: 34.375rem;
+  width: 25.625rem;
   margin: 0rem 8rem;
   border-radius: var(--default-border-radius);
   border: var(--input-border);
@@ -360,50 +360,50 @@ input, select{
   width:10%;
   height: auto;
   background-color: #ddd;
-  padding: 5px 10px;
-  margin: 2px 30px 5px 135px;
+  padding: 0.3rem 0.6rem;
+  margin: 2px 2rem 0.3rem 8.5rem;
   display: inline-block;
 }
 
 .filter label {
   display: block;
-  margin: 5px 0;
+  margin: 0.3rem 0rem;
 }
 .filter h3 {
-  margin: 10px 0;
+  margin: 0.625rem 0rem;
   font-size: 0.8rem;
 }
 
 .result {
   width:90%;
   flex-grow: 1;
-  padding: 20px;
+  padding: 1.25rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 1.25rem;
   justify-content: flex-start;
 } 
 
 .zar img{
-    max-width: 100px;
-    height: 120px;
+    max-width: 6.25rem;
+    height: 7.5rem;
     border-radius: var(--border-radius);
     margin-bottom: 0.5rem;
 }
 
 .zar{
-  width: 200px;
-  height: 300px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 12.5rem;
+  height: 18.75rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
 } 
 .zar-info {
-  padding: 10px;
+  padding: 0.625rem;
   text-align: center;
 }
 .zar-info h4 {
-  margin-bottom: 5px;
+  margin-bottom: 0.3rem;
 }
 
 #navbar>li>a:hover{
@@ -415,21 +415,21 @@ input, select{
 .pagination {
   display: flex;
   list-style: none;
-  padding: 0;
+  padding: 0rem;
   justify-content: center;
   align-items: center;
 }
 
 .pagination li {
-  margin: 0 5px;
+  margin: 0rem 0.3rem;
 }
 
 .pagination a {
   display: block;
-  padding: 8px 12px;
+  padding: 0.5rem 0.75rem;
   text-decoration: none;
   color: #333;
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 .pagination a:hover {
   background-color: #eee;
@@ -449,7 +449,7 @@ input, select{
   justify-content: space-evenly;
 }
 .bag-products>section {
-  border : 2px solid black;
+  border : 0.125rem solid black;
   border-radius: 2%;
 }
 .bag-products>section>img {
@@ -558,7 +558,7 @@ input, select{
   width: 45%; 
   box-sizing: border-box; 
 }
-/****************************Admin******************************/
+
 
 
 
