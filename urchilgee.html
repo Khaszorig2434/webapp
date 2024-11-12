@@ -7,6 +7,77 @@
     <meta name="description" content="Bla bla">
     <link rel="stylesheet" href="styles/prod.css">
     <script src="js/script.js"></script>
+    <script>
+        function updateUrl(checkbox) {
+            const url = new URL(window.location);
+            if (checkbox.checked) {
+                url.searchParams.set(checkbox.name, checkbox.value);
+            } else {
+                url.searchParams.delete(checkbox.name);
+            }
+            window.history.replaceState(null, '', url);
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+        class Adopt {
+            constructor(data) {
+                this.name = data.name;
+                this.price = data.price;
+                this.image = data.image;
+                this.description = data.info.description;
+                this.contact = data.info.contact;
+                this.#render(data);
+            }
+            #render(data) {
+                const container = document.querySelector('.result'); // Changed to result section
+                container.innerHTML += `
+                    <img src="${data.image}" alt="${data.altText}" class="product-image">
+                    <section class="zar-info">
+                        <h4>${data.info.name}</h4>
+                        <p>${data.info.description}</p>
+                        <a href="tel:${data.info.contact}">${data.info.contact}</a>
+                    </section>
+            `;
+            }
+        }
+
+        const adoptData = [
+            {
+                "image": "./images/adoption/nohoi.jpg",
+                "altText": "Adopt",
+                "info": {
+                    "name": "Лили",
+                    "description": "Polish Hound үйлдвэрийн 1 настай эр нохой. 1 жил тэжээсэн эрүүл нохой.",
+                    "contact": "+976 89899090",
+                    "Хүйс" : "Эм" 
+                }
+            },
+            {
+                "image": "./images/adoption/nohoi.jpg",
+                "altText": "Adopt",
+                "info": {
+                    "name": "Лулу",
+                    "description": "Polish Hound үйлдвэрийн 1 настай эр нохой. 1 жил тэжээсэн эрүүл нохой.",
+                    "contact": "+976 89891090"
+                }
+            },
+            {
+                "image": "./images/adoption/nohoi.jpg",
+                "altText": "Adopt",
+                "info": {
+                    "name": "Лулу",
+                    "description": "Polish Hound үйлдвэрийн 1 настай эр нохой. 1 жил тэжээсэн эрүүл нохой.",
+                    "contact": "+976 89891090"
+                }
+            }
+        ];
+
+        adoptData.map().reduce => {
+
+        }
+
+    });
+
+    </script>
     <title>home</title>
 </head>
 
@@ -50,84 +121,39 @@
             <h2> Шүүлтүүр </h2>
             <aside>
                 <p>Амьтны төрөл:</p>
-                <label for="animal1"><input type="checkbox" id="animal1" name="animal1" value="Label1">Нохой</label>
-                <label for="animal2"><input type="checkbox" id="animal2" name="animal2" value="Label2">Муур</label>
-                <label for="animal3"><input type="checkbox" id="animal3" name="animal3" value="Label3">Загас</label>
-                <label for="animal4"><input type="checkbox" id="animal4" name="animal4" value="Label4">Шувуу</label>
-                <label for="animal5"><input type="checkbox" id="animal5" name="animal5" value="Label5">Туулай</label>
-                <label for="animal6"><input type="checkbox" id="animal6" name="animal6" value="Label6">Бусад</label>
+                <label for="animal1"><input type="checkbox" id="animal1" name="animal1" value="Label1"
+                        onclick="updateUrl(this)">Нохой</label>
+                <label for="animal2"><input type="checkbox" id="animal2" name="animal2" value="Label2"
+                        onclick="updateUrl(this)">Муур</label>
+                <label for="animal3"><input type="checkbox" id="animal3" name="animal3" value="Label3"
+                        onclick="updateUrl(this)">Загас</label>
+                <label for="animal4"><input type="checkbox" id="animal4" name="animal4" value="Label4"
+                        onclick="updateUrl(this)">Шувуу</label>
+                <label for="animal5"><input type="checkbox" id="animal5" name="animal5" value="Label5"
+                        onclick="updateUrl(this)">Туулай</label>
+                <label for="animal6"><input type="checkbox" id="animal6" name="animal6" value="Label6"
+                        onclick="updateUrl(this)">Бусад</label>
             </aside>
             <aside>
                 <p>Амьтны хүйс:</p>
-                <label for="huis1"><input type="checkbox" id="huis1" name="huis1" value="Label3">Эр</label>
-                <label for="huis2"><input type="checkbox" id="huis2" name="huis2" value="Label3">Эм</label>
+                <label for="huis1"><input type="radio" id="huis1" name="Хүйс" value="Эр"
+                        onclick="updateUrl(this)">Эр</label>
+                <label for="huis2"><input type="radio" id="huis2" name="Хүйс" value="Эм"
+                        onclick="updateUrl(this)">Эм</label>
             </aside>
             <aside>
                 <p>Амьтны нас:</p>
-                <label for="age1"><input type="checkbox" id="age1" name="age1" value="Label3">0-1 нас</label>
-                <label for="age2"><input type="checkbox" id="age2" name="age2" value="Label3">1-2 нас</label>
-                <label for="age3"><input type="checkbox" id="age3" name="age3" value="Label3">2-6 нас</label>
-                <label for="age4"><input type="checkbox" id="age4" name="age4" value="Label3">6-аас дээш</label>
+                <label for="age1"><input type="checkbox" id="age1" name="age1" value="Label3"
+                        onclick="updateUrl(this)">0-1 нас</label>
+                <label for="age2"><input type="checkbox" id="age2" name="age2" value="Label3"
+                        onclick="updateUrl(this)">1-2 нас</label>
+                <label for="age3"><input type="checkbox" id="age3" name="age3" value="Label3"
+                        onclick="updateUrl(this)">2-6 нас</label>
+                <label for="age4"><input type="checkbox" id="age4" name="age4" value="Label3"
+                        onclick="updateUrl(this)">6-аас дээш</label>
             </aside>
         </article>
-        <aside class="result">
-            <aside class="zar">
-                <img src="./images/adoption/nohoi.jpg" alt="Product" class="product-image">
-                <section class="zar-info">
-                    <h4>Лили</h4>
-                    <p>Polish Hound үйлдвэрийн 1 настай эр нохой. 1 жил тэжээсэн эрүүл нохой. </p>
-                    <a href="tel:">+976 89899090</a>
-                </section>
-            </aside>
-            <aside class="zar">
-                <img src="./images/adoption/nohoi.jpg" alt="Product" class="product-image">
-                <section class="zar-info">
-                    <h4>Лили</h4>
-                    <p>Polish Hound үйлдвэрийн 1 настай эр нохой. 1 жил тэжээсэн эрүүл нохой. </p>
-                    <a href="tel:">+976 89899090</a>
-                </section>
-            </aside>
-            <aside class="zar">
-                <img src="./images/adoption/nohoi.jpg" alt="Product" class="product-image">
-                <section class="zar-info">
-                    <h4>Лили</h4>
-                    <p>Polish Hound үйлдвэрийн 1 настай эр нохой. 1 жил тэжээсэн эрүүл нохой. </p>
-                    <a href="tel:">+976 89899090</a>
-                </section>
-            </aside>
-            <aside class="zar">
-                <img src="./images/adoption/nohoi.jpg" alt="Product" class="product-image">
-                <section class="zar-info">
-                    <h4>Лили</h4>
-                    <p>Polish Hound үйлдвэрийн 1 настай эр нохой. 1 жил тэжээсэн эрүүл нохой. </p>
-                    <a href="tel:">+976 89899090</a>
-                </section>
-            </aside>
-            <aside class="zar">
-                <img src="./images/adoption/nohoi.jpg" alt="Product" class="product-image">
-                <section class="zar-info">
-                    <h4>Лили</h4>
-                    <p>Polish Hound үйлдвэрийн 1 настай эр нохой. 1 жил тэжээсэн эрүүл нохой. </p>
-                    <a href="tel:">+976 89899090</a>
-                </section>
-            </aside>
-            <aside class="zar">
-                <img src="./images/adoption/nohoi.jpg" alt="Product" class="product-image">
-                <section class="zar-info">
-                    <h4>Лили</h4>
-                    <p>Polish Hound үйлдвэрийн 1 настай эр нохой. 1 жил тэжээсэн эрүүл нохой. </p>
-                    <a href="tel:">+976 89899090</a>
-                </section>
-            </aside>
-            <aside class="zar">
-                <img src="./images/adoption/nohoi.jpg" alt="Product" class="product-image">
-                <section class="zar-info">
-                    <h4>Лили</h4>
-                    <p>Polish Hound үйлдвэрийн 1 настай эр нохой. 1 жил тэжээсэн эрүүл нохой. </p>
-                    <a href="tel:">+976 89899090</a>
-                </section>
-            </aside>
-        </aside>
+        <aside class="result" id="product-results"></aside>
     </main>
 
     <footer>

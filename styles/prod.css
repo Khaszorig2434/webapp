@@ -66,12 +66,14 @@ a{
   header input[type="search"] {
     padding: 1rem;
     border-radius: var(--default-border-radius);
+    
     border: none;
     width: 37.5rem;
     height: 1.875rem;
     margin-left: 4.375rem;
     margin-right:31.25rem;
     font-family: 'Buyan Light';
+
   }
   header img {
     cursor: pointer;
@@ -567,9 +569,10 @@ input, select{
 
 
 
-
-
-
-
+/* test */
+/* host өөрийг нь агуулж байгаа */
+:host {
+  display:block
+}
 
 

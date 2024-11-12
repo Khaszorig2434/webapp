@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/prod.css">
+    <script src="/components/my-footer.js" type="module"></script>
+    <script src="/components/my-header.js" type="module"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        class Test{
+            constructor() {
+                this.render();
+            }
+            render(){
+                const mainElement = document.querySelector('main');
+                mainElement.innerHTML =`<div>Hello</div>`; 
+            }
+        }
+        const valo = new Test();
+    });
+    </script>
+    <title>Inner-Information</title>
+</head>
+<body>
+    <my-header></my-header>
+
+    <main>
+        
+    </main>
+
+    <my-footer></my-footer>
+</body>
+</html>
