@@ -47,8 +47,7 @@
                 "info": {
                     "name": "Лили",
                     "description": "Polish Hound үйлдвэрийн 1 настай эр нохой. 1 жил тэжээсэн эрүүл нохой.",
-                    "contact": "+976 89899090",
-                    "Хүйс" : "Эм" 
+                    "contact": "+976 89899090"
                 }
             },
             {
@@ -70,10 +69,10 @@
                 }
             }
         ];
-
-        adoptData.map().reduce => {
-
-        }
+        
+        adoptData.map(id => {
+            new Adopt(id);
+        });
 
     });
 
@@ -141,7 +140,6 @@
                 <label for="huis2"><input type="radio" id="huis2" name="Хүйс" value="Эм"
                         onclick="updateUrl(this)">Эм</label>
             </aside>
-            
             <aside>
                 <p>Амьтны нас:</p>
                 <label for="age1"><input type="checkbox" id="age1" name="age1" value="Label3"
