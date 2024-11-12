@@ -1,6 +1,6 @@
 html, body{
     font-size: 16px;
-    font-family: 'Buyan Light';
+    /* font-family: 'Buyan Light'; */
     background-color: #fbf8f1;
 }
 main {
@@ -60,6 +60,7 @@ a{
     align-items: center;
     padding: 0.18rem 8.5rem;
     color:white;
+    font-family: 'Buyan Light';
   }
   
   header input[type="search"] {
@@ -87,6 +88,7 @@ a{
     padding:0rem 13.75rem;
     color:var(--color-white);
     display: inline-flex;
+    font-family: 'Buyan Light';
   }
   nav ul {
     list-style: none;
@@ -110,6 +112,7 @@ a{
     padding: 3px 8.5rem 0px 8.5rem;
     color:white;
     margin-top: 2rem;
+    font-family: 'Buyan Light';
   }
   footer ul {
     list-style: none;
@@ -363,6 +366,7 @@ input, select{
   padding: 0.3rem 0.6rem;
   margin: 2px 2rem 0.3rem 8.5rem;
   display: inline-block;
+  border-radius: var(--border-radius);
 }
 
 .filter label {
@@ -397,6 +401,7 @@ input, select{
   box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
+  border-radius: var(--border-radius);
 } 
 .zar-info {
   padding: 0.625rem;

@@ -7,7 +7,7 @@ class Animal{
         this.sex=huis;
         this.number=dugaar;
     }
-    searchType(turul){
+    search(turul,utga){
         if(this.type==turul){
 
         }
@@ -23,3 +23,29 @@ class Animal{
         }
     }
 }
+class list{
+    constructor(){
+        this.amidtad = []
+    }
+    filter(ylgah){
+        answer = []
+        for(let i = 0; i < this.amidtad.length; i++){
+            Unen = true;
+            for(int j = 0; j < yalgah.length; j++){
+                Unen = Unen & yalgah[j](amitad[i]);
+            }
+            if(Unen) answer.push(amitad[i]);
+        }
+        return answer;
+    }
+}
+
+jagsaalt = new list();
+shalga1(amitan){
+    return amitan.name == 'Muur';
+}
+shalga2(amitan){
+    return amitan.type == 'Zagas';
+}
+
+urdun = jagsaalt.filter([shalga1, shalga2]);
