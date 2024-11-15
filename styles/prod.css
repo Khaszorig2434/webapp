@@ -214,6 +214,7 @@ a{
 
 .nuur{
   text-align: center;
+  padding:0rem 8.5rem;
 }
 
 .nuur img{
@@ -221,6 +222,30 @@ a{
   height: auto;
   border-radius: var(--default-border-radius);
 }
+
+.pagination {
+  position: absolute;
+  bottom: 10px; /* Зургийн дээд хэсгээс 10px доош */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px; /* Цэгүүдийн хоорондын зай */
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #717171;
+}
+
 .product {
     display: inline-block;
     width: 11%;

@@ -10,15 +10,60 @@
     <script src="/components/my-header.js" type="module"></script>
     <script src="js/script.js"></script>
     <title>home</title>
+    <script>
+        const images = [
+            "images/nuur.png",
+            "images/nuur3.png",
+            "images/nuur1.png"
+        ];
+        let currentIndex = 0;
+    
+        function changeImage() {
+            const imageElement = document.getElementById("dynamicImage");
+            const dots = document.querySelectorAll(".dot");
+    
+            currentIndex = (currentIndex + 1) % images.length;
+            imageElement.src = images[currentIndex];
+    
+            updateDots();
+        }
+    
+        function changeImageManual(index) {
+            currentIndex = index;
+            const imageElement = document.getElementById("dynamicImage");
+            imageElement.src = images[currentIndex];
+    
+            updateDots();
+        }
+    
+        function updateDots() {
+            const dots = document.querySelectorAll(".dot");
+            dots.forEach(dot => dot.classList.remove("active"));
+            dots[currentIndex].classList.add("active");
+        }
+    
+        // 3 секунд тутамд зургийг автоматаар солих
+        setInterval(changeImage, 5000);
+
+        
+        
+    </script>
+    
 </head>
 
 <body>
     <my-header></my-header>
 
     <main>
-        <aside class="nuur">
-            <img src="images/nuur.png" alt="Хямдралтай бүтээгдэхүүн">
+        <aside class="nuur" style="position: relative;">
+            <img id="dynamicImage" src="images/nuur.png" alt="Хямдралтай бүтээгдэхүүн" style="width: 100%;">
+            <div class="pagination">
+                <span class="dot active" onclick="changeImageManual(0)"></span>
+                <span class="dot" onclick="changeImageManual(1)"></span>
+                <span class="dot" onclick="changeImageManual(2)"></span>
+            </div>
         </aside>
+        
         <article class="lists">
             <h2>Санал болгох бүтээгдэхүүнүүд</h2>
             <aside class="some">
