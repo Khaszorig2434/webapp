@@ -1,7 +1,7 @@
 html, body{
     font-size: 16px;
     /* font-family: 'Buyan Light'; */
-    background-color: #fbf8f1;
+    background-color: var(--color-body);
 }
 main {
   padding-left: 3rem;
@@ -25,32 +25,28 @@ a{
     text-decoration: none;
 }
 
-/* Dark and */
-@media (prefers-color-scheme: dark){
-    .theme-a.adaptive{
-      background: #753;
-      color:#dcb;
-      outline:5px dashed #000;
-      
-    }
-    :root{
-      --color-body:var(var(--color-darkwhite))
-    }
-  }
 /* ******Нийт**********/
 :root {
-    --color-petty: #f4202e;
-    --color-grey:#aaaaaa;
-    --color-black:#333333;
-    --color-white: #ffffff;
-    --color-darkwhite: #dddddd;
-    --shadow-1: 0rem 0.25rem 0.25rem var(--color-grey);
-    --product-border: 2px solid var(--color-petty);
-    --input-border:1px solid var(--color-black);
-    --default-border-radius: 1rem;
-    --border-radius: 0.5rem;
-    --color-body: var(--color-white);
+  --color-petty: #f4202e;
+  --color-grey:#aaaaaa;
+  --color-black:#333333;
+  --color-white: #fbf8f1;
+  --color-dark: #dcd7cc;
+  --shadow-1: 0rem 0.25rem 0.25rem var(--color-grey);
+  --product-border: 2px solid var(--color-petty);
+  --input-border:1px solid var(--color-black);
+  --default-border-radius: 1rem;
+  --border-radius: 0.5rem;
+  --color-body: var(--color-white);
 }
+
+/* Dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+      --color-body: var(--color-dark);
+  }
+}
+
 
   /* Толгой хэсэг */
   header{
@@ -155,6 +151,15 @@ a{
     padding: 0rem 8.5rem;
 }
 
+@keyframes spin {
+  from {
+    transform: rotate(0deg); /* Эхлэл */
+  }
+  to {
+    transform: rotate(360deg); /* 360 градус эргэх */
+  }
+}
+
 .type {
     display: inline-block;
     width: 30%;
@@ -164,6 +169,19 @@ a{
     border-radius: var(--default-border-radius);
     box-shadow: var(--shadow-1);
     padding: 0.5rem;
+}
+.type img {
+  height: 14.375rem;
+  width: auto;
+}
+
+.type:hover .paw1 {
+  animation: spin 2s cubic-bezier(0.42, 0, 0.58, 1) infinite; /* Удаашруулж эргүүлэх */
+  transform-origin: center; /* Эргэлтийн төвийг SVG-ийн голд байрлуулах */
+}
+.type:hover img {
+  transform: scale(1.1); /* Томруулах */
+  transition: transform 0.3s ease-in-out; /* Зөөлөн хөдөлгөөн */
 }
 
 .type a {
@@ -181,10 +199,6 @@ a{
     margin: 0.625rem 0rem;
 }
 
-.type img {
-    height: 14.375rem;
-    width: auto;
-}
 
 .zereg {
   display: flex;
@@ -213,11 +227,12 @@ a{
 }
 
 .nuur{
+  position: relative;
   text-align: center;
   padding:0rem 8.5rem;
 }
 
-.nuur img{
+#dynamicImage{
   width: 93.75rem;
   height: auto;
   border-radius: var(--default-border-radius);
@@ -319,6 +334,23 @@ a{
     align-items: center;
     justify-content: center;
     padding: 0rem 8.5rem;
+}
+@keyframes golloh{
+  from{
+    transform: translateX(-300px);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+#animation{
+  animation-name: golloh;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
 }
 
 
