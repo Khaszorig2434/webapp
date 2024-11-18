@@ -108,7 +108,7 @@
             };
 
 
-            // Adopt массив үүсгэх
+            // Adopts map uusgeh
             const adopts = adoptData.adopts.map(adopt => {
                 return new Adopt(
                     adopt.image,
@@ -183,12 +183,12 @@
             }
 
             // Event listener-уудыг тохируулах
-            const elementMap = new Map();
-            document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(element => {
-                elementMap.set(element, 'change');
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', filterData);
             });
-            elementMap.forEach((eventType, element) => {
-                element.addEventListener(eventType, filterData);
+
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', filterData);
             });
 
             // Эхний байдлаар бүх өгөгдлийг харуулах
