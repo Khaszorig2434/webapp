@@ -20,7 +20,7 @@ class MyHeader extends HTMLElement {
                     <circle cx="12" cy="7" r="4" />
                 </svg>
             </button>
-            <button aria-label="Худалдааны сагс" onclick="window.location.href='shopping-bag.html'">
+            <button aria-label="Худалдааны сагс" onclick="window.location.href='cart.html'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="lucide lucide-shopping-cart">
@@ -36,7 +36,7 @@ class MyHeader extends HTMLElement {
         <ul>
             <li><a href="index.html">Нүүр</a></li>
             <li><a href="products.html">Бүтээгдэхүүн</a></li>
-            <li><a href="urchilgee.html">Үрчилгээ</a></li>
+            <li><a href="turshilt.html">Үрчилгээ</a></li>
             <li><a href="information.html">Мэдээлэл</a></li>
         </ul>
     </nav>

@@ -33,11 +33,13 @@ a{
   --color-white: #fbf8f1;
   --color-dark: #dcd7cc;
   --shadow-1: 0rem 0.25rem 0.25rem var(--color-grey);
+  --shadow-2: 0 4px 8px rgba(0, 0, 0, 0.1);
   --product-border: 2px solid var(--color-petty);
   --input-border:1px solid var(--color-black);
   --default-border-radius: 1rem;
   --border-radius: 0.5rem;
   --color-body: var(--color-white);
+  --font: "Caveat", cursive;
 }
 
 /* Dark */
@@ -515,8 +517,85 @@ fieldset{
   pointer-events: none;
 }
 
+
+
+/*************Cart *************/
+.zai {
+  font-family: var(--font);
+  max-width: 90.7rem;
+  margin: auto;
+  padding:1rem 2rem;
+  border-radius: var(--default-border-radius);
+  box-shadow: var(--shadow-2);
+}
+.zai button{
+  border:none;
+  border-radius: var(--default-border-radius);
+  background-color: var(--color-body);
+  font-family: var(--font);
+  font-size: 1rem;
+}
+.zai button:hover{
+  background-color: var(--color-white);
+}
+
+ #egnee {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem;
+}
+#egnee h3 {
+  font-size: 1rem;
+  margin: 0;
+  color: #222;
+}
+
+#egnee h2 {
+  font-size: 1.7rem;
+  margin: 0;
+  color: #222;
+}
+#egneegol {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding: 1rem;
+}
+#pay-button{
+  background: linear-gradient(90deg, #f66c49, #f8b785); /* Зүүнээс баруун руу градиент */
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#pay-button:hover {
+  background: linear-gradient(90deg, #f8b785, #f66c49); /* Хулганы даралттай үед эсрэг чиглэлд */
+}
+
+/*
+#egnee button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+#egnee button:hover {
+  background-color: #e43f3f;
+} */
+
 /* Shopping cart */
-.bag-products {
+
+/* .bag-products {
   justify-content: space-evenly;
 }
 .bag-products>section {
@@ -548,13 +627,16 @@ fieldset{
   cursor: pointer; 
   padding: 0; 
   z-index: 1000; 
-}
+} 
 #pay-button{
   background-color: #FFC8C8;
   border-radius: 0.5rem;
   font-family: 'Buyan Light';
-}
+}*/
 /* Information */
+#content-wrapper{
+  padding:0.18rem 8.5rem;
+}
 
 #container {
   display: flex;
