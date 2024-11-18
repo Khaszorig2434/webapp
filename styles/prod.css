@@ -210,7 +210,8 @@ a{
 }
 
 .zereg h3 {
-  margin: 0rem; /* Хэрэв шаардлагатай бол h3-ийн margin арилгах */
+  margin: 0rem; 
+  font-size: 1.7rem;
 }
 
 .zereg a {
@@ -459,7 +460,7 @@ fieldset{
   overflow: hidden;
   box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.1);
   border-radius: var(--border-radius);
-  margin:0rem 0.6rem;
+  margin:0.6rem;
 } 
 
 .zar img{
@@ -515,6 +516,35 @@ fieldset{
 .pagination #disabled a {
   color: #ccc;
   pointer-events: none;
+}
+
+/**************User**************/
+#bairshil {
+  display: grid; /* Grid layout-ийг ашиглах */
+  grid-template-columns: auto 1fr auto; /* Зураг, текст, SVG гурван баганад хуваах */
+  align-items: center; /* Босоо тэнхлэгээр төвлөрүүлэх */
+  gap: 1rem; /* Элементүүдийн хоорондын зай */
+  margin-bottom: 1.5rem;
+}
+
+#bairshil img {
+  width: 10rem; 
+  height: 10rem;
+  border-radius: 50%; 
+  object-fit: cover; 
+}
+
+#bairshil pre {
+  margin: 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  white-space: pre-wrap; 
+}
+
+#bairshil a {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
 }
 
 
@@ -634,10 +664,14 @@ fieldset{
   font-family: 'Buyan Light';
 }*/
 /* Information */
+
 #content-wrapper{
+  margin: 1.25rem auto;
   padding:0.18rem 8.5rem;
 }
-
+#content-wrapper h1{
+  margin:0rem;
+}
 #container {
   display: flex;
   flex-direction: column;

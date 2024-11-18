@@ -21,10 +21,8 @@
         function changeImage() {
             const imageElement = document.getElementById("dynamicImage");
             const dots = document.querySelectorAll(".dot");
-    
             currentIndex = (currentIndex + 1) % images.length;
             imageElement.src = images[currentIndex];
-    
             updateDots();
         }
     
@@ -32,7 +30,6 @@
             currentIndex = index;
             const imageElement = document.getElementById("dynamicImage");
             imageElement.src = images[currentIndex];
-    
             updateDots();
         }
     
@@ -41,12 +38,8 @@
             dots.forEach(dot => dot.classList.remove("active"));
             dots[currentIndex].classList.add("active");
         }
-    
-        // 3 секунд тутамд зургийг автоматаар солих
-        setInterval(changeImage, 5000);
+        setInterval(changeImage, 3000);
 
-        
-        
     </script>
     
 </head>
