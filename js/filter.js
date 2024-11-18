@@ -7,45 +7,111 @@ class Animal{
         this.sex=huis;
         this.number=dugaar;
     }
-    search(turul,utga){
-        if(this.type==turul){
-
-        }
-    }
-    searchSex(huis){
-        if(this.sex==huis){
-
-        }
-    }
-    searchAge(){
-        if(this.age=nas){
-            
-        }
-    }
 }
-class list{
-    constructor(){
-        this.amidtad = []
+const adoptData = [
+    {
+        "image": "./images/adoption/nohoi.jpg",
+        "altText": "Adopt1",
+        "info": {
+            "name": "Лили",
+            "description": "Polish Hound үйлдвэрийн 1 настай эр нохой. 1 жил тэжээсэн эрүүл нохой.",
+            "contact": "+976 89899090"
+        }
+    },
+    {
+        "image": "./images/adoption/nohoi.jpg",
+        "altText": "Adopt2",
+        "info": {
+            "name": "Лулу",
+            "description": "Polish Hound үйлдвэрийн 1 настай эр нохой. 1 жил тэжээсэн эрүүл нохой.",
+            "contact": "+976 89891090"
+        }
+    },
+    {
+        "image": "./images/adoption/nohoi.jpg",
+        "altText": "Adopt3",
+        "info": {
+            "name": "Мими",
+            "description": "Polish Hound үйлдвэрийн 1 настай эр нохой. 1 жил тэжээсэн эрүүл нохой.",
+            "contact": "+976 89891090"
+        }
     }
-    filter(ylgah){
-        answer = []
-        for(let i = 0; i < this.amidtad.length; i++){
-            Unen = true;
-            for(let j = 0; j < yalgah.length; j++){
-                Unen = Unen & yalgah[j](amitad[i]);
+];
+
+
+        function updateUrl(checkbox) {
+            const url = new URL(window.location);
+            if (checkbox.checked) {
+                url.searchParams.set(checkbox.name, checkbox.value);
+            } else {
+                url.searchParams.delete(checkbox.name);
             }
-            if(Unen) answer.push(amitad[i]);
+            window.history.replaceState(null, '', url);
+        } 
+        document.addEventListener('DOMContentLoaded', () => {
+        class Adopt {
+            constructor(data) {
+                this.name = data.name;
+                this.price = data.price;
+                this.image = data.image;
+                this.description = data.info.description;
+                this.contact = data.info.contact;
+                this.#render(data);
+            }
+            #render(data) {
+                const container = document.querySelector('.result'); // Changed to result section
+                container.innerHTML += `
+                    <img src="${data.image}" alt="${data.altText}" class="product-image">
+                    <section class="zar-info">
+                        <h4>${data.info.name}</h4>
+                        <p> ${data.info.description}</p>
+                        <a href="tel:${data.info.contact}">${data.info.contact}</a>
+                    </section>
+            `;
+            }
         }
-        return answer;
-    }
-}
 
-jagsaalt = new list();
-const shalga1(amitan){
-    return amitan.name == 'Muur';
-}
-shalga2(amitan){
-    return amitan.type == 'Zagas';
-}
+        const adoptData = [
+            {
+                "image": "./images/adoption/nohoi.jpg",
+                "altText": "Adopt1",
+                "info": {
+                    "name": "Лили",
+                    "type": "Polish Hound",
+                    "age": 1,
+                    "gender": "эр",
+                    "description": "1 жил тэжээсэн эрүүл нохой.",
+                    "contact": "+976 89899090"
+                }
+            },
+            {
+                "image": "./images/adoption/nohoi.jpg",
+                "altText": "Adopt2",
+                "info": {
+                    "name": "Лулу",
+                    "type": "Polish Hound",
+                    "age": 1,
+                    "gender": "эр",
+                    "description": "1 жил тэжээсэн эрүүл нохой.",
+                    "contact": "+976 89891090"
+                }
+            },
+            {
+                "image": "./images/adoption/nohoi.jpg",
+                "altText": "Adopt3",
+                "info": {
+                    "name": "Мими",
+                    "type": "Polish Hound",
+                    "age": 1,
+                    "gender": "эр",
+                    "description": "1 жил тэжээсэн эрүүл нохой.",
+                    "contact": "+976 89891090"
+                }
+            }
+        ];
+                
+        adoptData.map(id => {
+            new Adopt(id);
+        });
 
-urdun = jagsaalt.filter([shalga1, shalga2]);
+    });
