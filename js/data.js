@@ -1,7 +1,7 @@
 export default class Data{
     constructor(dataUrl){
         this.productUrl=dataUrl;
-        this.product=[];
+        this.products=[];
     }
 
     async refreshData() {

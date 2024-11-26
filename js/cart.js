@@ -1,7 +1,6 @@
 import Product from "product.js";
 export let count = 0;
 export default class Cart {
-
     constructor() {
         this.cart = new Map();
     }
@@ -11,12 +10,11 @@ export default class Cart {
         if (this.cart.size > 0)
             this.cart.forEach(
                 (value, key) =>
-                sagsString += `<div style="width:40ch;display:flex;flex-direction:row; justify-content:space-between;">
-                <div>${(new Product(app.products.get(key))).renderCompact()} </div><div>${value}</div></div>`
+                sagsString += `<div>${(new Product(app.products.get(key))).renderCompact()} </div><div>${value}</div></div>`
             );
-
         return sagsString;
     }
+
 
     addProduct(productId) {
         let count = 1;
@@ -28,4 +26,6 @@ export default class Cart {
         count++;
     }
 }
+
+
 

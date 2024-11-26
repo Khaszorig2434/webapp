@@ -8,12 +8,6 @@ app.cart = sags;
 const data = new Data("https://dummyjson.com/products");
 app.products = await data.refreshData();
 
-let productsHTML = "";
-app.products.forEach(
-    (product, productId) =>productsHTML += (new Product(product)).render());
-
-document.getElementById("prodSection").innerHTML=productsHTML;
-
 if(sagsandBaigaaBaraaniiToo>0)
     document.getElementById("cart").innerHTML= sags.render();
 
