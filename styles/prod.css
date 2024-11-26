@@ -376,38 +376,101 @@ input[type="submit"]{
     margin-top: 1rem;
 }
 /***************************Admins************************/
-.egnee li{
-  list-style: none;
-  display:inline ;
-  gap: 1rem;
-}
-
-.egnee li img {
-  height: 9.375rem;
-  width: 7.5rem;
-  border-radius: var(--border-radius);
-  border:var(--input-border);
-  box-shadow: var(--shadow-1);
-  margin-left: 1rem;
-} 
-.biggg{
-  height: 34.375rem;
-  width: 25.625rem;
-  margin: 0rem 8rem;
-  border-radius: var(--default-border-radius);
-  border: var(--input-border);
-  box-shadow: var(--shadow-1);
-}
 .look {
   display: flex;
   align-items:self-start; /* Хэвтээ тэнхлэг дээр агуулгыг төвд нь байрлуулах */
   justify-content:flex-start; /* Элементийн байрлалыг зүүнээс эхлүүлэх (хэрэв шаардлагатай бол) */
-  margin: 2rem;
+  margin: 4rem;
+}
+
+.ImageSongo {
+  display: flex;
+  align-items:self-start; /* Хэвтээ тэнхлэг дээр агуулгыг төвд нь байрлуулах */
+  justify-content:flex-start; /* Элементийн байрлалыг зүүнээс эхлүүлэх (хэрэв шаардлагатай бол) */
+}
+.large-image {
+  height: 34.375rem;
+  width: 25.625rem;
+  margin: 0rem 8rem;
+  padding: 0; /* Padding-ийг арилгах */
+  border-radius: var(--default-border-radius);
+  border: var(--input-border);
+  box-shadow: var(--shadow-1);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden; /* Зураг контейнерээс хэтрэхээс сэргийлэх */
+}
+
+.large-image img {
+  width: 100%; /* Контейнерийн өргөнд тааруулах */
+  height: 100%; /* Контейнерийн өндөрт тааруулах */
+  object-fit: cover; /* Зургийг контейнерт багтаах */
+}
+
+.small-images {
+  display:inline ;
+  gap: 1rem;
+}
+/* Жижиг зургийн контейнер */
+.small-image-container {
+  position: relative; /* Устгах товчийг контейнертэй холбох */
+  height: 9.375rem;
+  width: 7.5rem;
+  border-radius: var(--border-radius);
+  border: var(--input-border);
+  box-shadow: var(--shadow-1);
+  margin-bottom: 0.5rem;
+}
+
+/* Жижиг зургийн өөрийн хэв маяг */
+.small-image-container img {
+  height: 100%; /* Контейнерийн хэмжээнд багтаах */
+  width: 100%;
+  border-radius: var(--border-radius);
+  border: var(--input-border);
+  box-shadow: var(--shadow-1);
+}
+
+/* Устгах товч */
+.remove-btn {
+  position: absolute; /* Контейнер доторх харьцангуй байрлал */
+  top: 5px; /* Дээд талд 5px зайтай байрлуулах */
+  right: 5px; /* Баруун талд 5px зайтай байрлуулах */
+  background-color: var(--color-petty); /* Улаан өнгө */
+  color: var(--color-white); /* Цагаан текст */
+  border: none; /* Хүрээг арилгах */
+  width: 20px; /* Товчны өргөн */
+  height: 20px; /* Товчны өндөр */
+  border-radius: 50%; /* Дугуй хэлбэртэй болгох */
+}
+
+/* Хулгана байрлуулсан үед товчны өнгө өөрчлөгдөнө */
+.remove-btn:hover {
+  background-color: darkred;
+}
+
+input[type="file"] {
+  display: none;
 }
 
 input, select{
   border-radius: 1rem;
   border: var(--input-border)
+}
+#ilgeeh{
+  background: linear-gradient(90deg, #f66c49, #f8b785); /* Зүүнээс баруун руу градиент */
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#ilgeeh:hover {
+  background: linear-gradient(90deg, #f8b785, #f66c49); /* Хулганы даралттай үед эсрэг чиглэлд */
 }
 
 
