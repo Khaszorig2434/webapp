@@ -1,4 +1,4 @@
-import Product from "product.js";
+import Product from "./product.js";
 export let count = 0;
 export default class Cart {
     constructor() {
