@@ -1,6 +1,7 @@
-import Product from "product.js";
-import Cart, { count as sagsandBaigaaBaraaniiToo} from "cart.js";
-import Data from "data.js";
+
+import Product from "./product.js";
+import Cart, { count as sagsandBaigaaBaraaniiToo} from "./cart.js";
+import Data from "./datadata.js";
 
 const sags = new Cart();
 app.cart = sags;
