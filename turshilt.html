@@ -69,43 +69,36 @@
             }
 
             // JSON өгөгдөл
-            const adoptData = {
-                "adopts": [
-                    {
-                        "image": "./images/adoption/nohoi.jpg",
-                        "altText": "Adopt1",
-                        "name": "Лили",
-                        "industry": "Polish Hound",
-                        "age": 1,
-                        "sex": "эр",
-                        "type": "нохой",
-                        "text": "1 жил тэжээсэн эрүүл нохой.",
-                        "contact": "+976 89899090"
-                    },
-                    {
-                        "image": "./images/adoption/nohoi.jpg",
-                        "altText": "Adopt2",
-                        "name": "Лулу",
-                        "industry": "Polish Hound",
-                        "age": 2,
-                        "sex": "эр",
-                        "type": "нохой",
-                        "text": "1 жил тэжээсэн эрүүл нохой.",
-                        "contact": "+976 89899090"
-                    },
-                    {
-                        "image": "./images/adoption/nohoi.jpg",
-                        "altText": "Adopt3",
-                        "name": "Мими",
-                        "industry": "Polish Hound",
-                        "age": 6,
-                        "sex": "эм",
-                        "type": "муур",
-                        "text": "1 жил тэжээсэн эрүүл муур.",
-                        "contact": "+976 89899090"
+
+            async function getData() {
+                const url = "https://api.jsonbin.io/v3/b/6746c2bfacd3cb34a8afa1eb";
+
+                try {
+                    const response = await fetch(url, {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-Master-Key": "$2a$10$7w3VcmT.B7rqVSCm/vok8u/CpprJpveDoIogwVSLZK9AZoFdxbCLG",
+                        },
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.statusText}`);
                     }
-                ]
-            };
+
+                    const data = await response.json();
+                    return data.record; 
+                } catch (error) {
+                    console.error("Error:", error);
+                    return null; 
+                }
+            }
+
+            (async () => {
+                const adoptData = await getData(); 
+                console.log("Fetched adopt data:", adoptData); 
+            })();
+
 
 
             // Adopts map uusgeh
