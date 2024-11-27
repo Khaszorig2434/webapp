@@ -49,17 +49,9 @@
                     <label for="color3">Ногоон</label>
                 </form>
             </aside>
-            <aside>
-                <pre>Бүтээгдэхүүний гарал</pre>
-                <form>
-                    <input type="radio" id="origin1" name="choice_origin" value="1">
-                    <label for="origin1">Импортлолт</label>
-                    <input type="radio" id="origin2" name="choice_origin" value="2">
-                    <label for="origin2">Экспортлолт</label>
-                </form>
-            </aside>
             <p>Үйлдвэрлэгдсэн огноо: 2023/01/20</p>
             <p>Дуусах огноо: 2025/01/20</p>
+            <p>Бүтээгдэхүүний гарал: Импортлолт </p>
             <p>Баталгаажуулалт: ISO</p>
 
             <span>₮</span><span>34000</span>
@@ -133,6 +125,23 @@
     </article>
 
     <my-footer></my-footer>
+
+    <script>
+        const smallImages = document.querySelectorAll(".jagsaah li img");
+        const bigImage = document.querySelector(".big");
+
+        if (smallImages.length > 0) {
+            bigImage.src = smallImages[0].src;
+            bigImage.alt = smallImages[0].alt;
+        }
+
+        smallImages.forEach((smallImg) => {
+            smallImg.addEventListener("click", () => {
+                bigImage.src = smallImg.src;
+                bigImage.alt = smallImg.alt;
+            });
+        });
+    </script>
 
 </body>
 

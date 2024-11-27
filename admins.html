@@ -9,6 +9,8 @@
     <script src="/components/my-footer.js" type="module"></script>
     <script src="/components/my-header.js" type="module"></script>
     <script src="js/script.js"></script>
+
+    <script src="js/adminniih/zb.js" type="module"></script>
     <title>admin</title>
 </head>
 
@@ -29,16 +31,15 @@
         </a>
         <hr>
         <form class="look">
-            <aside class="egnee">
-                <p>Зураг сонгох:</p>
-                <ul>
-                    <li><img src="#" alt="neg"></li>
-                    <li><img src="#" alt="hoyr"></li>
-                    <li><img src="#" alt="gurav"></li>
-                    <li><img src="#" alt="duruv"></li>
-                </ul>
+            <aside class="ImageSongo">
+                <input type="file" id="imageUpload" accept="image/*">
+                <div class="small-images" id="smallImageContainer">
+                </div>
+                <div class="large-image" id="largeImageContainer">
+                    <p>Энд дарж зураг оруулна уу</p>
+                    <img src="#" alt="Том зураг" id="largeImage" style="display:none;">
+                </div>
             </aside>
-            <input class="biggg" type="file" id="image" name="image" accept="image/*">
             <aside>
                 <label for="name">Нэр:</label>
                 <input type="text" id="name" name="name"><br><br>
@@ -91,9 +92,9 @@
                 <input type="checkbox" id="confirm" name="confirm"><br><br>
 
                 <label for="price">Үнэ:</label>
-                <input type="text" id="price" name="price"><br><br>
+                <input type="number" id="price" name="price"><br><br>
 
-                <button type="submit">Нэмэх</button>
+                <button id="pay-button">Нэмэх</button>
             </aside>
         </form>
     </main>
