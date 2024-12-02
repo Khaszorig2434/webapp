@@ -10,6 +10,66 @@
     <script src="/components/my-footer.js" type="module"></script>
     <script src="/components/my-header.js" type="module"></script>
     <title>One product</title>
+    <script>
+        const app = {}
+        document.addEventListener('DOMContentLoaded', () => {
+            async function getData() {
+                const url = "https://api.jsonbin.io/v3/b/674e28d9e41b4d34e45e9fbe";
+
+                try {
+                    const response = await fetch(url, {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-Master-Key": "$2a$10$7w3VcmT.B7rqVSCm/vok8u/CpprJpveDoIogwVSLZK9AZoFdxbCLG",
+                        },
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.statusText}`);
+                    }
+
+                    const data = await response.json();
+                    return data.record.container;
+                } catch (error) {
+                    console.error("Error:", error);
+                    return null;
+                }
+            }
+
+            (async () => {
+                const ProductData = await getData();
+                console.log("Product data:", ProductData);
+                if(ProductData){
+                //article
+                    document.getElementById("title").innerHTML = ProductData.article.title;
+                    document.getElementById("neg").innerHTML =  `<img src="${ProductData.thumbnails[0].src}" alt="${ProductData.thumbnails[0].alt}">`;
+                    document.getElementById("xoyr").innerHTML = `<img src="${ProductData.thumbnails[1].src}" alt="${ProductData.thumbnails[1].alt}">`;
+                    document.getElementById("gurav").innerHTML = `<img src="${ProductData.thumbnails[2].src}" alt="${ProductData.thumbnails[2].alt}">`;
+                    document.getElementById("duruv").innerHTML = `<img src="${ProductData.thumbnails[3].src}" alt="${ProductData.thumbnails[3].alt}">`;
+                    document.getElementById("mainpicture").innerHTML = `<img class="big" src="${ProductData.mainImage.src}" alt="${ProductData.mainImage.alt}">`;
+                    document.querySelector("pre").innerHTML = ProductData.article.category;
+                //details
+                    document.getElementById("uildverlesen").innerHTML = `Үйлдвэрлэгдсэн огноо: ${ProductData.article.details.manufactureDate}`;
+                    document.getElementById("expire").innerHTML = `Дуусах огноо: ${ProductData.article.details.expiryDate}`;
+                    document.getElementById("origin").innerHTML = `Бүтээгдэхүүний гарал: ${ProductData.article.details.origin}`;
+                    document.getElementById("standart").innerHTML = `Баталгаажуулалт: ${ProductData.article.details.certification}`;
+                //color
+                    document.getElementById("color1").innerHTML = ProductData.article.options.colors[0].label;
+                    document.getElementById("color2").innerHTML = ProductData.article.options.colors[1].label;
+                    document.getElementById("color3").innerHTML = ProductData.article.options.colors[2].label;
+                //size
+                    document.getElementById("size1").innerHTML = ProductData.article.options.sizes[0].label;
+                    document.getElementById("size2").innerHTML = ProductData.article.options.sizes[1].label;
+                    document.getElementById("size3").innerHTML = ProductData.article.options.sizes[2].label;
+                //price
+                    document.getElementById("currency").innerHTML = ProductData.article.price.currency;
+                    document.getElementById("total").innerHTML = ProductData.article.price.amount;
+                }
+            })(); 
+        });
+
+    </script>
 </head>
 
 <body>
@@ -18,43 +78,45 @@
 
     <div class="container">
         <ul class="jagsaah">
-            <li><img src="images/oneprob/neg.png" alt="neg"></li>
-            <li><img src="images/oneprob/hoyr.png" alt="hoyr"></li>
-            <li><img src="images/oneprob/gurv.png" alt="gurav"></li>
-            <li><img src="images/oneprob/duruv.png" alt="duruv"></li>
+            <li id="neg">Зураг Нэг</li>
+            <li id="xoyr">Зураг Хоёр</li>
+            <li id="gurav">Зураг Гурав</li>
+            <li id="duruv">Зураг Лө</li>
         </ul>
-        <img class="big" src="images/oneprob/neg.png" alt="Бүтээгдэхүүний нүүр">
+        <div id="mainpicture">
+            Main Picture
+        </div>        
         <article>
-            <h2>Indoor Entree</h2>
-            <pre>Хоол хүнс    (0056)</pre>
+            <h2 id="title">Гарчиг</h2>
+            <pre></pre>
             <aside class="songolt">
                 <pre>Хэмжээ</pre>
                 <form>
-                    <input type="radio" id="size1" name="choice_size">
-                    <label for="size1">5кг</label>
-                    <input type="radio" id="size2" name="choice_size">
-                    <label for="size2">1кг</label>
-                    <input type="radio" id="size3" name="choice_size">
-                    <label for="size3">0.5кг</label>
+                    <input type="radio"  name="choice_size">
+                    <label for="size1" id="size1"></label>
+                    <input type="radio"  name="choice_size">
+                    <label for="size2" id="size2"></label>
+                    <input type="radio"  name="choice_size">
+                    <label for="size3" id="size3"></label>
                 </form>
             </aside>
             <aside>
                 <pre>Өнгө</pre>
                 <form>
-                    <input type="radio" id="color1" name="choice_color">
-                    <label for="color1">Улаан</label>
-                    <input type="radio" id="color2" name="choice_color">
-                    <label for="color2">Цэнхэр</label>
-                    <input type="radio" id="color3" name="choice_color">
-                    <label for="color3">Ногоон</label>
+                    <input type="radio"  name="choice_color">
+                    <label for="color1" id="color1">Өнгө Нэг</label>
+                    <input type="radio"  name="choice_color">
+                    <label for="color2" id="color2">Өнгө Хоёр</label>
+                    <input type="radio"  name="choice_color">
+                    <label for="color3" id="color3">Өнгө Гурав</label>
                 </form>
             </aside>
-            <p>Үйлдвэрлэгдсэн огноо: 2023/01/20</p>
-            <p>Дуусах огноо: 2025/01/20</p>
-            <p>Бүтээгдэхүүний гарал: Импортлолт </p>
-            <p>Баталгаажуулалт: ISO</p>
+            <p id="uildverlesen"></p>
+            <p id="expire"></p>
+            <p id="origin"></p>
+            <p id="standart"></p>
 
-            <span>₮</span><span>34000</span>
+            <span id="currency">Валют</span><span id="total">Үнэ</span>
             <br>
             <button id="pay-button">🛒Сагсанд нэмэх🛒</button>
         </article>
