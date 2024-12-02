@@ -53,7 +53,7 @@
                         <option value="Эрэгтэй">Эр</option>
                         <option value="Эмэгтэй">Эм</option>
                     </select>
-                    <select id="type" name="type" required >
+                    <select id="type" name="type" required>
                         <option value="" disabled selected>Төрлийг сонгох</option>
                         <option value="type1">Нохой</option>
                         <option value="type2">Муур</option>
@@ -99,6 +99,60 @@
         const closeModalButton = document.getElementById("closeModal");
         const saveModalButton = document.getElementById("saveModal");
         const zarContainer = document.getElementById("zarContainer");
+        const imageInput = document.getElementById("image");
+
+        // Зар хадгалах функц
+        saveModalButton.addEventListener("click", function () {
+            const item = {
+                name: document.getElementById("name").value,
+                industry: document.getElementById("industry").value,
+                age: document.getElementById("age").value,
+                sex: document.getElementById("sex").value,
+                type: document.getElementById("type").value,
+                text: document.getElementById("text").value,
+                contact: document.getElementById("contact").value,
+                altText: document.getElementById("altText").value,
+            };
+
+            // Хоосон талбар байгаа эсэхийг шалгах
+            if (!item.name || !item.age || !item.sex || !item.type || !item.contact || !imageInput.files[0]) {
+                alert("Заавал оруулах талбаруудыг бөглөнө үү!");
+                return;
+            }
+
+            // Зургийг уншиж base64 форматтай болгох
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                const imageSrc = event.target.result; // Зургийн өгөгдлийг хадгалах
+                const article = `
+            <article class="zar">
+                <aside id="egnee">
+                    <img src="${imageSrc}" alt="${item.altText}" class="product-image">
+                    <button>❌</button>
+                </aside>
+                <div class="zar-info">
+                    <h4>${item.name}</h4>
+                    <p>${item.industry} үйлдвэрийн ${item.age} настай ${item.sex} ${item.type}. ${item.text}</p>
+                    <a href="tel:${item.contact}">Холбогдох утас: ${item.contact}</a>
+                </div>
+            </article>
+        `;
+                zarContainer.insertAdjacentHTML("beforeend", article);
+
+                // Modal-ыг хааж талбаруудыг цэвэрлэх
+                modal.style.display = "none";
+                document.getElementById("name").value = "";
+                document.getElementById("industry").value = "";
+                document.getElementById("age").value = "";
+                document.getElementById("sex").value = "";
+                document.getElementById("type").value = "";
+                document.getElementById("text").value = "";
+                document.getElementById("contact").value = "";
+                document.getElementById("image").value = "";
+                document.getElementById("altText").value = "";
+            };
+            reader.readAsDataURL(imageInput.files[0]); // Файлыг base64 болгоно
+        });
 
         // Modal-г нээх
         showModalButton.addEventListener("click", function () {
@@ -110,62 +164,23 @@
             modal.style.display = "none";
         });
 
-        // Зар хадгалах функц
-        saveModalButton.addEventListener("click", function () {
-            // Хэрэглэгчийн оруулсан утгуудыг авах
-            const item = {
-                name: document.getElementById("name").value,
-                industry: document.getElementById("industry").value,
-                age: document.getElementById("age").value,
-                sex: document.getElementById("sex").value,
-                type: document.getElementById("type").value,
-                text: document.getElementById("text").value,
-                contact: document.getElementById("contact").value,
-                image: document.getElementById("image").value,
-                altText: document.getElementById("altText").value,
-            };
-
-            // Хоосон талбар байгаа эсэхийг шалгах
-            if (!item.name || !item.age || !item.sex || !item.type || !item.contact) {
-                alert("Заавал оруулах талбаруудыг бөглөнө үү!");
-                return;
-            }
-
-            // Шинэ зар нэмэх
-            const article = `
-                <article class="zar">
-                    <aside id="egnee">
-                        <img src="${item.image}" alt="${item.altText}" class="product-image">
-                        <button>❌</button>
-                    </aside>
-                    <div class="zar-info">
-                        <h4>${item.name}</h4>
-                        <p>${item.industry} үйлдвэрийн ${item.age} настай ${item.sex} ${item.type}. ${item.text}</p>
-                        <a href="tel:${item.contact}">Холбогдох утас: ${item.contact}</a>
-                    </div>
-                </article>
-            `;
-            zarContainer.insertAdjacentHTML("beforeend", article);
-
-            // Modal-ыг хааж талбаруудыг цэвэрлэх
-            modal.style.display = "none";
-            document.getElementById("name").value = "";
-            document.getElementById("industry").value = "";
-            document.getElementById("age").value = "";
-            document.getElementById("sex").value = "";
-            document.getElementById("type").value = "";
-            document.getElementById("text").value = "";
-            document.getElementById("contact").value = "";
-            document.getElementById("image").value = "";
-            document.getElementById("altText").value = "";
-        });
-
         // Modal-ыг гадна дарж хаах
         window.addEventListener("click", function (event) {
             if (event.target === modal) {
                 modal.style.display = "none";
             }
         });
+
+        // Зар устгах үйлдэл
+        zarContainer.addEventListener("click", function (event) {
+            if (event.target.tagName === "BUTTON" && event.target.textContent === "❌") {
+                const article = event.target.closest("article"); // Хамгийн ойрын article элементийг олох
+                if (article) {
+                    article.remove(); // Элемент устгах
+                }
+            }
+        });
+
     </script>
 
 </body>

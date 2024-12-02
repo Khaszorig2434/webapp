@@ -9,27 +9,6 @@
     <script src="/components/my-footer.js" type="module"></script>
     <script src="/components/my-header.js" type="module"></script>
 
-    <script>
-        const quantityElement = document.getElementById("quantity");
-        const incrementButton = document.getElementById("increment");
-        const decrementButton = document.getElementById("decrement");
-    
-        // Тоо нэмэх
-        incrementButton.addEventListener("click", () => {
-            let currentQuantity = parseInt(quantityElement.textContent, 10);
-            quantityElement.textContent = currentQuantity + 1;
-        });
-    
-        // Тоо хасах
-        decrementButton.addEventListener("click", () => {
-            let currentQuantity = parseInt(quantityElement.textContent, 10);
-            if (currentQuantity > 0) { // 0-с доош тооцохгүй
-                quantityElement.textContent = currentQuantity - 1;
-            }
-        });
-    </script>
-
-
     // moduluudiig ashiglah heseg
 
     <script type="module" src="./components/num-product.js"></script>
@@ -64,7 +43,7 @@
         <section class="product">
             <aside id="egnee">
                 <h3>Doubly Delicious</h3>
-                <button>❌</button>
+                <button class="delete-btn">❌</button>
             </aside>
             <a href="oneProduct.html">
                 <img src="images/negfood.png" alt="product">
@@ -79,12 +58,16 @@
         <section class="product">
             <aside id="egnee">
                 <h3>Doubly Delicious</h3>
-                <button>❌</button>
+                <button class="delete-btn">❌</button>
             </aside>
             <a href="oneProduct.html">
                 <img src="images/negfood.png" alt="product">
             </a>
-            <button>➕</button> 3 <button>➖</button>
+            <div">
+                <button id="increment">➕</button>
+                <span id="quantity" style="font-size: 18px; font-weight: bold;">3</span>
+                <button id="decrement">➖</button>
+            </div>
             <p>250,000<span>₮</span></p>
         </section>
         
@@ -104,6 +87,24 @@
             </button>
         </aside>
     </main>
+    <script>
+        function setupDeleteButtons() {
+            const deleteButtons = document.querySelectorAll('.delete-btn');
+            
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const productElement = button.closest('.product');
+                    if (productElement) {
+                        productElement.remove();
+                    }
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setupDeleteButtons();
+        });
+    </script>
     <my-footer></my-footer>
 </body>
 

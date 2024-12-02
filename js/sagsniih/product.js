@@ -40,37 +40,46 @@ export default class Product {
                     `).join('')}
                 </form>
             </aside>
-            <aside>
-                <pre>Бүтээгдэхүүний гарал</pre>
-                <form>
-                    ${this.origin.map((o, i) => `
-                        <input type="radio" id="origin${i}" name="choice_origin">
-                        <label for="origin${i}">${o}</label>
-                    `).join('')}
-                </form>
-            </aside>
+            <p>Бүтээгдэхүүний гарал: ${this.origin}</p>
             <p>Үйлдвэрлэгдсэн огноо: ${this.age[0]}</p>
             <p>Дуусах огноо:${this.age[1]}</p>
             <p>Баталгаажуулалт:${this.gpa}</p>
 
             <span>₮</span><span>${this.price}</span>
-            <form>
-                <input type="submit" value="Сагсанд нэмэх">
-            </form>
+            <button id="add-to-cart">🛍️Сагсанд нэмэх🛒</button>
         </article>
     </div>`;
     }
+
+        // Энд 'add-to-cart' товчлуур дээр сонголтуудыг авах үйлдлийг хийж байна
+        setupAddToCartButton() {
+        document.getElementById('add-to-cart').addEventListener('click', function() {
+            // Зөвхөн сонгосон утгуудыг авах
+            const size = document.querySelector('input[name="choice_size"]:checked').value;
+            const color = document.querySelector('input[name="choice_color"]:checked').value;
+    
+            // app.cart.addProduct болон app.refreshCart функцуудыг дуудна
+            app.cart.addProduct(this.id, size, color);
+            app.refreshCart();
+        });
+        }
+    
 
     renderCompact(){
         return `<section class="product">
             <aside id="egnee">
                 <h3>${this.name}</h3>
-                <button>❌</button>
+                <button class=delete-btn>❌</button>
             </aside>
             <a href="oneProduct.html">
                 <img src="images/negfood.png" alt="product">
             </a>
-            <button>➕</button> 3 <button>➖</button>
+            <div>
+                <button id="increment">➕</button>
+                <span id="quantity" style="font-size: 18px; font-weight: bold;">3</span>
+                <button id="decrement">➖</button>
+            </div>
+                
             <p>${this.price}<span>₮</span></p>
         </section>`;
     }
