@@ -10,8 +10,6 @@
     <title>Нүүр</title>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // URL heseg
-            // URL-iig refresh 
             function clearUrlParams() {
                 const url = new URL(window.location);
                 url.search = '';
@@ -34,7 +32,6 @@
             function updateRadioUrl(radio) {
                 const url = new URL(window.location);
                 const paramName = radio.name;
-    
                 if (radio.checked) {
                     url.searchParams.set(paramName, radio.value);
                 } else {
@@ -42,18 +39,7 @@
                 }
                 window.history.replaceState(null, '', url);
             }
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', () => updateCheckboxUrl(checkbox));
-            });
-            const radios = document.querySelectorAll('input[type="radio"]');
-            radios.forEach(radio => {
-                radio.addEventListener('change', () => updateRadioUrl(radio));
-            });
     
-            clearUrlParams();
-    
-            // Adopt class
             class Adopt {
                 constructor(image, altText, name, industry, age, sex, type, text, contact) {
                     this.image = image;
@@ -68,10 +54,8 @@
                 }
             }
     
-            // JSON өгөгдөл
             async function getData() {
                 const url = "https://api.jsonbin.io/v3/b/6746c2bfacd3cb34a8afa1eb";
-    
                 try {
                     const response = await fetch(url, {
                         method: "GET",
@@ -86,18 +70,93 @@
                     }
     
                     const data = await response.json();
-                    return data.record; 
+                    return data.record;
                 } catch (error) {
                     console.error("Error:", error);
-                    return null; 
+                    return null;
                 }
             }
     
-            (async () => {
-                const adoptData = await getData(); 
-                console.log("Fetched adopt data:", adoptData); 
+            function render(data) {
+                const container = document.querySelector('.result');
+                if (!container) {
+                    console.error('Container ".result" not found in DOM!');
+                    return;
+                }
     
-                // Adopts map uusgeh
+                const html = data.reduce((acc, item) => {
+                    return acc + 
+                        `<article class="zar">
+                            <img src="${item.image}" alt="${item.altText}" class="product-image">
+                            <div class="zar-info">
+                                <h4>${item.name}</h4>
+                                <p>${item.industry} үйлдвэрийн ${item.age} настай ${item.sex} ${item.type}. ${item.text}</p>
+                                <a href="tel:${item.contact}">Холбогдох утас: ${item.contact}</a>
+                            </div>
+                        </article>`;
+                }, '');
+    
+                container.innerHTML = html;
+            }
+    
+            function filterData(adopts) {
+                const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'));
+                const radios = Array.from(document.querySelectorAll('input[type="radio"]:checked'));
+    
+                const selectedCheckboxes = checkboxes.map(cb => cb.value);
+                const selectedRadio = radios[0]?.value || null;
+                const selectedRanges = checkboxes
+                    .map(cb => cb.value.split('-').map(Number))
+                    .filter(range => range.length === 2);
+    
+                const typeFilteredMap = selectedCheckboxes.length > 0
+                    ? adopts.filter(adopt => selectedCheckboxes.includes(adopt.type))
+                    : adopts;
+    
+                const sexFiltered = selectedRadio
+                    ? typeFilteredMap.filter(adopt => adopt.sex === selectedRadio)
+                    : typeFilteredMap;
+    
+                const ageFiltered = selectedRanges.length > 0
+                    ? sexFiltered.filter(adopt => {
+                        const age = adopt.age;
+                        return selectedRanges.some(([min, max]) => age >= min && age <= max);
+                    })
+                    : sexFiltered;
+    
+                render(ageFiltered);
+            }
+    
+            // Set checkbox values from URL
+            function setCheckboxFromUrl(adopts) {
+                const url = new URL(window.location);
+                const params = url.searchParams;
+                
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                const radios = document.querySelectorAll('input[type="radio"]');
+    
+                checkboxes.forEach(checkbox => { 
+                    if (params.get(checkbox.name)?.split(',').includes(checkbox.value)) { 
+                        checkbox.checked = true; 
+                    }
+                });
+    
+                radios.forEach(radio => { 
+                    if (params.get(radio.name) === radio.value) { 
+                        radio.checked = true; 
+                    }
+                });
+    
+                filterData(adopts); 
+                clearUrlParams();
+            }
+    
+            // Initialize everything
+            (async () => {
+                const adoptData = await getData();
+                if (!adoptData) return;
+    
+                // Map data into adopt instances
                 const adopts = adoptData.adopts.map(adopt => {
                     return new Adopt(
                         adopt.image,
@@ -112,77 +171,21 @@
                     );
                 });
     
-                // Render function
-                function render(data) {
-                    const container = document.querySelector('.result');
-                    if (!container) {
-                        console.error('Container ".result" not found in DOM!');
-                        return;
-                    }
-    
-                    const html = data.reduce((acc, item) => {
-                        return acc + `
-                            <article class="zar">
-                                <img src="${item.image}" alt="${item.altText}" class="product-image">
-                                <div class="zar-info">
-                                    <h4>${item.name}</h4>
-                                    <p>${item.industry} үйлдвэрийн ${item.age} настай ${item.sex} ${item.type}. ${item.text}</p>
-                                    <a href="tel:${item.contact}">Холбогдох утас: ${item.contact}</a>
-                                </div>
-                            </article>`;
-                    }, '');
-    
-                    container.innerHTML = html;
-                }
-    
-                // Filter функц
-                function filterData() {
-                    const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'));
-                    const radios = Array.from(document.querySelectorAll('input[type="radio"]:checked'));
-    
-                    // Сонгогдсон утгуудыг цуглуулах
-                    const selectedCheckboxes = checkboxes.map(cb => cb.value);
-                    const selectedRadio = radios[0]?.value || null;
-                    const selectedRanges = checkboxes
-                        .map(cb => cb.value.split('-').map(Number))
-                        .filter(range => range.length === 2);
-    
-                    // Төрлөөр шүүх
-                    const typeFilteredMap = selectedCheckboxes.length > 0
-                        ? adopts.filter(adopt => selectedCheckboxes.includes(adopt.type))
-                        : adopts;
-    
-                    // Хүйсээр шүүх
-                    const sexFiltered = selectedRadio
-                        ? typeFilteredMap.filter(adopt => adopt.sex === selectedRadio)
-                        : typeFilteredMap;
-    
-                    // Насаар шүүх
-                    const ageFiltered = selectedRanges.length > 0
-                        ? sexFiltered.filter(adopt => {
-                            const age = adopt.age;
-                            return selectedRanges.some(([min, max]) => age >= min && age <= max);
-                        })
-                        : sexFiltered;
-    
-                    // Дүрслэх
-                    render(ageFiltered);
-                }
-    
-                // Event listener-уудыг тохируулах
                 document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                    checkbox.addEventListener('change', filterData);
+                    checkbox.addEventListener('change', () => filterData(adopts));
                 });
     
                 document.querySelectorAll('input[type="radio"]').forEach(radio => {
-                    radio.addEventListener('change', filterData);
+                    radio.addEventListener('change', () => filterData(adopts));
                 });
     
-                // Эхний байдлаар бүх өгөгдлийг харуулах
-                render(adopts);
+                // Set filters based on URL and display data
+                setCheckboxFromUrl(adopts);
+                clearUrlParams
             })();
         });
     </script>
+    
     <script src="/components/my-header.js" type="module"></script>
     <script src="/components/my-footer.js" type="module"></script>
 </head>
