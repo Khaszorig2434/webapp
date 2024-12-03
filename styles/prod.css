@@ -118,6 +118,8 @@ a{
     list-style: none;
   }
   footer a{
+    display: block;
+    padding: 0.3rem 0.9rem;
     color:white;
   }
   footer aside{
@@ -482,26 +484,41 @@ input, select{
 fieldset{
   border-radius: var(--default-border-radius);
   margin-bottom: 0.7rem;
+  padding: 0.2rem;
 }
 .filter {
-  width:10%;
-  height: 600px;
+  width:20%;
   background-color: #ddd;
   padding: 0.3rem 0.6rem;
   margin: 2px 2.2rem 0.3rem 5.5rem;
   display: inline-block;
   border-radius: var(--border-radius);
   box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.1);
-
 }
 
 .filter label {
-  display: block;
+  display: flex;
+  gap: 0.4rem;
+  padding:0.2rem;
   margin: 0.3rem 0rem;
+  font-size: clamp(0.9rem, 1vw, 1.2rem);
 }
+
+.filter input[type="checkbox"],
+.filter input[type="radio"] {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+/* .filter fieldset {
+  margin-bottom: 0.3rem;
+  padding: 0.1rem;
+  border-radius: 0.08rem;
+} */
+
 .filter h2 {
   margin: 0.625rem 0rem;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2vw, 2.5rem);
   text-align: center;
 }
 .result {
@@ -547,6 +564,13 @@ fieldset{
 .zar-info {
   text-align: center;
   padding: 0rem 0.7rem;
+  flex: 1;
+}
+.zar-info a {
+  display: inline-block;
+  padding: 0.8rem 1.6 rem;
+  text-decoration: none;
+  margin-top: 0.8rem;
 }
 
 #navbar>li>a:hover{
