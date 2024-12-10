@@ -8,33 +8,75 @@
     <script src="/components/my-footer.js" type="module"></script>
     <script src="/components/my-header.js" type="module"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            async function getData() {
+                const url = "https://api.jsonbin.io/v3/b/67579c9cad19ca34f8d87192";
+                const contentSection = document.getElementById("contentSection");
 
+                try {
+                    const response = await fetch(url, {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-Master-Key": "$2a$10$7w3VcmT.B7rqVSCm/vok8u/CpprJpveDoIogwVSLZK9AZoFdxbCLG",
+                        },
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.statusText}`);
+                    }
+
+                    const json = await response.json();
+                    const articles = json.record.articles;
+
+                    articles.forEach((article) => {
+                        const { id, date, content, image } = article;
+
+                        const articleCard = `
+                <article id="container">
+                    <section id="article-card">
+                        <aside class="article-date">${date}</aside>
+                        <div class="article-content">
+                            <h3 class="article-title" 
+                                onclick="window.location.href='/inner-information.html?id=${id}'">
+                                ${content.title}
+                            </h3>
+                            <p class="article-description">
+                                ${content.description}
+                            </p>
+                            <span class="article-author">${content.author}</span>
+                        </div>
+                        <aside class="article-image">
+                            <img src="${image.src}" 
+                                alt="${image.alt}" 
+                                onclick="window.location.href='/inner-information.html?id=${id}'">
+                        </aside>
+                    </section>
+                </article>
+                `;
+
+                        contentSection.insertAdjacentHTML("beforeend", articleCard);
+                    });
+
+                    console.log("Successfully fetched data:", articles);
+                } catch (error) {
+                    console.error("Error:", error);
+                }
+            }
+
+            await getData();
+        });
     </script>
     <title>Information</title>
 </head>
 
 <body>
     <my-header></my-header>
-
     <main id="content-wrapper">
         <h1>Мэдээлэл</h1>
         <hr>
-        <!-- <article id="container">
-            <section id="article-card">
-                <aside class="article-date">2 days ago</aside>
-                <div class="article-content">
-                    <h3 class="article-title" onclick="window.location.href='inner-information.html'">Eight poignant and odd images of pet cemeteries</h3>
-                    <p class="article-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                        sit amet nisi a libero varius feugiat. Integer ut erat nec justo fringilla gravida. Nulla
-                        facilisi. Sed auctor arcu ut magna faucibus,</p>
-                    <span class="article-author">Author</span>
-                </div>
-                <aside class="article-image">
-                    <img src="/images/information/cat.png" alt="Pet Cemetery Image" onclick="window.location.href='inner-information.html'">
-                </aside>
-            </section>
-        </article> -->
-        
+        <div id="contentSection"></div>
+
         <!-- Pagination -->
         <nav class="pagination">
             <ul>
