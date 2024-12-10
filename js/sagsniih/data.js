@@ -3,7 +3,6 @@ export default class Data {
         this.productUrl = dataUrl;
         this.products = [];
     }
-
     async refreshData() {
         try {
             const result = await fetch(this.productUrl, {
@@ -21,7 +20,7 @@ export default class Data {
             console.log("Fetched data:", productsData); 
 
             const product = productsData?.record?.container;
-
+            console.log(productsData?.record?.container.article)
             if (!product || !product.id) {
                 return new Map(); 
             }

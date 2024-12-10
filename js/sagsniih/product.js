@@ -1,24 +1,26 @@
 export default class Product {
     constructor(prod) {
-        this.id = prod?.id;
+        console.log(prod.id);
+        this.id = prod.id;
         this.name = prod.article.title;
         this.type = prod.article.category;
-        this.size = prod.article.options.sizes.map(size => size.label);
-        this.color = prod.article.options.colors.map(color => color.label);
+        this.size = [prod.article.options.sizes[0].label, prod.article.options.sizes[1].label,prod.article.options.sizes[2].label];
+        this.color = [prod.article.options.colors[0].label,prod.article.options.colors[1].label,prod.article.options.colors[2].label];
         this.origin = prod.article.details.origin;
         this.certification = prod.article.details.certification;
         this.mainpic = prod.mainImage.src;
-        this.subpic = prod.thumbnails.map(thumbnail => thumbnail.src);
+        this.subpic = [prod.thumbnails[0].src,prod.thumbnails[1].src,prod.thumbnails[2].src,prod.thumbnails[3].src];
         this.category = prod.article.category;
         this.age = [prod.article.details.manufactureDate, prod.article.details.expiryDate];
         this.price = {
             currency: prod.article.price.currency,
             amount: prod.article.price.amount
         };
+        
     }
     render() {
         return `<div class="container">
-            <ul class="jagsaah">
+             <ul class="jagsaah">
                 <li id="neg"><img src="${this.subpic[0]}" alt="Thumbnail 1"></li>
                 <li id="xoyr"><img src="${this.subpic[1]}" alt="Thumbnail 2"></li>
                 <li id="gurav"><img src="${this.subpic[2]}" alt="Thumbnail 3"></li>
@@ -58,7 +60,6 @@ export default class Product {
             </article>
         </div>`;
     }
-
     // Энд 'add-to-cart' товчлуур дээр сонголтуудыг авах үйлдлийг хийж байна
     setupAddToCartButton() {
         document.getElementById('cart-button').addEventListener('click', function () {
@@ -82,8 +83,6 @@ export default class Product {
             app.refreshCart();
         });
     }
-
-
     renderCompact() {
         return `<section class="product">
             <aside id="egnee">
