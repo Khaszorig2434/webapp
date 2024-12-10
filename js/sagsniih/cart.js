@@ -9,8 +9,8 @@ export default class Cart {
         let sagsString = ``;
         if (this.cart.size > 0)
             this.cart.forEach(
-                (value, key) =>
-                sagsString += `<div style="width:40ch;display:flex;flex-direction:row; justify-content:space-between;"><div>${(new Product(app.products.get(key))).renderCompact()} </div><div>${value}</div></div>`
+                (key) =>
+                sagsString += `<div ${(new Product(app.products.get(key))).renderCompact()}</div>`
             );
         return sagsString;
     }
