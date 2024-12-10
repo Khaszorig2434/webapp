@@ -1,20 +1,22 @@
 export default class Product {
     constructor(prod) {
-        this.id = prod?.id;
+        console.log(prod.id);
+        this.id = prod.id;
         this.name = prod.article.title;
         this.type = prod.article.category;
-        this.size = prod.article.options.sizes.map(size => size.label);
-        this.color = prod.article.options.colors.map(color => color.label);
+        this.size = [prod.article.options.sizes[0].label, prod.article.options.sizes[1].label,prod.article.options.sizes[2].label];
+        this.color = [prod.article.options.colors[0].label,prod.article.options.colors[1].label,prod.article.options.colors[2].label];
         this.origin = prod.article.details.origin;
         this.certification = prod.article.details.certification;
         this.mainpic = prod.mainImage.src;
-        this.subpic = prod.thumbnails.map(thumbnail => thumbnail.src);
+        this.subpic = [prod.thumbnails[0].src,prod.thumbnails[1].src,prod.thumbnails[2].src,prod.thumbnails[3].src];
         this.category = prod.article.category;
         this.age = [prod.article.details.manufactureDate, prod.article.details.expiryDate];
         this.price = {
             currency: prod.article.price.currency,
             amount: prod.article.price.amount
         };
+        
     }
     render() {
         return `<div class="container">
@@ -77,7 +79,7 @@ export default class Product {
             const color = colorElement.value;
 
             // app.cart.addProduct болон app.refreshCart функцуудыг дуудна
-            app.cart.addProduct(this.id, size, color);
+            app.cart.addProduct(this.id);
             app.refreshCart();
         });
     }

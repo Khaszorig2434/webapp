@@ -20,7 +20,7 @@ export default class Data {
             console.log("Fetched data:", productsData); 
 
             const product = productsData?.record?.container;
-
+            console.log(productsData?.record?.container.article)
             if (!product || !product.id) {
                 return new Map(); 
             }
