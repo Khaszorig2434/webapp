@@ -10,7 +10,7 @@ export default class Cart {
         if (this.cart.size > 0)
             this.cart.forEach(
                 (key) =>
-                sagsString += `<div>${(new Product(app.products.get(key))).renderCompact()} </div>`
+                sagsString += `<div ${(new Product(app.products.get(key))).renderCompact()}</div>`
             );
         return sagsString;
     }
