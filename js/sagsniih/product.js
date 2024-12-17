@@ -15,8 +15,7 @@ export default class Product {
         this.price = {
             currency: prod.article.price.currency,
             amount: prod.article.price.amount
-        };
-        
+        };   
     }
     render() {
         return `<div class="container">
@@ -56,13 +55,13 @@ export default class Product {
                 <p id="standart">Баталгаажуулалт: ${this.certification}</p>
                 <span id="currency">${this.price.currency}</span><span id="total">${this.price.amount}</span>
                 <br>
-                <button id="pay-button">🛒Сагсанд нэмэх🛒</button>
+                <button id="cart-button">🛒Сагсанд нэмэх🛒</button>
             </article>
         </div>`;
     }
     // Энд 'add-to-cart' товчлуур дээр сонголтуудыг авах үйлдлийг хийж байна
     setupAddToCartButton() {
-        document.getElementById('pay-button').addEventListener('click', function () {
+        document.getElementById('cart-button').addEventListener('click', function () {
             console.log("Clicked.");
             // Зөвхөн сонгосон утгуудыг авах
             const sizeElement = document.querySelector('input[name="choice_size"]:checked');
@@ -78,6 +77,7 @@ export default class Product {
             }
             const color = colorElement.value;
 
+            document.getElementById("my-cart").addProduct();
             // app.cart.addProduct болон app.refreshCart функцуудыг дуудна
             app.cart.addProduct(this.id);
             app.refreshCart();
@@ -90,7 +90,7 @@ export default class Product {
                 <button class=delete-btn>❌</button>
             </aside>
             <a href="oneProduct.html">
-                <img src="images/negfood.png" alt="product">
+                <img src=${this.mainpic} alt="product">
             </a>
             <div>
                 <button id="increment">➕</button>
