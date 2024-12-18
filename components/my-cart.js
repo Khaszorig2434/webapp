@@ -3,7 +3,7 @@ class MyCart extends HTMLElement {
         super();
         this.sagsniiToo=0;
         this.dialog = null;  // Динамикаар үүсгэх диалог
-        this.backdrop = null; // Бүдэглэх давхарга
+        this.backdrop = null; // Бүдэглэх давхарга   
     }
     render(){
         this.innerHTML = `
@@ -40,6 +40,14 @@ class MyCart extends HTMLElement {
         if (!this.dialog) {
             this.dialog = document.createElement("div");
             this.dialog.classList.add("cartDialog");
+
+            // const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            // const itemElements = cartItems.map(item => `
+            //     <p>${item.name} - ${item.size} - ${item.color}</p>
+            // `).join('');
+
+            // const totalAmount = cartItems.reduce((sum, item) => sum + item.price.amount, 0);
+
             this.dialog.innerHTML = `
                 <article>
                     <h1>🛒 ${this.sagsniiToo} Бүтээгдэхүүн</h1>

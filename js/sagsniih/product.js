@@ -62,24 +62,41 @@ export default class Product {
     
     // Энд 'add-to-cart' товчлуур дээр сонголтуудыг авах үйлдлийг хийж байна
     setupAddToCartButton() {
-        document.getElementById('cart-button').addEventListener('click', function () {
+        document.getElementById('cart-button').addEventListener('click', () => {
             console.log("Clicked.");
+            
             // Зөвхөн сонгосон утгуудыг авах
             const sizeElement = document.querySelector('input[name="choice_size"]:checked');
             if (!sizeElement) {
                 alert("Хэмжээг сонгоно уу.");
                 return;
             }
-            const size = sizeElement.value;
+            const size = sizeElement.nextElementSibling.textContent; // Хэмжээний текстийг авах
+            
             const colorElement = document.querySelector('input[name="choice_color"]:checked');
             if (!colorElement) {
                 alert("Өнгөө сонгоно уу.");
                 return;
             }
-            const color = colorElement.value;
-
-            document.getElementById("my-cart").addProduct();
-            // app.cart.addProduct болон app.refreshCart функцуудыг дуудна
+            const color = colorElement.nextElementSibling.textContent; // Өнгийн текстийг авах
+            
+            // Бүтээгдэхүүний мэдээллийг localStorage-д хадгалах
+            const productData = {
+                id: this.id,
+                name: this.name,
+                size: size,
+                color: color,
+                price: this.price
+            };
+    
+            // Хадгалах
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            cartItems.push(productData);
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+    
+            // Сагсанд нэмэх функц
+            document.getElementById("my-cart").addProduct(this.id);
+            alert("buteegdehuun nemlee");
             app.cart.addProduct(this.id);
             app.refreshCart();
         });
