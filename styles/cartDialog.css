@@ -1,0 +1,39 @@
+
+/* ******Нийт**********/
+:root {
+    --color-petty: #f4202e;
+    --color-grey:#aaaaaa;
+    --color-black:#333333;
+    --color-white: #fbf8f1;
+    --color-dark: #dcd7cc;
+    --shadow-1: 0rem 0.25rem 0.25rem var(--color-grey);
+    --shadow-2: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --product-border: 2px solid var(--color-petty);
+    --input-border:1px solid var(--color-black);
+    --default-border-radius: 1rem;
+    --border-radius: 0.5rem;
+    --color-body: var(--color-white);
+    --font: "Caveat", cursive;
+  }
+/* Бүдэглэх давхаргын стиль */
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3); /* Хагас тунгалаг хар өнгө */
+    z-index: 999; /* Диалогын ард харагдана */
+    display: none; /* Эхэндээ харагдахгүй */
+}
+
+/* Диалогын стиль */
+.cartDialog {
+    width: 400px;
+    background-color:var(--color-white);
+    color: black;
+    position: fixed;
+    inset: 0 0 0 auto;
+    display: none;
+    grid-template-rows: 70px 1fr 70px;
+    z-index: 1000;
+    height: 100vh;
+    overflow-y: auto;
+}

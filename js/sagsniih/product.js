@@ -19,7 +19,7 @@ export default class Product {
     }
     render() {
         return `<div class="container">
-             <ul class="jagsaah">
+            <ul class="jagsaah">
                 <li id="neg"><img src="${this.subpic[0]}" alt="Thumbnail 1"></li>
                 <li id="xoyr"><img src="${this.subpic[1]}" alt="Thumbnail 2"></li>
                 <li id="gurav"><img src="${this.subpic[2]}" alt="Thumbnail 3"></li>
@@ -35,7 +35,7 @@ export default class Product {
                     <pre>Хэмжээ</pre>
                     <form>
                         ${this.size.map((size, index) => `
-                            <input type="radio" name="choice_size" id="size${index + 1}">
+                            <input type="radio" name="choice_size" id="size${index + 1}" ${index === 0 ? 'checked' : ''}>
                             <label for="size${index + 1}">${size}</label>
                         `).join('')}
                     </form>
@@ -44,7 +44,7 @@ export default class Product {
                     <pre>Өнгө</pre>
                     <form>
                         ${this.color.map((color, index) => `
-                            <input type="radio" name="choice_color" id="color${index + 1}">
+                            <input type="radio" name="choice_color" id="color${index + 1}" ${index === 0 ? 'checked' : ''}>
                             <label for="color${index + 1}">${color}</label>
                         `).join('')}
                     </form>
@@ -59,6 +59,7 @@ export default class Product {
             </article>
         </div>`;
     }
+    
     // Энд 'add-to-cart' товчлуур дээр сонголтуудыг авах үйлдлийг хийж байна
     setupAddToCartButton() {
         document.getElementById('cart-button').addEventListener('click', function () {

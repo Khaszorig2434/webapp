@@ -51,59 +51,88 @@ a{
 
 
   /* Толгой хэсэг */
-  header{
-    background-color: var(--color-petty);
-    display:inline-flex;
-    justify-content:flex-start;
-    align-items: center;
-    padding: 0.18rem 8.5rem;
-    color:white;
-    font-family: 'Buyan Light';
-  }
-  
-  header input[type="search"] {
-    padding: 1rem;
-    border-radius: var(--default-border-radius);
+  header {
     
-    border: none;
-    width: 37.5rem;
-    height: 1.875rem;
-    margin-left: 4.375rem;
-    margin-right:31.25rem;
-    font-family: 'Buyan Light';
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color:var(--color-petty);
+    border-bottom: 1px solid #ddd;
+    padding: 0rem 8.5rem;
+}
 
-  }
-  header img {
+header #logo {
     cursor: pointer;
-  }
-  header nav button {
-    cursor: pointer;
-  }
-  header button {
+}
+
+header input[type="search"] {
+    width: 50%; 
+    padding: 0.5rem;
+    margin-left: 2rem;
+    border-radius: var(--default-border-radius);
+    border: none;
+    font-size: 1rem;
+    justify-self: start; 
+}
+
+header aside {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+header aside button {
     background: none;
     border: none;
-    color: #fff;
-  }
-  nav{
-    padding:0rem 13.75rem;
-    color:var(--color-white);
-    display: inline-flex;
-    font-family: 'Buyan Light';
-  }
-  nav ul {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color:var(--color-white)
+}
+
+header nav button svg {
+    width: 24px;
+    height: 24px;
+}
+
+header my-cart {
+    display: inline-block;
+}
+
+/* Доод талын навигацийн цэс */
+nav {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0.5rem 8.5rem;
+    border-top: 1px solid #ddd;
+}
+
+nav ul {
+    display: flex;
     list-style: none;
-    display: inline-flex;
-    gap: 2rem;
-  }
-  nav ul li a {
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    font-size: 1rem;
+}
+
+nav ul li a {
     text-decoration: none;
     color:black;
-    font-size: 1rem;
-  }
-  nav ul li a:hover, a:active {
-    text-decoration: none;
-    color:var(--color-petty)
-  }
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--color-petty);
+}
+
   footer{
     background-color: var(--color-petty);
     display:flex;
@@ -230,25 +259,31 @@ a{
   font-size: 1.5rem;
 }
 
-.nuur{
-  position: relative;
+.nuur {
+  display: flex;
+  justify-content: center; /* Хэвтээ тэнхлэгт төвд байрлуулна */
+  align-items: center; /* Босоо тэнхлэгт төвд байрлуулна */
   text-align: center;
-  padding:0rem 8.5rem;
+  padding: 0rem 8.5rem; /* Толгой хэсгийн padding-тай тааруулсан */
+  position: relative; /* .pages-г харгалзан байрлуулахын тулд position өгсөн */
 }
 
-#dynamicImage{
-  width: 93.75rem;
-  height: auto;
+#dynamicImage {
+  width: 100%; /* Дэлгэцийн хэмжээнд тохирсон *//* Хэт өргөн дэлгэц дээр хязгаарлаж өгөв */
+  height: auto; /* Харьцааг алдахгүй хадгална */
   border-radius: var(--default-border-radius);
 }
+
 .pages {
   position: absolute;
-  bottom: 10px; /* Зургийн дээд хэсгээс 10px доош */
+  bottom: 10px; /* Зургийн доороос 10px зайд байрлана */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 10px; /* Цэгүүдийн хоорондын зай */
 }
+
+
 
 .dot {
   height: 15px;
@@ -264,7 +299,7 @@ a{
   background-color: #717171;
 }
 
-.product {
+.product{
     display: inline-block;
     width: 11%;
     text-align: center;
@@ -487,7 +522,7 @@ fieldset{
   padding: 0.2rem;
 }
 .filter {
-  width:20%;
+  width:10%;
   background-color: #ddd;
   padding: 0.3rem 0.6rem;
   margin: 2px 2.2rem 0.3rem 5.5rem;

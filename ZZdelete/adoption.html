@@ -1,153 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adoption</title>
-    <link rel="stylesheet" href="styles/adoption_styles.css">
-    <script src="/components/my-footer.js" type="module"></script>
-    <script src="/components/my-header.js" type="module"></script>
+    <meta name="description" content="Bla bla">
+    <link rel="stylesheet" href="../styles/prod.css">
+    <link rel="stylesheet" href="../styles/cartDialog.css">
+    <script src="/components/my-footer.js" type="module" defer></script>
+    <script src="/components/my-header.js" type="module" defer></script>
+    <title>One product</title>
 </head>
+
 <body>
-    <header>
-        <!-- Header section // Толгой хэсэг лого, хайлт , хэрэглэгч , сагс -->
-        <img src="assets/images/logo.png" alt="Компаний лого" width="80">
-        <input type="search" name="search" id="haih" placeholder="Бүтээгдэхүүн хайх">
-        <nav>
-            <button aria-label="хэрэглэгч хэсэг">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-user">
-                    <title>Хэрэглэгчийн дүрс</title>
-                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                </svg>
-            </button>
-            <button aria-label="Худалдааны сагс">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-shopping-cart">
-                    <title>Хэрэглэгчийн сагс</title>
-                    <circle cx="8" cy="21" r="1" />
-                    <circle cx="19" cy="21" r="1" />
-                    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-                </svg>
-            </button>
-        </nav>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Нүүр</a></li>
-                <li><a href="products.html">Бүтээгдэхүүн</a></li>
-                <li><a href="adoption.html">Үрчилгээ</a></li>
-                <li><a href="information.html">Мэдээлэл</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="container">
-        <aside class="sidebar">
-            <!-- Urguj avah amitnii filteruud -->
-            <div class="filters">
-                <section class="filter-group">
-                    <h3>Keywords</h3>
-                    <!-- Tulhuur ugs -->
-                    <button class="filter">Spring</button>
-                    <button class="filter">Smart</button>
-                    <button class="filter">Modern</button><br>
-                </section>
-                
-                <!-- Description tai checkbox -->
-                <section class="filter-group">
-                    <label for="adoption_label1">
-                        <input type="checkbox" id="adoption_label1" name="adoption_label1" value="Label1">
-                        Label1
-                    </label>
-                    <p class="description">Description</p>
-
-                    <label for="adoption_label1">
-                        <input type="checkbox" id="adoption_label1" name="adoption_label1" value="Label1">
-                        Label2
-                    </label>
-                    <p class="description">Description</p>
-
-                    <label for="adoption_label1">
-                        <input type="checkbox" id="adoption_label1" name="adoption_label1" value="Label1">
-                        Label3
-                    </label>
-                    <p class="description">Description</p>
-                </section>
-
-                <section class="filter-group">
-                    <h3>Price</h3>
-                    <input type="range" min="0" max="100" value="50" class="slider">
-                </section>
-                
-                <section class="filter-group">
-                    <h3>Color</h3>
-                    <label for="adoption_color1"><input type="checkbox" id="adoption_color1" name="adoption_color1" value="Label1"> Label1</label><br>
-                    <label for="adoption_color2"><input type="checkbox" id="adoption_color2" name="adoption_color2" value="Label2"> Label2</label><br>
-                    <label for="adoption_color3"><input type="checkbox" id="adoption_color3" name="adoption_color3" value="Label3"> Label3</label><br>
-                </section>
-
-                <section class="filter-group">
-                    <h3>Size</h3>
-                    <label for="adoption_color1"><input type="checkbox" id="adoption_color1" name="adoption_color1" value="Label1"> Label1</label><br>
-                    <label for="adoption_color2"><input type="checkbox" id="adoption_color2" name="adoption_color2" value="Label2"> Label2</label><br>
-                    <label for="adoption_color3"><input type="checkbox" id="adoption_color3" name="adoption_color3" value="Label3"> Label3</label><br>
-                </section>
-            </div>
+    
+    <!-- Header -->
+    <my-header></my-header>
+    <article class="cartDialog">
+        <h1>🛒 ${this.sagsniiToo} Бүтээгдэхүүн</h1>
+        <aside class="listbtn">
+            <button class="closee">Хаах</button>
+            <button class="checkout"><a href="cart.html">Захиалах</a></button>
         </aside>
-        <main>
-            <input type="text" placeholder="Search" class="search-box">
-            <section class="product-grid"> 
-                <!-- Repeat this block for each product -->
-                <article class="product-card">
-                    <img src="https://placehold.co/600x400" alt="Product" class="product-image">
-                    <aside class="product-info">
-                        <h4>Product Name</h4>
-                        <p>$0</p>
-                    </aside>
-                </article>
-                <article class="product-card">
-                    <img src="https://placehold.co/600x400" alt="Product" class="product-image">
-                    <aside class="product-info">
-                        <h4>Text</h4>
-                        <p>$0</p>
-                    </aside>
-                </article>
-            </section>
-            <!-- End of product block -->
-        </main>
-    </section>
+    </article>
+    <h3>hjsfk</h3>
 
-    <footer>
-        <section class="footer-top">
-            <img src="/assets/images/logo.png" alt="logo" width = "55">
-            <span>@Зохиогчийн эрх</span>
-        </section>
-        <!-- Website structure -->
-        <nav>
-            <p>Сайтын бүтэц</p>
-            <ul>
-                <li><a href="homepage.html">Нүүр</a></li>
-                <li><a href="products.html">Бүтээгдэхүүн</a></li>
-                <li><a href="adoption.html">Үрчилгээ</a></li>
-                <li><a href="information.html">Мэдээлэл</a></li>
-            </ul>
-        </nav>
-        <!-- Social media,contact us -->
-        <nav>
-            <p>Холбоо барих</p>
-            <address>
-                <ul>
-                    <li><a href="tel:">+976 89899090</a></li>
-                    <li><a href="mailto:">b.....@gmail.com</a></li>
-                    <li><a href="http://fb.com">b.....</a></li>
-                </ul>
-            </address>
-        </nav>
-        
-    </footer>
+    <!-- Сагсны диалог -->
+    <dialog class="cartDialog">
+        <h1>🛒 Бүтээгдэхүүн</h1>
+        <aside class="listbtn">
+            <button class="closee">CLOSE</button>
+            <a href="cart.html" class="checkout">Захиалах</a>
+        </aside>
+    </dialog>
+
+    <button id="open-dialog" style="position: fixed; top: 20px; left: 20px;">
+        Сагсыг нээх
+    </button>
+
+    <!-- Footer -->
+    <my-footer></my-footer>
+
+    <script>
+        // Диалогыг нээж хаах логик
+        const cartDialog = document.querySelector(".cartDialog");
+        const closeDialogButton = document.querySelector(".closee");
+        const openDialogButton = document.querySelector("#open-dialog");
+
+        // Диалогыг нээх товч
+        openDialogButton.addEventListener("click", () => {
+            if (cartDialog) {
+                cartDialog.showModal(); // Диалогыг харуулна
+            }
+        });
+
+        // Диалогыг хаах товч
+        if (closeDialogButton) {
+            closeDialogButton.addEventListener("click", () => {
+                cartDialog.close(); // Диалогыг хаана
+            });
+        }
+
+
+            // Энд 'add-to-cart' товчлуур дээр сонголтуудыг авах үйлдлийг хийж байна
+    setupAddToCartButton() {
+        document.getElementById('cart-button').addEventListener('click', function () {
+            console.log("Clicked.");
+    
+            // Зөвхөн сонгосон утгуудыг авах
+            const sizeElement = document.querySelector('input[name="choice_size"]:checked');
+            if (!sizeElement) {
+                alert("Хэмжээг сонгоно уу.");
+                return;
+            }
+            const size = sizeElement.nextElementSibling.innerText;  // Хэмжээний нэрийг авах
+    
+            const colorElement = document.querySelector('input[name="choice_color"]:checked');
+            if (!colorElement) {
+                alert("Өнгөө сонгоно уу.");
+                return;
+            }
+            const color = colorElement.nextElementSibling.innerText;  // Өнгөний нэрийг авах
+            
+            // Бүтээгдэхүүний мэдээллийг авах
+            const productData = {
+                id: this.id,
+                name: this.name,
+                size: size,
+                color: color,
+                price: this.price,
+                mainpic: this.mainpic,
+                subpic: this.subpic
+            };
+    
+            // localStorage-д бүтээгдэхүүний мэдээллийг хадгалах
+            const cartData = JSON.parse(localStorage.getItem('cart')) || []; // Хэрэв cart үүсээгүй бол хоосон массив авна
+            cartData.push(productData); // Бүтээгдэхүүн нэмэх
+            localStorage.setItem('cart', JSON.stringify(cartData)); // localStorage-д хадгалах
+
+            document.getElementById("my-cart").addProduct();
+            // my-cart компонентын addProduct функц дээр localStorage-д хадгалагдсан өгөгдлийг ашиглах
+            document.getElementById("my-cart").addProduct(productData);
+            alert('Бүтээгдэхүүн сагсанд нэмэгдлээ.');
+    
+            // app.cart.addProduct болон app.refreshCart функцуудыг дуудна
+            app.cart.addProduct(this.id);
+            app.refreshCart();
+        });
+    }
+    </script>
+
+
+
+
 </body>
+
 </html>
