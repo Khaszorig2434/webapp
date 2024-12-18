@@ -7,7 +7,8 @@ class MyCart extends HTMLElement {
     }
     render(){
         this.innerHTML = `
-            <aside class="cart-container">
+            <aside class="cart-icon">
+                <div class="cart-count">${this.sagsniiToo}</div>
                 <button class="cartButton" aria-label="Худалдааны сагс">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -17,7 +18,6 @@ class MyCart extends HTMLElement {
                         <circle cx="19" cy="21" r="1" />
                         <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
                     </svg>
-                    <div>${this.sagsniiToo}</div>
                 </button>
             </aside>
         `;
@@ -43,8 +43,8 @@ class MyCart extends HTMLElement {
             this.dialog.innerHTML = `
                 <article>
                     <h1>🛒 ${this.sagsniiToo} Бүтээгдэхүүн</h1>
-                    <aside>
-                        <pre></pre>
+                    <aside class=listcart>
+                        <pre>Нийт дүн: 0₮</pre>
                     </aside>
                     <aside class="listbtn">
                         <button class="closee">Хаах</button>
