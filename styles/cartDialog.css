@@ -101,3 +101,76 @@ svg {
     padding: 2px;
     transition: background-color 0.06s;
 }
+
+
+
+.loginDialog {
+    position: fixed;
+    width: 30%;
+    padding: 2.5rem;
+    border-radius: var(--default-border-radius);
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+    font-family: "Caveat", cursive;
+    top: 34%; /* Дэлгэцийн өндрийн 50% дээр байрлана */
+    left: 50%; /* Дэлгэцийн өргөний 50% дээр байрлана */
+    transform: translate(-50%, -50%); /* Төв рүү шилжүүлнэ */
+    display: none; /* Эхэндээ харагдахгүй */
+    z-index: 1000;
+    height: auto;
+    overflow-y: auto;
+}
+
+.login-header {
+    display: flex;
+     /* Босоо төвлөрүүлэлт */
+    justify-content: flex-start; /* Зураг болон текстийн хоорондох зайг тэгшитгэнэ */
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.loginDialog h1{
+    color: linear-gradient(90deg, #f66c49, #f8b785);
+}
+.modal-body input,
+.modal-body textarea,
+.modal-body select,
+.modal-body button{
+    font-family: "Caveat", cursive;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.modal-body a{
+    font-size: 0.8rem;
+    padding: 0.5rem;
+}
+.modal-body p {
+    display: flex; /* Flexbox-г эцэг элементийг дээр нэмнэ */
+    justify-content: center; /* Элементийг голд төвлөрүүлнэ */
+}
+
+.modal-body button{
+    background-color: var(--color-petty);
+}
+.modal-body button a{
+    color: white;
+    font-size: 1.2rem;
+}
+
+.login-footer {
+    display:inline-flex;
+     /* Босоо төвлөрүүлэлт */
+    justify-content: flex-start; /* Зураг болон текстийн хоорондох зайг тэгшитгэнэ */
+    align-items: center;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.login-footer a{
+    font-size: 1rem;
+}
