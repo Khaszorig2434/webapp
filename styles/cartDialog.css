@@ -25,6 +25,7 @@
 }
 
 .cartDialog {
+    font-family: "Caveat", cursive;
     width: 400px;
     background-color: var(--color-white);
     color: black;
@@ -51,28 +52,24 @@
 .cartDialog .listbtn {
     grid-area: footer; /* Footer талбарт байрлана */
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 багана */
     gap: 1rem;
     padding: 10px;
 }
 
 
-
-.cartDialog .listbtn .closee {
-    background-color: red;
-    padding:0.5rem;
-    color: white;
-    border:none;
-    border-radius: var(--border-radius);
-}
-
 .cartDialog .listbtn .checkout {
-    background-color: green;
+    background: linear-gradient(90deg, #f66c49, #f8b785);
     padding:0.5rem;
     text-align: center;
-    color: white;
+    color: black;
     border-radius: var(--border-radius);
 } 
+
+
+  
+  .cartDialog .listbtn .checkout:hover {
+    background: linear-gradient(90deg, #f8b785, #f66c49); /* Хулганы даралттай үед эсрэг чиглэлд */
+  }
 
 
 
@@ -130,9 +127,6 @@ svg {
     font-weight: 500;
 }
 
-.loginDialog h1{
-    color: linear-gradient(90deg, #f66c49, #f8b785);
-}
 .modal-body input,
 .modal-body textarea,
 .modal-body select,
@@ -155,10 +149,11 @@ svg {
 }
 
 .modal-body button{
-    background-color: var(--color-petty);
+    background: linear-gradient(90deg, #f66c49, #f8b785);
 }
+
 .modal-body button a{
-    color: white;
+    color: black;
     font-size: 1.2rem;
 }
 
