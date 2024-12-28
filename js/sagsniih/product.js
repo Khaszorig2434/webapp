@@ -10,7 +10,6 @@ export default class Product {
         this.certification = prod.article.details.certification;
         this.mainpic = prod.mainImage.src;
         this.subpic = [prod.thumbnails[0].src,prod.thumbnails[1].src,prod.thumbnails[2].src,prod.thumbnails[3].src];
-        this.category = prod.article.category;
         this.age = [prod.article.details.manufactureDate, prod.article.details.expiryDate];
         this.price = {
             currency: prod.article.price.currency,
