@@ -7,7 +7,7 @@ class MyFooter extends HTMLElement {
     #render(){
         this.innerHTML = `
         <footer>
-        <img src="/assets/images/clean_white_logo.png" alt="logo" width="55">
+        <img src="images/clean_white_logo.png" alt="logo" width="55">
 
         <!-- Website structure -->
         <aside>

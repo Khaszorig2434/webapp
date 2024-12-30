@@ -10,7 +10,7 @@ class MyHeader extends HTMLElement {
         this.innerHTML = `
         <header>
         <!-- Header section // Толгой хэсэг лого, хайлт , хэрэглэгч , сагс -->
-        <img id="logo" src="assets/images/clean_white_logo.png" alt="Компаний лого" width="80" onclick="window.location.href='index.html'">
+        <img id="logo" src="images/clean_white_logo.png" alt="Компаний лого" width="80" onclick="window.location.href='index.html'">
         <input type="search" name="search" id="haih" placeholder="Бүтээгдэхүүн хайх ">
         <aside>
             <my-login></my-login>

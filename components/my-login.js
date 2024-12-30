@@ -40,7 +40,7 @@ class MyLogin extends HTMLElement {
             this.dialog.innerHTML = `
                 <aside>
                     <div class="login-header">Тавтай морил
-                        <img src="assets/images/logo.png" alt="logo"
+                        <img src="images/logo.png" alt="logo"
                             style="width: 3rem; height: 3.2rem; margin-left: 15rem">
                     </div>
                     <p>Шинэ, шилдэг бүхнийг хамгийн түрүүнд...</p>
