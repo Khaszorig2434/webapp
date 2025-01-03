@@ -7,6 +7,7 @@ class InformationComment extends HTMLElement {
     connectedCallback() {
         this.body = this.getAttribute("body") || "Xoosn";
         this.likesAmount = this.getAttribute("likes") || 0;
+        this.year = this.getAttribute("year") || 1997;
         this.#render();
         
     }
@@ -14,7 +15,7 @@ class InformationComment extends HTMLElement {
         this.innerHTML =
         `<article class="comment ${this.liked ? 'liked' : ''}">
                 <h4 class="comment-body">${this.body}</h4>
-                <p class="comment-date">2024.12.03</p>
+                <p class="comment-date">${this.year}</p>
                 <num-likes class="num-likes" likes="${this.likesAmount}"></num-likes>
             </article>`;
     }
