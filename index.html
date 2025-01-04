@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bla bla">
     <link rel="stylesheet" href="/styles/prod.css">
-    <link rel="stylesheet" href="/styles/media.css">
     <link rel="stylesheet" href="./styles/cartDialog.css">
+    <link rel="preload" as="image" href="images/nuur.avif">
+    <link rel="preload" as="image" href="images/nuur1.avif">
+    <link rel="preload" as="image" href="images/nuur3.avif">
+    <link rel="preload" as="image" href="images/negfood.avif">
+    <link rel="preload" as="image" href="images/catcat.avif">
     <script src="/components/my-footer.js" type="module"></script>
     <script src="/components/my-header.js" type="module"></script>
     <script src="js/script.js"></script>
@@ -15,9 +19,9 @@
     <title>home</title>
     <script>
         const images = [
-            "images/nuur.png",
-            "images/nuur3.png",
-            "images/nuur1.png"
+            "images/nuur.avif",
+            "images/nuur3.avif",
+            "images/nuur1.avif"
         ];
         let currentIndex = 0;
     
@@ -53,7 +57,7 @@
     <my-header></my-header>
 
         <aside class="nuur">
-            <img id="dynamicImage" src="images/nuur.png" alt="Онцгой бүтээгдэхүүн бүтээгдэхүүн">
+            <img id="dynamicImage" src="images/nuur.avif" alt="Онцгой бүтээгдэхүүн бүтээгдэхүүн" width="600" height="202" loading="eager">
             <div class="pages">
                 <span class="dot active" onclick="changeImageManual(0)"></span>
                 <span class="dot" onclick="changeImageManual(1)"></span>
@@ -79,37 +83,37 @@
                 <section class="product">
                     <h3>Doubly Delicious</h3>
                     <a href="oneProduct.html">
-                        <img src="images/negfood.png" alt="product">
+                        <img src="images/negfood.avif" alt="product">
                     </a>
                 </section>
                 <section class="product">
                     <h3>Doubly Delicious</h3>
                     <a href="oneProduct.html">
-                        <img src="images/negfood.png" alt="product">
+                        <img src="images/negfood.avif" alt="product">
                     </a>
                 </section>
                 <section class="product">
                     <h3>Doubly Delicious</h3>
                     <a href="oneProduct.html">
-                        <img src="images/negfood.png" alt="product">
+                        <img src="images/negfood.avif" alt="product" loading="lazy">
                     </a>
                 </section>
                 <section class="product">
                     <h3>Doubly Delicious</h3>
                     <a href="oneProduct.html">
-                        <img src="images/negfood.png" alt="product">
+                        <img src="images/negfood.avif" alt="product" loading="lazy">
                     </a>
                 </section>
                 <section class="product">
                     <h3>Doubly Delicious</h3>
                     <a href="oneProduct.html">
-                        <img src="images/negfood.png" alt="product">
+                        <img src="images/negfood.avif" alt="product" loading="lazy">
                     </a>
                 </section>
                 <section class="product">
                     <h3>Doubly Delicious</h3>
                     <a href="oneProduct.html">
-                        <img src="images/negfood.png" alt="product">
+                        <img src="images/negfood.avif" alt="product" loading="lazy">
                     </a>
                 </section>
                 <button class="paw1" aria-label="Тэжээвэр амьтны бүтээгдэхүүн нэмж харах">
@@ -142,37 +146,37 @@
                 <section class="product">
                     <h3>Luna</h3>
                     <a href="oneProduct.html">
-                        <img src="./images/catcat.png" alt="product">
+                        <img src="./images/catcat.avif" alt="product" loading="lazy">
                     </a>
                 </section>
                 <section class="product">
                     <h3>Luna</h3>
                     <a href="oneProduct.html">
-                        <img src="./images/catcat.png" alt="product">
+                        <img src="./images/catcat.avif" alt="product" loading="lazy">
                     </a>
                 </section>
                 <section class="product">
                     <h3>Luna</h3>
                     <a href="oneProduct.html">
-                        <img src="./images/catcat.png" alt="product">
+                        <img src="./images/catcat.avif" alt="product" loading="lazy">
                     </a>
                 </section>
                 <section class="product">
                     <h3>Luna</h3>
                     <a href="oneProduct.html">
-                        <img src="./images/catcat.png" alt="product">
+                        <img src="./images/catcat.avif" alt="product" loading="lazy">
                     </a>
                 </section>
                 <section class="product">
                     <h3>Luna</h3>
                     <a href="oneProduct.html">
-                        <img src="./images/catcat.png" alt="product">
+                        <img src="./images/catcat.avif" alt="product" loading="lazy">
                     </a>
                 </section>
                 <section class="product">
                     <h3>Luna</h3>
                     <a href="oneProduct.html">
-                        <img src="./images/catcat.png" alt="product">
+                        <img src="./images/catcat.avif" alt="product" loading="lazy">
                     </a>
                 </section>
                 <button class="paw1" aria-label="Тэжээвэр амьтан нэмж харах">
