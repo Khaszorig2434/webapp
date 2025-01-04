@@ -36,7 +36,7 @@ const server = createServer((req, res) => {
     }
 
     // Images
-    if (url.startsWith('/images/') && (url.endsWith('.png') || url.endsWith('.jpg') || url.endsWith('.jpeg') || url.endsWith('.gif'))) {
+    if (url.startsWith('/images/') && (url.endsWith('.png') || url.endsWith('.jpg') || url.endsWith('.jpeg') || url.endsWith('.gif') || url.endsWith('avif'))) {
         const imagePath = path.join(process.cwd(), url.slice(1));
         fs.readFile(imagePath, (err, data) => {
             if (err) {
@@ -50,6 +50,8 @@ const server = createServer((req, res) => {
                 contentType = 'image/png';
             } else if (ext === '.gif') {
                 contentType = 'image/gif';
+            } else if (ext === ".avif") {
+                contentType = 'image/avif';
             }
             res.writeHead(200, { 'Content-Type': contentType });
             res.end(data);

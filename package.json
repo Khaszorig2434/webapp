@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "express": "^4.21.2",
-    "swagger-ui-express": "^5.0.1"
+    "swagger-ui-express": "^5.0.1",
+    "workbox-precaching": "^7.3.0"
   },
   "name": "webapp",
   "version": "1.0.0",
