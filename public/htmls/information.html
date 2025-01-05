@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/prod.css">
+    <link rel="stylesheet" href="../styles/cartDialog.css">
+    <script src="../components/my-footer.js" type="module"></script>
+    <script src="../components/my-header.js" type="module"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            async function getData() {
+                const url = "https://api.jsonbin.io/v3/b/67579c9cad19ca34f8d87192";
+                const contentSection = document.getElementById("contentSection");
+
+                try {
+                    const response = await fetch(url, {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-Master-Key": "$2a$10$7w3VcmT.B7rqVSCm/vok8u/CpprJpveDoIogwVSLZK9AZoFdxbCLG",
+                        },
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.statusText}`);
+                    }
+
+                    const json = await response.json();
+                    const articles = json.record.articles;
+
+                    articles.forEach((article) => {
+                        const { id, date, content, image } = article;
+
+                        const articleCard = `
+                         <style>
+                            *{
+                            font-family : 'Buyan Light', sans-serif; }
+                        </style>
+                <article id="container">
+                    <section id="article-card">
+                        <aside class="article-date">${date}</aside>
+                        <div class="article-content">
+                            <h3 class="article-title" 
+                                onclick="window.location.href='/inner-information.html?id=${id}'">
+                                ${content.title}
+                            </h3>
+                            <p class="article-description">
+                                ${content.description}
+                            </p>
+                            <span class="article-author">${content.author}</span>
+                        </div>
+                        <aside class="article-image">
+                            <img src="${image.src}" 
+                                alt="${image.alt}" 
+                                onclick="window.location.href='/inner-information.html?id=${id}'">
+                        </aside>
+                    </section>
+                </article>
+                `;
+
+                        contentSection.insertAdjacentHTML("beforeend", articleCard);
+                    });
+
+                    console.log("Successfully fetched data:", articles);
+                } catch (error) {
+                    console.error("Error:", error);
+                }
+            }
+
+            await getData();
+        });
+    </script>
+    <title>Information</title>
+</head>
+
+<body>
+    <my-header></my-header>
+    <main id="content-wrapper">
+        <h1>Мэдээлэл</h1>
+        <hr>
+        <div id="contentSection"></div>
+
+        <!-- Pagination -->
+        <nav class="pagination">
+            <ul>
+                <li id="disabled">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-arrow-left">
+                        <path d="m12 19-7-7 7-7" />
+                        <path d="M19 12H5" />
+                    </svg>
+                    <a href="">Өмнөх</a>
+                </li>
+                <li id="active"><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">...</a></li>
+                <li><a href="">67</a></li>
+                <li><a href="">68</a></li>
+                <li>
+                    Дараах
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-arrow-right">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </li>
+            </ul>
+        </nav>
+    </main>
+
+    <my-footer></my-footer>
+</body>
+
+</html>
