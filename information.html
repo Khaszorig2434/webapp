@@ -11,7 +11,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
             async function getData() {
-                const url = "https://api.jsonbin.io/v3/b/67579c9cad19ca34f8d87192";
+                const url = "http://localhost:3000/information";
                 const contentSection = document.getElementById("contentSection");
 
                 try {
@@ -19,7 +19,6 @@
                         method: "GET",
                         headers: {
                             "Content-Type": "application/json",
-                            "X-Master-Key": "$2a$10$7w3VcmT.B7rqVSCm/vok8u/CpprJpveDoIogwVSLZK9AZoFdxbCLG",
                         },
                     });
 
@@ -33,7 +32,8 @@
                     articles.forEach((article) => {
                         const { id, date, content, image } = article;
 
-                        const articleCard = `
+                        const articleCard =
+                            `
                          <style>
                             *{
                             font-family : 'Buyan Light', sans-serif; }
@@ -58,7 +58,8 @@
                         </aside>
                     </section>
                 </article>
-                `;
+                `
+                            ;
 
                         contentSection.insertAdjacentHTML("beforeend", articleCard);
                     });
@@ -68,7 +69,6 @@
                     console.error("Error:", error);
                 }
             }
-
             await getData();
         });
     </script>

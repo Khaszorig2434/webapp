@@ -1,5 +1,5 @@
 
-import Product from "./product.js";
+import Product from "./product.js"
 import Cart, { count as sagsandBaigaaBaraaniiToo} from "./cart.js";
 import Data from "./data.js";
 
