@@ -7,7 +7,7 @@ const server = createServer((req, res) => {
 
     // CSS
     if (url.startsWith('/styles/') && url.endsWith('.css')) {
-        const cssPath = path.join(process.cwd(), url.slice(1));
+        const cssPath = path.join(process.cwd(), 'public', 'styles', 'prod.css');
         fs.readFile(cssPath, (err, data) => {
             if (err) {
                 res.writeHead(404, { 'Content-Type': 'text/plain' });
@@ -37,7 +37,7 @@ const server = createServer((req, res) => {
 
     // Images
     if (url.startsWith('/images/') && (url.endsWith('.png') || url.endsWith('.jpg') || url.endsWith('.jpeg') || url.endsWith('.gif') || url.endsWith('avif'))) {
-        const imagePath = path.join(process.cwd(), url.slice(1));
+        const imagePath = path.join(process.cwd(), 'public', 'images', url.slice(8));
         fs.readFile(imagePath, (err, data) => {
             if (err) {
                 res.writeHead(404, { 'Content-Type': 'text/plain' });
@@ -82,29 +82,29 @@ const server = createServer((req, res) => {
 
         console.log(`${id}`); 
 
-        filePath = path.join(process.cwd(), 'inner-information.html');
+        filePath = path.join(process.cwd(),'public', 'htmls', 'inner-information.html');
     } else {
         switch (url) {
             case '/information.html':
-                filePath = path.join(process.cwd(), 'information.html');
+                filePath = path.join(process.cwd(), 'public', 'htmls', 'information.html');
                 break;
             case '/oneProduct.html':
-                filePath = path.join(process.cwd(), 'oneProduct.html');
+                filePath = path.join(process.cwd(), 'public', 'htmls', 'oneProduct.html');
                 break;
             case '/products.html':
-                filePath = path.join(process.cwd(), 'oneProduct.html');
+                filePath = path.join(process.cwd(), 'public', 'htmls', 'oneProduct.html');
                 break;
             case '/test.html':
-                filePath = path.join(process.cwd(), 'test.html');
+                filePath = path.join(process.cwd(), 'public', 'htmls', 'test.html');
                 break;
             case '/turshilt.html':
-                filePath = path.join(process.cwd(), 'turshilt.html');
+                filePath = path.join(process.cwd(), 'public', 'htmls', 'turshilt.html');
                 break;
             case '/user.html':
-                filePath = path.join(process.cwd(), 'user.html');
+                filePath = path.join(process.cwd(), 'public', 'htmls', 'user.html');
                 break;
             default:
-                filePath = path.join(process.cwd(), 'index.html');
+                filePath = path.join(process.cwd(), 'public', 'htmls', 'index.html');
                 break;
         }
     }
