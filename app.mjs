@@ -184,9 +184,47 @@ const swaggerDocument = {
                 },
             },
         },
+        "/adoptions": {
+            post: {
+                summary: "Add a new adoption information",
+                requestBody: {
+                    content: {
+                        "application/json": {
+                            schema: {
+                                type: "object",
+                                properties: {
+                                    name: { type: "string", example: "Example Adoption" },
+                                    factory: { type: "string", example: "Havchaarik" },
+                                    age: { type: "integer", example: 3 },
+                                    sex: { type: "char", example: "F" },
+                                    type: { type: "string", example: "type1" },
+                                    details: { type: "text", example: "Good dog. i love dog." },
+                                    phone: { type: "number", example: 89259999 },
+                                    image: { type: "text", format: "url", example: "https://example.com/image1.jpg" },
+                                    text: { type: "text", example:"nohoinii maani zurag"},
+                                },
+                                required: [
+                                    "name",
+                                    "factory",
+                                    "age",
+                                    "sex",
+                                    "type",
+                                    "phone",
+                                    "image",
+                                ],
+                            },
+                        },
+                    },
+                },
+                responses: {
+                    201: { description: "Adoption added successfully" },
+                    400: { description: "Invalid input Adoption" },
+                    500: { description: "Error saving Adoption" },
+                },
+            },
+        },
     },
 };
-
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // POST API: Бүтээгдэхүүний өгөгдлийг хадгалах
@@ -238,6 +276,51 @@ app.post("/products", async (req, res) => {
     }
 });
 
+// POST API: Бүтээгдэхүүний өгөгдлийг хадгалах
+app.post("/adoptions", async (req, res) => {
+    const {
+        name,
+        factory,
+        age,
+        sex,
+        type,
+        details,
+        phone,
+        image,
+        text,
+    } = req.body;
+
+    // Validation
+    if (!name || !factory || !age || !sex|| !type || !image|| !phone) {
+        return res.status(400).json({ error: "Required fields are missing or images are empty." });
+    }
+
+    try {
+        const query = `
+            INSERT INTO adoptions (adopt_name, adopt_factory, age, sex, animal_type, details, phone, image, text) 
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) 
+            RETURNING *`;
+
+        const values = [
+            name,
+            factory,
+            age,
+            sex,
+            type,
+            details,
+            phone,
+            image,
+            text,
+        ];
+
+        const result = await pool.query(query, values);
+        res.status(201).json(result.rows[0]);
+    } catch (err) {
+        console.error("Error saving adoption:", err.message);
+        res.status(500).json({ error: "Failed to add adoption" });
+    }
+});
+
 app.get('/products', async (req, res) => {
     try {
         const query = 'SELECT * FROM products';
@@ -248,24 +331,6 @@ app.get('/products', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch products' });
     }
 });
-
-app.get('/products/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-        const query = 'SELECT * FROM products WHERE id = $1';
-        const result = await pool.query(query, [id]);
-        
-        if (result.rows.length === 0) {
-            return res.status(404).json({ error: 'Product not found' });
-        }
-
-        res.status(200).json(result.rows[0]); // ID-аар олдсон өгөгдлөө JSON-ээр буцаана
-    } catch (err) {
-        console.error('Error fetching product:', err.message);
-        res.status(500).json({ error: 'Failed to fetch product' });
-    }
-});
-
 
 // Redirect to index.html
 app.get('*', (req, res) => {

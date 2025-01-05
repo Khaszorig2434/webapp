@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../styles/prod.css">
     <link rel="stylesheet" href="../styles/dialog.css">
     <link rel="stylesheet" href="../styles/cartDialog.css">
-    <script src="../js/script.js"></script>
     <script src="../components/my-header.js" type="module"> </script>
     <script src="../components/my-footer.js" type="module"></script>
     <title>user</title>
@@ -41,8 +40,7 @@
         <aside id="myModal">
             <aside id="modalContent">
                 <div class="modal-header">Шинэ зар үүсгэх
-                    <img src="../images/logo.png" alt="logo"
-                        style="width: 2.5rem; height: 2.5rem; margin-left: 20rem">
+                    <img src="../images/logo.png" alt="logo" style="width: 2.5rem; height: 2.5rem; margin-left: 20rem">
                 </div>
 
                 <form class="modal-body">
@@ -51,17 +49,17 @@
                     <input type="number" id="age" placeholder="Нас" min=0 max=20 required>
                     <select id="sex" required>
                         <option value="" disabled selected>Хүйс сонгох</option>
-                        <option value="Эрэгтэй">Эр</option>
-                        <option value="Эмэгтэй">Эм</option>
+                        <option value="M">Эр</option>
+                        <option value="F">Эм</option>
                     </select>
                     <select id="type" name="type" required>
                         <option value="" disabled selected>Төрлийг сонгох</option>
-                        <option value="type1">Нохой</option>
-                        <option value="type2">Муур</option>
-                        <option value="type3">Туулай</option>
-                        <option value="type4">Загас</option>
-                        <option value="type5">Шувуу</option>
-                        <option value="type6">Бусад</option>
+                        <option value="Нохой">Нохой</option>
+                        <option value="Муур">Муур</option>
+                        <option value="Туулай">Туулай</option>
+                        <option value="Загас">Загас</option>
+                        <option value="Шувуу">Шувуу</option>
+                        <option value="Бусад">Бусад</option>
                     </select>
                     <textarea id="text" placeholder="Зарын дэлгэрэнгүй текст"></textarea>
                     <input type="tel" id="contact" placeholder="Холбоо барих утас" required>
@@ -103,23 +101,50 @@
         const imageInput = document.getElementById("image");
 
         // Зар хадгалах функц
-        saveModalButton.addEventListener("click", function () {
+        saveModalButton.addEventListener("click", async (event) => {
+            event.preventDefault();
             const item = {
                 name: document.getElementById("name").value,
-                industry: document.getElementById("industry").value,
+                factory: document.getElementById("industry").value,
                 age: document.getElementById("age").value,
                 sex: document.getElementById("sex").value,
                 type: document.getElementById("type").value,
-                text: document.getElementById("text").value,
-                contact: document.getElementById("contact").value,
-                altText: document.getElementById("altText").value,
+                details: document.getElementById("text").value,
+                phone: document.getElementById("contact").value,
+                image: document.getElementById("image").value,
+                text: document.getElementById("altText").value,
             };
 
             // Хоосон талбар байгаа эсэхийг шалгах
-            if (!item.name || !item.age || !item.sex || !item.type || !item.contact || !imageInput.files[0]) {
-                alert("Заавал оруулах талбаруудыг бөглөнө үү!");
-                return;
+            // if (!item.name || !item.factory || !item.age || !item.sex || !item.type || !item.phone || !item.image) {
+            //     alert("Заавал оруулах талбаруудыг бөглөнө үү!");
+            //     return;
+            // }
+
+            // console.log(item);
+
+            try {
+                const response = await fetch('/adoptions', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(item),
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    const message = error.message || "Тодорхойгүй алдаа гарлаа.";
+                    alert(`Алдаа: ${message}`);
+                    return;  // Алдаа гарсан бол үргэлжлүүлэхгүй
+                }
+
+                const result = await response.json();
+                alert('Үрчилгээний мэдээлэл амжилттай нэмэгдлээ!');
+                console.log('Adoption added successfully:', result);
+            } catch (err) {
+                alert('Сервертэй холбогдох үед алдаа гарлаа. Та сүлжээгээ шалгана уу.');
+                console.error('Error submitting adoption:', err);
             }
+
 
             // Зургийг уншиж base64 форматтай болгох
             const reader = new FileReader();
