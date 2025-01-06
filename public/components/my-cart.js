@@ -1,10 +1,15 @@
 class MyCart extends HTMLElement {
     constructor() {
         super();
-        this.sagsniiToo = 0;
+        // Хадгалагдсан бүтээгдэхүүнүүдийг авах
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        this.sagsniiToo= cartItems.reduce((sum, item) => {
+            return sum + (item.number);
+        }, 0);
         this.dialog = null;  // Динамикаар үүсгэх диалог
         this.backdrop = null; // Бүдэглэх давхарга   
     }
+    
 
     render() {
         this.innerHTML = `
@@ -68,6 +73,12 @@ class MyCart extends HTMLElement {
             });
             // LocalStorage-д шинэчлэгдсэн өгөгдлийг хадгалах
             localStorage.setItem('cart', JSON.stringify(mergedCartItems));
+
+            // Нийт дүн тооцоолох
+            const totalPrice = mergedCartItems.reduce((sum, item) => {
+                return sum + (item.number * item.price);
+            }, 0);
+
             console.log("Нэгтгэсэн өгөгдөл:", mergedCartItems);
 
             if (mergedCartItems.length > 0) {
@@ -76,6 +87,7 @@ class MyCart extends HTMLElement {
                     productDiv.innerHTML = `
                         <p>Нэр: ${item.name}--${item.size}-- ${item.color}</p>
                         <p>Үнэ: ${item.number} * ${item.price}₮ = ${item.number * item.price}₮</p>
+                        <hr>
                     `;
                     productList.appendChild(productDiv);
                 });
@@ -87,8 +99,11 @@ class MyCart extends HTMLElement {
                 <article>
                     <h1>🛒 ${this.sagsniiToo} Бүтээгдэхүүн</h1>
                     <aside class="listcart">
-                </aside>
+                    </aside>
                 </article>
+                <div class="total-price">
+                    <pre>       Нийт дүн: ${totalPrice}₮</pre>
+                </div>
                 <div class="listbtn">
                     <a href="cart.html" class="checkout">Захиалах
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
