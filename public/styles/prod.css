@@ -6,6 +6,7 @@
 }
 
 html {
+  background-color: var(--color-body);
   font-size: 14px;
 }
 body {
@@ -20,6 +21,7 @@ body {
     background-color: var(--color-body);
 } */
 main {
+  background-color: var(--color-body);
   padding-left: 3rem;
 }
 @font-face {
@@ -53,7 +55,7 @@ a{
   --default-border-radius: 1rem;
   --border-radius: 0.5rem;
   --color-body: var(--color-white);
-  --font: "Caveat", cursive;
+  --font: 'Roboto', sans-serif;
 }
 
 
@@ -224,6 +226,7 @@ nav ul li a:hover {
 }
 /**********************Products******************************/
 .types {
+    background-color: var(--color-body);
     margin: 1.25rem auto;
     padding: 0rem 8.5rem;
 }
@@ -270,7 +273,7 @@ nav ul li a:hover {
     color: #000;
 }
 
-.type p {
+.type pre {
     font-family: "Caveat", cursive;
     font-size: 1.5rem;
     margin: 0.625rem 0rem;

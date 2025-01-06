@@ -1,3 +1,25 @@
+/* ******Нийт**********/
+:root {
+    --color-petty: #f4202e;
+    --color-grey:#aaaaaa;
+    --color-black:#333333;
+    --color-white: #fbf8f1;
+    --color-dark: #dcd7cc;
+    --shadow-1: 0rem 0.25rem 0.25rem var(--color-grey);
+    --shadow-2: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --product-border: 2px solid var(--color-petty);
+    --input-border:1px solid var(--color-black);
+    --default-border-radius: 1rem;
+    --border-radius: 0.5rem;
+    --color-body: var(--color-white);
+    --font: 'Roboto', sans-serif;
+  }
+/* Dark */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-body: var(--color-dark);
+    }
+  }
 #myModal {
     display: none;
     position: fixed;
@@ -10,7 +32,7 @@
 }
 
 #modalContent {
-    background-color: white;
+    background-color: var(--color-body);
     margin: 10% auto;
     padding: 20px;
     border-radius: 8px;
