@@ -17,9 +17,9 @@
     <main class="zai">
         <aside id="egnee">
             <h2>Сагс</h2>
-            <button id="pay-button" class="clear-button"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                    viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" class="lucide lucide-trash-2">
+            <button id="pay-button" class="clear-button"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+                    fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-trash-2">
                     <path d="M3 6h18" />
                     <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
                     <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
@@ -46,7 +46,6 @@
             orderItems.forEach(item => {
                 const orderDiv = document.createElement('section');
                 orderDiv.classList.add('product');
-                orderDiv.dataset.id = item.id; 
                 orderDiv.innerHTML = `
                     <aside id="egnee">
                         <h3>${item.name}</h3>
@@ -91,7 +90,7 @@
 
 
 
-        document.querySelector('.clear-button').addEventListener('click', function () {
+        document.querySelector('.clear-button').addEventListener('click', function() {
             // localStorage-ийг цэвэрлэх
             localStorage.clear();
             alert("Сагс хоосоллоо.");

@@ -177,6 +177,7 @@ nav ul li a:hover {
   footer{
     background-color: var(--color-petty);
     display:flex;
+    height: 12rem;
     justify-content:flex-start;
     align-items: center;
     padding: 3px 8.5rem 0px 8.5rem;
@@ -186,14 +187,17 @@ nav ul li a:hover {
   footer ul {
     list-style: none;
   }
+  footer ul li {
+    display: flex;
+  }
   footer a{
     display: block;
     padding: 0.3rem 0.9rem;
     color:white;
   }
   footer aside{
-    margin-left: 20rem;
-    margin-right: 20rem;
+    margin-left: 30rem;
+    margin-right: 30rem;
   }
   .end{
     padding:0px 8.5rem;
@@ -562,7 +566,7 @@ fieldset{
   padding: 0.2rem;
 }
 .filter {
-  width:1%;
+  width:16%;
   background-color: #ddd;
   padding: 0.3rem 0.6rem;
   margin: 2px 2.2rem 0.3rem 5.5rem;
