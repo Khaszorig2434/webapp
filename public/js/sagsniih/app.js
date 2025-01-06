@@ -5,7 +5,7 @@ import Data from "./data.js";
 
 const sags = new Cart();
 app.cart = sags;
-const data = new Data("https://api.jsonbin.io/v3/b/674e28d9e41b4d34e45e9fbe");
+const data = new Data("https://api.jsonbin.io/v3/b/674e28d9e41b4d34e45e9fbe"); 
 app.products = await data.refreshData();
 
 console.log("Fetched products:", app.products);

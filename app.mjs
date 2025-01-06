@@ -132,58 +132,6 @@ const swaggerDocument = {
                 },
             },
         },
-        "/products/{id}": {
-            get: {
-                summary: "Get a product by ID",
-                parameters: [
-                    {
-                        name: "id",
-                        in: "path",
-                        required: true,
-                        schema: {
-                            type: "integer",
-                        },
-                        description: "ID of the product to fetch",
-                    },
-                ],
-                responses: {
-                    200: {
-                        description: "A single product",
-                        content: {
-                            "application/json": {
-                                schema: {
-                                    type: "object",
-                                    properties: {
-                                        id: { type: "integer", example: 1 },
-                                        prod_name: { type: "string", example: "Example Product" },
-                                        prod_code: { type: "string", example: "123ABC" },
-                                        prod_type: { type: "string", example: "type1" },
-                                        prod_size: { type: "array", items: { type: "string" }, example: ["XS", "L", "M"] },
-                                        prod_color: { type: "array", items: { type: "string" }, example: ["Red", "Blue", "Green"] },
-                                        origin: { type: "string", example: "import" },
-                                        manufacture_date: { type: "string", format: "date", example: "2025-01-01" },
-                                        expiry_date: { type: "string", format: "date", example: "2025-12-31" },
-                                        price_amount: { type: "number", example: 5000 },
-                                        piece: { type: "integer", example: 100 },
-                                        subpic: {
-                                            type: "array",
-                                            items: { type: "string", format: "url" },
-                                            example: ["https://example.com/image1.jpg", "https://example.com/image2.jpg"],
-                                        },
-                                    },
-                                },
-                            },
-                        },
-                    },
-                    404: {
-                        description: "Product not found",
-                    },
-                    500: {
-                        description: "Failed to fetch product",
-                    },
-                },
-            },
-        },
         "/adoptions": {
             post: {
                 summary: "Add a new adoption information",
@@ -211,6 +159,35 @@ const swaggerDocument = {
                                     "type",
                                     "phone",
                                     "image",
+                                ],
+                            },
+                        },
+                    },
+                },
+                responses: {
+                    201: { description: "Adoption added successfully" },
+                    400: { description: "Invalid input Adoption" },
+                    500: { description: "Error saving Adoption" },
+                },
+            },
+        },
+        "/users": {
+            post: {
+                summary: "Add a new user information",
+                requestBody: {
+                    content: {
+                        "application/json": {
+                            schema: {
+                                type: "object",
+                                properties: {
+                                    username: { type: "string", example: "Nomin" },
+                                    phoneNumber: { type: "number", example: 89259999 },
+                                    password: { type: "integer", example: "0120" },
+                                },
+                                required: [
+                                    "username",
+                                    "phoneNumber",
+                                    "password"
                                 ],
                             },
                         },

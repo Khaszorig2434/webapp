@@ -14,7 +14,8 @@ export default class Product {
         this.price = {
             currency: prod.article.price.currency,
             amount: prod.article.price.amount
-        };   
+        };  
+        this.number=1; 
     }
     render() {
         return `<div class="container">
@@ -85,13 +86,16 @@ export default class Product {
                 name: this.name,
                 size: size,
                 color: color,
-                price: this.price
+                price: this.price.amount,
+                image: this.mainpic,
+                number:this.number
             };
     
             // Хадгалах
             const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
             cartItems.push(productData);
             localStorage.setItem('cart', JSON.stringify(cartItems));
+            console.log(cartItems);
     
             // Сагсанд нэмэх функц
             document.getElementById("my-cart").addProduct(this.id);
