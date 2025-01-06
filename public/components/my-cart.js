@@ -60,7 +60,8 @@ class MyCart extends HTMLElement {
                 // Өмнө нь байгаа эсэхийг шалгах
                 const existingItem = mergedCartItems.find(existing =>
                     existing.name === item.name &&
-                    existing.color === item.color
+                    existing.color === item.color&&
+                    existing.size === item.size
                 );
 
                 if (existingItem) {

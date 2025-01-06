@@ -14,15 +14,12 @@
 
 <body>
     <my-header></my-header>
-    <div id="cart">
-
-    </div>
     <main class="zai">
         <aside id="egnee">
             <h2>Сагс</h2>
-            <button id="pay-button"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
-                    fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-trash-2">
+            <button id="pay-button" class="clear-button"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                    viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="lucide lucide-trash-2">
                     <path d="M3 6h18" />
                     <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
                     <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
@@ -32,42 +29,52 @@
         </aside>
         <hr>
 
-        <div id="cart"></div>
-
-
-        <section class="product">
-            <aside id="egnee">
-                <h3>Doubly Delicious</h3>
-                <button class="delete-btn">❌</button>
-            </aside>
-            <a href="../htmls/oneProduct.html">
-                <img src="../images/negfood.png" alt="product">
-            </a>
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <button id="increment">➕</button>
-                <span id="quantity" style="font-size: 18px; font-weight: bold;">3</span>
-                <button id="decrement">➖</button>
-            </div>
-            <p>250,000<span>₮</span></p>
-        </section>
-        <section class="product">
-            <aside id="egnee">
-                <h3>Doubly Delicious</h3>
-                <button class="delete-btn">❌</button>
-            </aside>
-            <a href="../htmls/oneProduct.html">
-                <img src="../images/negfood.png" alt="product">
-            </a>
-            <div">
-                <button id="increment">➕</button>
-                <span id="quantity" style="font-size: 18px; font-weight: bold;">3</span>
-                <button id="decrement">➖</button>
-                </div>
-                <p>250,000<span>₮</span></p>
-        </section>
+        <div id="product-list"></div>
 
         <aside id="egneegol">
-            <p>Нийт дүн: 192,000,000₮</p>
+        </aside>
+    </main>
+    <my-footer></my-footer>
+
+
+    <script>
+        const orderItems = JSON.parse(localStorage.getItem('cart')) || [];
+        const productList = document.getElementById('product-list');
+        const total = document.getElementById('egneegol');
+
+        if (orderItems.length > 0) {
+            orderItems.forEach(item => {
+                const orderDiv = document.createElement('section');
+                orderDiv.classList.add('product');
+                orderDiv.dataset.id = item.id; 
+                orderDiv.innerHTML = `
+                    <aside id="egnee">
+                        <h3>${item.name}</h3>
+                    </aside>
+                    <pre>${item.color}  ${item.size}</pre>
+                    <a href="oneProduct.html">
+                        <img src=${item.image} alt="product">
+                    </a>
+                    <div>
+                        <span id="quantity" style="font-size: 12px; ">${item.number} ширхэг</span>
+                    </div>
+                    <p>${item.price * item.number}₮</p>
+                `;
+                productList.appendChild(orderDiv);
+
+            });
+        } else {
+            productList.innerHTML = '<p>Сагс хоосон байна.</p>';
+        }
+
+        // Нийт дүн тооцоолох
+        const totalPrice = orderItems.reduce((sum, item) => {
+            return sum + (item.number * item.price);
+        }, 0);
+
+        // Нийт дүнг харуулах
+        total.innerHTML = `
+            <p font-weight: bold; >Нийт дүн: ${totalPrice.toLocaleString()}₮</p>
             <button id="pay-button">
                 Төлбөр төлөх
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
@@ -80,27 +87,17 @@
                         d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" />
                 </svg>
             </button>
-        </aside>
-    </main>
-    <script>
-        function setupDeleteButtons() {
-            const deleteButtons = document.querySelectorAll('.delete-btn');
+        `;
 
-            deleteButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const productElement = button.closest('.product');
-                    if (productElement) {
-                        productElement.remove();
-                    }
-                });
-            });
-        }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            setupDeleteButtons();
+
+        document.querySelector('.clear-button').addEventListener('click', function () {
+            // localStorage-ийг цэвэрлэх
+            localStorage.clear();
+            alert("Сагс хоосоллоо.");
+            location.reload(); // Сагс хоосолсны дараа хуудсыг дахин ачаалах
         });
     </script>
-    <my-footer></my-footer>
 </body>
 
 </html>
