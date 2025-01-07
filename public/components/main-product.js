@@ -1,25 +1,21 @@
-import "./my-cart.js"
 class MainProduct extends HTMLElement {
     constructor(prod) {
-        super();
-        if (prod) {
-            this.id = prod.id;
-            this.name = prod.article.title;
-            this.type = prod.article.category;
-            this.size = prod.article.options.sizes.map(size => size.label);
-            this.color = prod.article.options.colors.map(color => color.label);
-            this.origin = prod.article.details.origin;
-            this.certification = prod.article.details.certification;
-            this.mainpic = prod.mainImage.src;
-            this.subpic = prod.thumbnails.map(thumb => thumb.src);
-            this.age = [prod.article.details.manufactureDate, prod.article.details.expiryDate];
-            this.price = {
-                currency: prod.article.price.currency,
-                amount: prod.article.price.amount,
-            };
-        } else {
-            console.error('Product data is required to initialize MainProduct');
-        }
+        console.log(prod.id);
+        this.id = prod.id;
+        this.name = prod.article.title;
+        this.type = prod.article.category;
+        this.size = [prod.article.options.sizes[0].label, prod.article.options.sizes[1].label,prod.article.options.sizes[2].label];
+        this.color = [prod.article.options.colors[0].label,prod.article.options.colors[1].label,prod.article.options.colors[2].label];
+        this.origin = prod.article.details.origin;
+        this.certification = prod.article.details.certification;
+        this.mainpic = prod.mainImage.src;
+        this.subpic = [prod.thumbnails[0].src,prod.thumbnails[1].src,prod.thumbnails[2].src,prod.thumbnails[3].src];
+        this.age = [prod.article.details.manufactureDate, prod.article.details.expiryDate];
+        this.price = {
+            currency: prod.article.price.currency,
+            amount: prod.article.price.amount
+        };  
+        this.number=1; 
     }
     render() {
         return `<div class="container">
@@ -64,39 +60,12 @@ class MainProduct extends HTMLElement {
         </div>`;
     }
 
-    renderMini(){
-        this.innerHTML= `
-            <section class="product">
-                <h3>${this.name}</h3>
-                <a href="oneProduct.html">
-                    <img src="${this.mainpic}" alt="product${this.id}">
-                </a>
-            </section>`
-    }
-
-    renderCompact() {
-        return `<section class="product">
-            <aside id="egnee">
-                <h3>${this.name}</h3>
-                <button class=delete-btn>❌</button>
-            </aside>
-            <a href="oneProduct.html">
-                <img src=${this.mainpic} alt="product">
-            </a>
-            <div>
-                <button id="increment">➕</button>
-                <span id="quantity" style="font-size: 18px; font-weight: bold;">3</span>
-                <button id="decrement">➖</button>
-            </div>
-                
-            <p>${this.price}<span>₮</span></p>
-        </section>`;
-    }
-
-
     // Энд 'add-to-cart' товчлуур дээр сонголтуудыг авах үйлдлийг хийж байна
     setupAddToCartButton() {
         document.getElementById('cart-button').addEventListener('click', () => {
+            console.log("Clicked.");
+            
+            // Зөвхөн сонгосон утгуудыг авах
             const sizeElement = document.querySelector('input[name="choice_size"]:checked');
             if (!sizeElement) {
                 alert("Хэмжээг сонгоно уу.");
@@ -117,13 +86,16 @@ class MainProduct extends HTMLElement {
                 name: this.name,
                 size: size,
                 color: color,
-                price: this.price
+                price: this.price.amount,
+                image: this.mainpic,
+                number:this.number
             };
     
             // Хадгалах
             const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
             cartItems.push(productData);
             localStorage.setItem('cart', JSON.stringify(cartItems));
+            console.log(cartItems);
     
             // Сагсанд нэмэх функц
             document.getElementById("my-cart").addProduct(this.id);
@@ -137,8 +109,7 @@ class MainProduct extends HTMLElement {
     connectedCallback() {
         //implementation
         this.render();
-        this.renderMini();
-        this.renderCompact();
+        setupAddToCartButton()
     }
 
 }
