@@ -16,7 +16,7 @@
             window.history.replaceState(null, '', url); // URL-ийг шинэчилнэ
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async() => {
             // URL heseg
 
             const navigationType = performance.getEntriesByType('navigation')[0]?.type || '';
@@ -115,92 +115,104 @@
                 }
             }
             // JSON өгөгдөл
-            const adoptData = {
-                "adopts": [
-                    {
-                        "image": "../images/nohoi.jpg",
-                        "altText": "Adopt1",
-                        "name": "Лили",
-                        "industry": "Polish Hound",
-                        "age": 1,
-                        "sex": "эр",
-                        "type": "нохой",
-                        "text": "1 жил тэжээсэн эрүүл нохой.",
-                        "contact": "+976 89899090"
-                    },
-                    {
-                        "image": "../images/nohoi.jpg",
-                        "altText": "Adopt2",
-                        "name": "Лулу",
-                        "industry": "Polish Hound",
-                        "age": 2,
-                        "sex": "эр",
-                        "type": "нохой",
-                        "text": "1 жил тэжээсэн эрүүл нохой.",
-                        "contact": "+976 89899090"
-                    },
-                    {
-                        "image": "../images/nohoi.jpg",
-                        "altText": "Adopt3",
-                        "name": "Мими",
-                        "industry": "Polish Hound",
-                        "age": 6,
-                        "sex": "эм",
-                        "type": "муур",
-                        "text": "1 жил тэжээсэн эрүүл муур.",
-                        "contact": "+976 89899090"
-                    },
-                    {
-                        "image": "../images/nohoi.jpg",
-                        "altText": "Adopt4",
-                        "name": "Луля",
-                        "industry": "Hound",
-                        "age": 5,
-                        "sex": "эр",
-                        "type": "нохой",
-                        "text": "2 жил тэжээсэн эрүүл нохой.",
-                        "contact": "+976 89899090"
-                    },
-                    {
-                        "image": "../images/nohoi.jpg",
-                        "altText": "Adopt5",
-                        "name": "Кя",
-                        "industry": "Сорт",
-                        "age": 6,
-                        "sex": "эр",
-                        "type": "туулай",
-                        "text": "1 жил тэжээсэн эрүүл нохой.",
-                        "contact": "+976 89899090"
-                    },
-                    {
-                        "image": "../images/nohoi.jpg",
-                        "altText": "Adopt6",
-                        "name": "Оеэ",
-                        "industry": "Polish",
-                        "age": 2,
-                        "sex": "эм",
-                        "type": "муур",
-                        "text": "1 жил тэжээсэн эрүүл муур.",
-                        "contact": "+976 89899090"
+            // const adoptData = {
+            //     "adopts": [
+            //         {
+            //             "image": "../images/nohoi.jpg",
+            //             "altText": "Adopt1",
+            //             "name": "Лили",
+            //             "industry": "Polish Hound",
+            //             "age": 1,
+            //             "sex": "эр",
+            //             "type": "нохой",
+            //             "text": "1 жил тэжээсэн эрүүл нохой.",
+            //             "contact": "+976 89899090"
+            //         },
+            //         {
+            //             "image": "../images/nohoi.jpg",
+            //             "altText": "Adopt2",
+            //             "name": "Лулу",
+            //             "industry": "Polish Hound",
+            //             "age": 2,
+            //             "sex": "эр",
+            //             "type": "нохой",
+            //             "text": "1 жил тэжээсэн эрүүл нохой.",
+            //             "contact": "+976 89899090"
+            //         },
+            //         {
+            //             "image": "../images/nohoi.jpg",
+            //             "altText": "Adopt3",
+            //             "name": "Мими",
+            //             "industry": "Polish Hound",
+            //             "age": 6,
+            //             "sex": "эм",
+            //             "type": "муур",
+            //             "text": "1 жил тэжээсэн эрүүл муур.",
+            //             "contact": "+976 89899090"
+            //         },
+            //         {
+            //             "image": "../images/nohoi.jpg",
+            //             "altText": "Adopt4",
+            //             "name": "Луля",
+            //             "industry": "Hound",
+            //             "age": 5,
+            //             "sex": "эр",
+            //             "type": "нохой",
+            //             "text": "2 жил тэжээсэн эрүүл нохой.",
+            //             "contact": "+976 89899090"
+            //         },
+            //         {
+            //             "image": "../images/nohoi.jpg",
+            //             "altText": "Adopt5",
+            //             "name": "Кя",
+            //             "industry": "Сорт",
+            //             "age": 6,
+            //             "sex": "эр",
+            //             "type": "туулай",
+            //             "text": "1 жил тэжээсэн эрүүл нохой.",
+            //             "contact": "+976 89899090"
+            //         },
+            //         {
+            //             "image": "../images/nohoi.jpg",
+            //             "altText": "Adopt6",
+            //             "name": "Оеэ",
+            //             "industry": "Polish",
+            //             "age": 2,
+            //             "sex": "эм",
+            //             "type": "муур",
+            //             "text": "1 жил тэжээсэн эрүүл муур.",
+            //             "contact": "+976 89899090"
+            //         }
+
+            //     ]
+            // };
+
+            let adopts = [];
+
+            // Серверээс adoptions өгөгдлийг татах функц
+            async function fetchAdoptions() {
+                try {
+                    const response = await fetch('http://localhost:3000/adoptions'); // Серверийн URL
+                    if (!response.ok) {
+                        throw new Error(`Failed to fetch adoptions: ${response.statusText}`);
                     }
-
-                ]
-            };
-
-            // Adopts map uusgeh
-            const adopts = adoptData.adopts.map(adopt => {
-                return new Adopt(
-                    adopt.image,
-                    adopt.altText,
-                    adopt.name,
-                    adopt.industry,
-                    adopt.age,
-                    adopt.sex,
-                    adopt.type,
-                    adopt.text,
-                    adopt.contact
-                );
-            });
+                    const data = await response.json();
+                    adopts = data.map(item => new Adopt(
+                        item.image || "../images/default.jpg",
+                        item.altText || "Adopt",
+                        item.adopt_name || "Тодорхойгүй нэр",
+                        item.adopt_factory || "Тодорхойгүй үйлдвэр",
+                        item.age || "Тодорхойгүй нас",
+                        item.sex || "Тодорхойгүй хүйс",
+                        item.animal_type || "Тодорхойгүй төрөл",
+                        item.text || "Мэдээлэл алга",
+                        item.phone || "Холбогдох дугаар байхгүй"
+                    ));
+                    render(adopts); // Эхний байдлаар бүх өгөгдлийг харуулна
+                } catch (error) {
+                    console.error("Error fetching adoptions:", error.message);
+                }
+            }
 
             // Render function
             function render(data) {
@@ -279,6 +291,9 @@
             // URL-ийн дагуу эхний төлөвийг тохируулах
             syncInputsWithUrl();
             filterData();
+
+            // Эхний байдлаар өгөгдлийг татах
+            await fetchAdoptions();
         });
     </script>
     <script src="../components/my-header.js" type="module"></script>

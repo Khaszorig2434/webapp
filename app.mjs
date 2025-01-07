@@ -144,7 +144,7 @@ const swaggerDocument = {
                                     name: { type: "string", example: "Example Adoption" },
                                     factory: { type: "string", example: "Havchaarik" },
                                     age: { type: "integer", example: 3 },
-                                    sex: { type: "char", example: "F" },
+                                    sex: { type: "string", example: "эр" },
                                     type: { type: "string", example: "type1" },
                                     details: { type: "text", example: "Good dog. i love dog." },
                                     phone: { type: "number", example: 89259999 },
