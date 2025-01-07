@@ -170,33 +170,35 @@ const swaggerDocument = {
                     500: { description: "Error saving Adoption" },
                 },
             },
-        },
-        "/users": {
-            post: {
-                summary: "Add a new user information",
-                requestBody: {
-                    content: {
-                        "application/json": {
-                            schema: {
-                                type: "object",
-                                properties: {
-                                    username: { type: "string", example: "Nomin" },
-                                    phoneNumber: { type: "number", example: 89259999 },
-                                    password: { type: "integer", example: "0120" },
+            get: {
+                summary: "Get all adoption information",
+                responses: {
+                    200: {
+                        description: "A list of all adoption information",
+                        content: {
+                            "application/json": {
+                                schema: {
+                                    type: "array",
+                                    items: {
+                                        type: "object",
+                                        properties: {
+                                            id: { type: "integer", example: 1 },
+                                            name: { type: "string", example: "Example Adoption" },
+                                            factory: { type: "string", example: "Havchaarik" },
+                                            age: { type: "integer", example: 3 },
+                                            sex: { type: "char", example: "F" },
+                                            type: { type: "string", example: "type1" },
+                                            details: { type: "text", example: "Good dog. i love dog." },
+                                            phone: { type: "number", example: 89259999 },
+                                            image: { type: "text", format: "url", example: "https://example.com/image1.jpg" },
+                                            text: { type: "text", example: "nohoinii maani zurag" },
+                                        },
+                                    },
                                 },
-                                required: [
-                                    "username",
-                                    "phoneNumber",
-                                    "password"
-                                ],
                             },
                         },
                     },
-                },
-                responses: {
-                    201: { description: "Adoption added successfully" },
-                    400: { description: "Invalid input Adoption" },
-                    500: { description: "Error saving Adoption" },
+                    500: { description: "Failed to fetch adoption information" },
                 },
             },
         },
@@ -253,6 +255,17 @@ app.post("/products", async (req, res) => {
     }
 });
 
+app.get('/products', async (req, res) => {
+    try {
+        const query = 'SELECT * FROM products';
+        const result = await pool.query(query);
+        res.status(200).json(result.rows); // PostgreSQL-ээс ирсэн өгөгдлөө JSON-ээр буцаана
+    } catch (err) {
+        console.error('Error fetching products:', err.message);
+        res.status(500).json({ error: 'Failed to fetch products' });
+    }
+});
+
 // POST API: Бүтээгдэхүүний өгөгдлийг хадгалах
 app.post("/adoptions", async (req, res) => {
     const {
@@ -298,16 +311,23 @@ app.post("/adoptions", async (req, res) => {
     }
 });
 
-app.get('/products', async (req, res) => {
+// GET API: adoptions хүснэгтийн бүх өгөгдлийг татах
+app.get("/adoptions", async (req, res) => {
     try {
-        const query = 'SELECT * FROM products';
+        // Query to fetch all records from adoptions table
+        const query = "SELECT * FROM adoptions";
+        
+        // Execute the query
         const result = await pool.query(query);
-        res.status(200).json(result.rows); // PostgreSQL-ээс ирсэн өгөгдлөө JSON-ээр буцаана
+        
+        // Send back the rows as response
+        res.status(200).json(result.rows);
     } catch (err) {
-        console.error('Error fetching products:', err.message);
-        res.status(500).json({ error: 'Failed to fetch products' });
+        console.error("Error fetching adoptions:", err.message);
+        res.status(500).json({ error: "Failed to fetch adoptions" });
     }
 });
+
 
 // Redirect to index.html
 app.get('*', (req, res) => {
