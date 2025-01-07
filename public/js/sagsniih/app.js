@@ -18,7 +18,7 @@ app.products.forEach((productData) => {
 });
 
 document.getElementById("prodSection").innerHTML=productsHTML;
-if(sagsandBaigaaBaraaniiToo>0)
-    document.getElementById("cart").innerHTML= sags.render();
+// if(sagsandBaigaaBaraaniiToo>0)
+//     document.getElementById("cart").innerHTML= sags.render();
 
-app.refreshCart = _=> document.getElementById("cart").innerHTML = app.cart.render();
+// app.refreshCart = _=> document.getElementById("cart").innerHTML = app.cart.render();

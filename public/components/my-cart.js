@@ -1,3 +1,5 @@
+import "./cart-list.js"
+import "./cart-total.js"
 class MyCart extends HTMLElement {
     constructor() {
         super();
@@ -9,8 +11,6 @@ class MyCart extends HTMLElement {
         this.dialog = null;  // Динамикаар үүсгэх диалог
         this.backdrop = null; // Бүдэглэх давхарга   
     }
-    
-
     render() {
         this.innerHTML = `
             <aside class="cart-icon">
@@ -36,76 +36,26 @@ class MyCart extends HTMLElement {
     }
 
     showDialog() {
-        // Backdrop үүсгэх
-        if (!this.backdrop) {
-            this.backdrop = document.createElement("div");
-            this.backdrop.classList.add("backdrop");
-            document.body.appendChild(this.backdrop);
-        }
-
-        // Dialog үүсгэх
         if (!this.dialog) {
             this.dialog = document.createElement("div");
             this.dialog.classList.add("cartDialog");
+            document.body.appendChild(this.dialog);
+        }
 
-            // Хадгалагдсан бүтээгдэхүүнүүдийг авах
-            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-            //localStorage.clear();
-            const productList = document.createElement('aside');
-            productList.classList.add('listcart');
+        if (!this.backdrop) {
+            this.backdrop = document.createElement("div");
+            this.backdrop.classList.add("backdrop");
+            this.backdrop.addEventListener("click", () => this.closeDialog());
+            document.body.appendChild(this.backdrop);
+        }
 
-            // Давхцлыг арилгаж, бүтээгдэхүүний тоо хэмжээг нэгтгэх
-            const mergedCartItems = [];
-            cartItems.forEach(item => {
-                // Өмнө нь байгаа эсэхийг шалгах
-                const existingItem = mergedCartItems.find(existing =>
-                    existing.name === item.name &&
-                    existing.color === item.color&&
-                    existing.size === item.size
-                );
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
-                if (existingItem) {
-                    // Хэрэв давхцаж байгаа бол тоо хэмжээг нэмэгдүүлэх
-                    existingItem.number ++;
-                } else {
-                    // Хэрэв байхгүй бол шинэ бүтээгдэхүүн нэмэх
-                    mergedCartItems.push(item);
-                }
-            });
-            // LocalStorage-д шинэчлэгдсэн өгөгдлийг хадгалах
-            localStorage.setItem('cart', JSON.stringify(mergedCartItems));
-
-            // Нийт дүн тооцоолох
-            const totalPrice = mergedCartItems.reduce((sum, item) => {
-                return sum + (item.number * item.price);
-            }, 0);
-
-            console.log("Нэгтгэсэн өгөгдөл:", mergedCartItems);
-
-            if (mergedCartItems.length > 0) {
-                mergedCartItems.forEach(item => {
-                    const productDiv = document.createElement('div');
-                    productDiv.innerHTML = `
-                        <p>Нэр: ${item.name}--${item.size}-- ${item.color}</p>
-                        <p>Үнэ: ${item.number} * ${item.price}₮ = ${item.number * item.price}₮</p>
-                        <hr>
-                    `;
-                    productList.appendChild(productDiv);
-                });
-            } else {
-                productList.innerHTML = '<p>Сагс хоосон байна.</p>';
-            }
-
-            this.dialog.innerHTML = `
-                <article>
-                    <h1>🛒 ${this.sagsniiToo} Бүтээгдэхүүн</h1>
-                    <aside class="listcart">
-                    </aside>
-                </article>
-                <div class="total-price">
-                    <pre>       Нийт дүн: ${totalPrice}₮</pre>
-                </div>
-                <div class="listbtn">
+        this.dialog.innerHTML = `
+            <h1>🛒  ${this.sagsniiToo} Бүтээгдэхүүн</h1>
+            <cart-list></cart-list>
+            <cart-total></cart-total>
+            <div class="listbtn">
                     <a href="cart.html" class="checkout">Захиалах
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
                             stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -118,28 +68,14 @@ class MyCart extends HTMLElement {
                         </svg>
                     </a>
                 </div>
-                
-            `;
-            this.dialog.querySelector('article').appendChild(productList);
-            document.body.appendChild(this.dialog);
-        }
-
-        // Backdrop ба диалогыг харагдуулах
-        this.backdrop.style.display = "block";
+        `;
         this.dialog.style.display = "block";
-
-        // Modal-ыг гадна дарж хаах эвент нэмэх
-        window.addEventListener("click", (event) => {
-            if (event.target === this.backdrop) {
-                this.closeDialog();
-            }
-        });
+        this.backdrop.style.display = "block";
     }
 
     closeDialog() {
-        // Backdrop болон диалогыг нуух
-        if (this.backdrop) this.backdrop.style.display = "none";
-        if (this.dialog) this.dialog.style.display = "none";
+        this.dialog.style.display = "none";
+        this.backdrop.style.display = "none";
     }
 
     addProduct() {
@@ -150,6 +86,8 @@ class MyCart extends HTMLElement {
             this.dialog.querySelector("h1").innerText = `🛒 ${this.sagsniiToo} Бүтээгдэхүүн`;
         }
     }
+
+
 }
 
-window.customElements.define('my-cart', MyCart);
+customElements.define('my-cart', MyCart);

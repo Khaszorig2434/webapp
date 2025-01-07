@@ -73,7 +73,7 @@
 
         // Нийт дүнг харуулах
         total.innerHTML = `
-            <p font-weight: bold; >Нийт дүн: ${totalPrice.toLocaleString()}₮</p>
+           <p style="font-weight: bold;">Нийт дүн: ${totalPrice.toLocaleString()}₮</p>
             <button id="pay-button">
                 Төлбөр төлөх
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
@@ -87,8 +87,6 @@
                 </svg>
             </button>
         `;
-
-
 
         document.querySelector('.clear-button').addEventListener('click', function() {
             // localStorage-ийг цэвэрлэх
